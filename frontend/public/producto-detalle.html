@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalle de producto | Talleres M. Iniesta</title>
+<meta name="description" content="Piezas y herrajes de acero a medida para prefabricado de hormigón: vista 3D interactiva, características técnicas y descargas de fichas y catálogos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --gray-50:#f5f7fa;
+    --gray-100:#eaeef2;
+    --gray-200:#dde3ea;
+    --gray-300:#c2cbd6;
+    --gray-500:#6b7684;
+    --gray-700:#3c4552;
+    --gray-800:#262f3b;
+    --gray-900:#161c24;
+    --blue:#1857a8;
+    --blue-dark:#0e3d80;
+    --blue-darker:#0a2c5c;
+    --blue-light:#e8f0fb;
+    --blue-accent:#2f7ee0;
+    --radius:10px;
+    --shadow: 0 10px 30px rgba(16,32,58,.08);
+    --shadow-lg: 0 20px 50px rgba(16,32,58,.16);
+    --transition: .35s cubic-bezier(.4,0,.2,1);
+    font-family: 'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{color:var(--gray-800); line-height:1.6; overflow-x:hidden; background:var(--white);}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  h1,h2,h3,h4{font-family:'Poppins', sans-serif; line-height:1.25; color:var(--gray-900);}
+  .container{max-width:1200px; margin:0 auto; padding:0 24px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; justify-content:center;
+    padding:14px 28px; border-radius:6px; font-weight:600; font-size:.95rem;
+    cursor:pointer; border:2px solid transparent; transition:var(--transition);
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--blue); color:var(--white);}
+  .btn-primary:hover{background:var(--blue-dark); transform:translateY(-2px); box-shadow:var(--shadow-lg);}
+  .btn-outline{background:transparent; color:var(--white); border-color:rgba(255,255,255,.6);}
+  .btn-outline:hover{background:rgba(255,255,255,.15); border-color:var(--white);}
+  .btn-outline-blue{background:transparent; color:var(--blue); border-color:var(--blue);}
+  .btn-outline-blue:hover{background:var(--blue); color:var(--white);}
+  .section{padding:80px 0;}
+  .eyebrow{text-transform:uppercase; letter-spacing:2px; font-size:.78rem; font-weight:700; color:var(--blue); margin-bottom:12px; display:block;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  .reveal-delay-1.is-visible{transition-delay:.08s;}
+  .reveal-delay-2.is-visible{transition-delay:.16s;}
+  .reveal-delay-3.is-visible{transition-delay:.24s;}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+
+  /* ============ TOPBAR ============ */
+  .topbar{background:var(--blue-darker); color:rgba(255,255,255,.85); font-size:.82rem;}
+  .topbar .container{display:flex; justify-content:space-between; align-items:center; padding-top:8px; padding-bottom:8px;}
+  .topbar-left{display:flex; gap:22px; flex-wrap:wrap;}
+  .topbar-left a{display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.85); transition:color .2s;}
+  .topbar-left a:hover{color:#fff;}
+  .topbar-right{display:flex; gap:14px;}
+  .topbar-right a{width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; transition:background .2s;}
+  .topbar-right a:hover{background:var(--blue-accent);}
+  .topbar-right svg{width:14px; height:14px; fill:#fff;}
+  @media (max-width:760px){ .topbar-left span.hide-mobile{display:none;} }
+  @media (max-width:560px){ .topbar{font-size:.72rem;} .topbar-left{gap:12px;} }
+
+  /* ============ HEADER ============ */
+  header.site-header{position:sticky; top:0; z-index:1000; background:#fff; box-shadow:0 2px 18px rgba(16,32,58,.06); transition:padding var(--transition);}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:12px;}
+  .logo{flex-shrink:0;}
+  .logo img{height:42px; width:auto; max-width:none; filter:invert(20%) sepia(60%) saturate(900%) hue-rotate(180deg); transition:var(--transition);}
+  header.shrink .header-inner{padding-top:8px; padding-bottom:8px;}
+  header.shrink .logo img{height:34px;}
+  nav.main-nav{display:flex; align-items:center; gap:6px;}
+  nav.main-nav > ul{display:flex; gap:4px;}
+  nav.main-nav > ul > li{position:relative;}
+  nav.main-nav > ul > li > a{display:flex; align-items:center; gap:5px; padding:12px 16px; font-weight:600; font-size:.94rem; color:var(--gray-800); border-radius:6px; transition:color .2s, background .2s;}
+  nav.main-nav > ul > li > a:hover, nav.main-nav > ul > li.active > a{color:var(--blue); background:var(--blue-light);}
+  nav.main-nav .caret{width:9px; height:9px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg); margin-top:-4px; transition:transform .25s;}
+  li.has-dropdown:hover .caret{transform:rotate(225deg); margin-top:4px;}
+  .dropdown{position:absolute; top:100%; left:0; background:#fff; min-width:260px; border-radius:10px; box-shadow:var(--shadow-lg); padding:10px; opacity:0; visibility:hidden; transform:translateY(10px); transition:var(--transition); border:1px solid var(--gray-100);}
+  li.has-dropdown:hover .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
+  .dropdown a{display:block; padding:11px 14px; border-radius:6px; font-size:.9rem; color:var(--gray-700); font-weight:500;}
+  .dropdown a:hover{background:var(--blue-light); color:var(--blue); padding-left:20px;}
+  .header-cta{display:flex; align-items:center; gap:18px;}
+  .header-phone{display:flex; align-items:center; gap:10px;}
+  .header-phone .ico{width:38px; height:38px; border-radius:50%; background:var(--blue-light); display:flex; align-items:center; justify-content:center;}
+  .header-phone .ico svg{width:17px; height:17px; fill:var(--blue);}
+  .header-phone strong{display:block; font-size:.95rem; color:var(--gray-900);}
+  .header-phone span{font-size:.72rem; color:var(--gray-500);}
+  .burger{display:none; width:26px; height:20px; position:relative; cursor:pointer; z-index:1200;}
+  .burger span{position:absolute; left:0; width:100%; height:2.5px; background:var(--gray-900); border-radius:2px; transition:var(--transition);}
+  .burger span:nth-child(1){top:0;} .burger span:nth-child(2){top:9px;} .burger span:nth-child(3){top:18px;}
+  .burger.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+  @media (max-width:980px){
+    nav.main-nav{position:fixed; inset:0 0 0 auto; width:min(320px, 84vw); height:100vh; background:#fff; flex-direction:column; align-items:stretch; padding:90px 22px 30px; transform:translateX(100%); transition:transform var(--transition); box-shadow:-10px 0 40px rgba(0,0,0,.15); overflow-y:auto;}
+    nav.main-nav.open{transform:translateX(0);}
+    nav.main-nav > ul{flex-direction:column; gap:2px; width:100%;}
+    nav.main-nav > ul > li > a{width:100%; justify-content:space-between;}
+    .dropdown{position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; display:none; margin-top:2px; border:none; background:var(--gray-50);}
+    li.has-dropdown.open .dropdown{display:block;}
+    li.has-dropdown.open .caret{transform:rotate(225deg); margin-top:4px;}
+    .header-phone span{display:none;}
+    .burger{display:block;}
+    .nav-overlay{display:none; position:fixed; inset:0; background:rgba(10,15,25,.5); z-index:1100;}
+    .nav-overlay.open{display:block;}
+  }
+  @media (max-width:640px){
+    .header-inner{padding:12px 16px;} .logo img{height:30px;} header.shrink .logo img{height:26px;}
+    .header-phone{display:none;} .header-cta{gap:10px;} .header-cta .btn-primary{padding:10px 14px; font-size:.82rem;}
+  }
+
+  /* ============ BREADCRUMB + CATEGORY HERO ============ */
+  .breadcrumb{background:var(--gray-50); border-bottom:1px solid var(--gray-100);}
+  .breadcrumb .container{display:flex; align-items:center; gap:8px; padding:16px 24px; font-size:.85rem; color:var(--gray-500); flex-wrap:wrap;}
+  .breadcrumb a{color:var(--blue); font-weight:600;}
+  .breadcrumb a:hover{text-decoration:underline;}
+  .breadcrumb .sep{color:var(--gray-300);}
+  .breadcrumb .current{color:var(--gray-800); font-weight:600;}
+
+  .cat-hero{position:relative; min-height:420px; display:flex; align-items:center; overflow:hidden; background:var(--gray-900);}
+  .cat-hero-bg{position:absolute; inset:0; background-size:cover; background-position:center; transform:scale(1.05);}
+  .cat-hero::after{content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,20,40,.86) 0%, rgba(10,20,40,.6) 55%, rgba(10,20,40,.35) 100%);}
+  .cat-hero-inner{position:relative; z-index:2; color:#fff; max-width:640px; padding:70px 24px;}
+  .cat-hero .eyebrow{color:#7fb2f2;}
+  .cat-hero h1{color:#fff; font-size:clamp(2rem,4.5vw,3rem); font-weight:800; margin-bottom:16px; letter-spacing:-.5px;}
+  .cat-hero p{color:rgba(255,255,255,.85); font-size:1.08rem; max-width:520px; margin-bottom:26px;}
+
+  /* ============ PIECES GRID ============ */
+  .pieces-head{margin-bottom:44px;}
+  .pieces-head h2{font-size:2rem; margin-bottom:10px;}
+  .pieces-head p{color:var(--gray-500); font-size:1.02rem; max-width:640px;}
+  .pieces-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .piece-card{background:#fff; border:1px solid var(--gray-100); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); cursor:pointer; transition:var(--transition); display:flex; flex-direction:column;}
+  .piece-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:transparent;}
+  .piece-card.active{border-color:var(--blue); box-shadow:0 0 0 2px var(--blue-light), var(--shadow-lg);}
+  .piece-card-img{height:210px; background:radial-gradient(circle at 50% 40%, #fff 0%, #eef2f7 100%); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .piece-card-img img{width:100%; height:100%; object-fit:contain; padding:24px; transition:transform .6s ease;}
+  .piece-card:hover .piece-card-img img{transform:scale(1.07);}
+  .piece-card-body{padding:22px 24px 26px;}
+  .piece-card-body h3{font-size:1.15rem; display:flex; align-items:center; gap:14px;}
+  .piece-underline{height:3px; width:0; background:var(--blue); border-radius:3px; flex:1; max-width:70px; transition:width .5s ease;}
+  .piece-card:hover .piece-underline, .piece-card.active .piece-underline{width:70px;}
+  .piece-card-body span{display:block; color:var(--gray-500); font-size:.9rem; margin-top:8px;}
+  @media (max-width:980px){ .pieces-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .pieces-grid{grid-template-columns:1fr;} }
+
+  /* ============ PIECE DETAIL ============ */
+  .detail-section{background:var(--gray-50); border-top:1px solid var(--gray-100);}
+  .detail-lead{max-width:820px; margin-bottom:34px;}
+  .detail-lead .eyebrow{margin-bottom:10px;}
+  .detail-lead h2{font-size:2rem; margin-bottom:14px;}
+  .detail-lead p{color:var(--gray-700); font-size:1.1rem;}
+
+  .viewer-wrap{background:#fff; border:1px solid var(--gray-100); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; position:relative; margin-bottom:40px;}
+  .viewer-canvas{width:100%; height:460px; display:block; background:radial-gradient(circle at 50% 35%, #ffffff 0%, #e9edf3 70%, #dbe1ea 100%); cursor:grab;}
+  .viewer-canvas:active{cursor:grabbing;}
+  .viewer-top{position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:14px 16px; pointer-events:none;}
+  .viewer-brand{width:40px; height:40px; border-radius:50%; border:2px solid var(--blue); background:#fff; display:flex; align-items:center; justify-content:center; font-family:'Poppins'; font-weight:800; color:var(--blue); font-size:1.1rem;}
+  .viewer-top-right{display:flex; gap:8px; pointer-events:auto;}
+  .viewer-top-right button{width:34px; height:34px; border-radius:8px; border:none; background:rgba(255,255,255,.75); backdrop-filter:blur(4px); color:var(--gray-500); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition);}
+  .viewer-top-right button:hover{background:#fff; color:var(--blue);}
+  .viewer-top-right svg{width:17px; height:17px;}
+  .viewer-bar{position:absolute; left:0; right:0; bottom:0; display:flex; align-items:center; gap:6px; padding:12px 16px; background:linear-gradient(to top, rgba(255,255,255,.92), rgba(255,255,255,0)); }
+  .viewer-cube{width:44px; height:44px; border-radius:50%; background:var(--blue-accent); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 14px rgba(47,126,224,.4); transition:var(--transition);}
+  .viewer-cube:hover{transform:translateY(-2px);}
+  .viewer-cube svg{width:22px; height:22px; fill:#fff;}
+  .viewer-tools{margin-left:auto; display:flex; gap:4px;}
+  .viewer-tools button{width:38px; height:38px; border-radius:8px; border:none; background:transparent; color:var(--gray-500); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); position:relative;}
+  .viewer-tools button:hover{background:rgba(24,87,168,.08); color:var(--blue);}
+  .viewer-tools button.active{color:var(--blue);}
+  .viewer-tools svg{width:19px; height:19px;}
+  .viewer-tools .hd{position:absolute; top:2px; right:2px; background:var(--blue-accent); color:#fff; font-size:.5rem; font-weight:700; padding:1px 3px; border-radius:3px; font-family:'Inter';}
+  .viewer-hint{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(10,20,40,.7); color:#fff; padding:10px 18px; border-radius:30px; font-size:.85rem; font-weight:600; pointer-events:none; opacity:1; transition:opacity .5s ease; display:flex; align-items:center; gap:8px;}
+  .viewer-hint.hide{opacity:0;}
+  .viewer-hint svg{width:16px; height:16px; fill:#fff;}
+  @media (max-width:640px){ .viewer-canvas{height:340px;} }
+
+  .detail-text{max-width:820px;}
+  .detail-text p{color:var(--gray-700); margin-bottom:18px; font-size:1.03rem;}
+  .detail-text p strong{color:var(--gray-900);}
+
+  .videos-block{max-width:820px; margin-top:20px;}
+  .videos-block h3{font-size:1.5rem; margin-bottom:18px;}
+  .video-link{display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--gray-200); color:var(--gray-800); font-weight:500; transition:color .2s;}
+  .video-link:hover{color:var(--blue);}
+  .video-link .chev{width:18px; height:18px; fill:var(--blue); flex-shrink:0; margin-top:3px;}
+
+  .features-block{max-width:820px; margin-top:44px;}
+  .features-block h3{font-size:1.5rem; margin-bottom:20px; text-transform:uppercase; letter-spacing:.5px;}
+  .feat-list li{display:flex; gap:12px; align-items:flex-start; margin-bottom:16px; color:var(--gray-700); font-size:1.02rem;}
+  .feat-list li .chev{width:18px; height:18px; fill:var(--blue); flex-shrink:0; margin-top:4px;}
+  .feat-list li strong{color:var(--gray-900);}
+
+  .whatis-box{max-width:820px; margin-top:44px; background:#fff; border:1px solid var(--gray-100); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;}
+  .whatis-box .head{background:var(--gray-50); padding:26px; text-align:center; border-bottom:1px solid var(--gray-100);}
+  .whatis-box .head h3{color:var(--blue); font-size:1.4rem; text-transform:uppercase; letter-spacing:.5px;}
+  .whatis-box .body{padding:30px 32px;}
+  .whatis-box .body p{color:var(--gray-700); margin-bottom:16px; font-size:1.02rem;}
+  /* Acordeones interactivos dentro de whatis-box */
+  .whatis-box .accordions{padding:0;}
+  .acc-item{border-bottom:1px solid var(--gray-100);}
+  .acc-item:last-child{border-bottom:none;}
+  .acc-head{
+    width:100%; background:#fff; border:none; padding:22px 28px; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    text-align:left; font-family:inherit; font-weight:700; font-size:1.05rem;
+    color:var(--blue); text-transform:uppercase; letter-spacing:.5px; transition:background .25s;
+  }
+  .acc-head:hover{background:var(--blue-light);}
+  .acc-chev{transition:transform .3s ease; color:var(--blue); flex-shrink:0;}
+  .acc-item.open .acc-chev{transform:rotate(180deg);}
+  .acc-body{
+    max-height:0; overflow:hidden; padding:0 28px;
+    transition:max-height .35s ease, padding .35s ease;
+    color:var(--gray-700);
+  }
+  .acc-item.open .acc-body{max-height:1200px; padding:6px 28px 26px;}
+  .acc-body p{margin-bottom:12px; font-size:.98rem; line-height:1.65;}
+  .acc-body p:last-child{margin-bottom:0;}
+  .whatis-box .body p strong{color:var(--gray-900);}
+
+  .gallery-block{margin-top:44px;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  .gallery-grid img{width:100%; height:280px; object-fit:cover; border-radius:12px; box-shadow:var(--shadow); transition:var(--transition);}
+  .gallery-grid img:hover{transform:scale(1.02); box-shadow:var(--shadow-lg);}
+  @media (max-width:640px){ .gallery-grid{grid-template-columns:1fr;} .gallery-grid img{height:220px;} }
+
+  /* ============ DESCARGAS ============ */
+  .downloads-section{background:#fff;}
+  .downloads-hero{height:300px; border-radius:16px; overflow:hidden; margin-bottom:34px; box-shadow:var(--shadow);}
+  .downloads-hero img{width:100%; height:100%; object-fit:cover;}
+  .downloads-head h2{font-size:2rem; margin-bottom:12px;}
+  .downloads-head p{color:var(--gray-500); font-size:1.05rem; max-width:640px; margin-bottom:32px;}
+  .downloads-list{display:flex; flex-direction:column; gap:14px; max-width:820px;}
+  .download-card{display:flex; align-items:center; gap:16px; padding:20px 24px; background:#fff; border:1px solid var(--gray-100); border-radius:12px; box-shadow:var(--shadow); cursor:pointer; transition:var(--transition);}
+  .download-card:hover{transform:translateX(4px); box-shadow:var(--shadow-lg); border-color:var(--blue-light);}
+  .download-card .doc{width:26px; height:26px; stroke:var(--gray-700); fill:none; flex-shrink:0;}
+  .download-card h4{font-size:1.05rem; font-weight:700; color:var(--gray-900); flex:1;}
+  .download-card .dl{width:30px; height:30px; flex-shrink:0; color:var(--gray-500); transition:var(--transition);}
+  .download-card:hover .dl{color:var(--blue); transform:translateY(2px);}
+  .download-card .dl svg{width:100%; height:100%; fill:currentColor;}
+  .downloads-cta{margin-top:26px; max-width:820px;}
+  .downloads-cta .btn{width:100%; padding:18px; font-size:1.05rem;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--blue-darker); color:rgba(255,255,255,.7); padding-top:70px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-brand img{height:38px; filter:brightness(0) invert(1); margin-bottom:18px;}
+  .footer-brand p{font-size:.9rem; line-height:1.7; max-width:280px;}
+  .footer-social{display:flex; gap:12px; margin-top:22px;}
+  .footer-social a{width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; transition:background .2s;}
+  .footer-social a:hover{background:var(--blue-accent);}
+  .footer-social svg{width:15px; height:15px; fill:#fff;}
+  footer h4{color:#fff; font-size:1rem; margin-bottom:20px; font-family:'Poppins',sans-serif;}
+  footer ul li{margin-bottom:12px;}
+  footer ul li a{font-size:.9rem; color:rgba(255,255,255,.65); transition:color .2s, padding-left .2s;}
+  footer ul li a:hover{color:#fff; padding-left:4px;}
+  .footer-contact li{display:flex; gap:10px; align-items:flex-start; font-size:.88rem; margin-bottom:16px;}
+  .footer-contact svg{width:16px; height:16px; fill:#7fb2f2; flex-shrink:0; margin-top:2px;}
+  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding:24px 0; font-size:.82rem; flex-wrap:wrap; gap:12px;}
+  .footer-bottom .legal-links{display:flex; gap:20px; flex-wrap:wrap;}
+  @media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr; gap:36px;} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column; text-align:center;} }
+
+  .to-top{position:fixed; right:22px; bottom:22px; width:48px; height:48px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-lg); z-index:1500; opacity:0; visibility:hidden; transform:translateY(10px); transition:var(--transition); border:none; cursor:pointer;}
+  .to-top.show{opacity:1; visibility:visible; transform:none;}
+  .to-top svg{width:18px; height:18px; fill:#fff;}
+
+  /* toast */
+  .toast{position:fixed; left:50%; bottom:30px; transform:translate(-50%,140%); background:var(--gray-900); color:#fff; padding:14px 22px; border-radius:10px; box-shadow:var(--shadow-lg); z-index:3000; font-size:.9rem; font-weight:600; transition:transform .45s cubic-bezier(.4,0,.2,1); display:flex; align-items:center; gap:10px;}
+  .toast.show{transform:translate(-50%,0);}
+  .toast svg{width:18px; height:18px; fill:#4fd17c;}
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:629747960"><svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,.85)"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>629 747 960</a>
+      <a href="mailto:pedidos@talleresiniesta.es" class="hide-mobile"><svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,.85)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>pedidos@talleresiniesta.es</a>
+      <span class="hide-mobile">Fortuna, Murcia · Pedido desde 1 pieza</span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18H5.6V9.6h2.7V18zM7 8.5c-.9 0-1.5-.6-1.5-1.4S6.1 5.7 7 5.7s1.5.6 1.5 1.4S7.9 8.5 7 8.5zM18.5 18h-2.7v-4.4c0-1.1-.4-1.9-1.4-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8V18h-2.7s.1-7.6 0-8.4h2.7v1.2c.4-.6 1-1.4 2.6-1.4 1.9 0 3.3 1.2 3.3 3.9V18z"/></svg></a>
+      <a href="https://wa.me/34629747960?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20presupuesto." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner container">
+    <a href="index.html#inicio" class="logo"><img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta"></a>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#nosotros">Quiénes Somos</a></li>
+        <li class="has-dropdown active" id="prodDropdown">
+          <a href="index.html#productos">Productos <span class="caret"></span></a>
+          <div class="dropdown">
+            <a href="producto-detalle.html?producto=paneles">Sujeción de paneles</a>
+            <a href="producto-detalle.html?producto=escuadras">Escuadras dentadas</a>
+            <a href="producto-detalle.html?producto=anclajes">Anclajes ocultos</a>
+            <a href="producto-detalle.html?producto=correas">Sujeción de correas</a>
+            <a href="producto-detalle.html?producto=placas">Placas de anclaje</a>
+            <a href="producto-detalle.html?producto=canalon">Sujeción de canalón</a>
+          </div>
+        </li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:629747960" class="header-phone">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg></span>
+        <span><strong>629 747 960</strong><span>Llámanos ahora</span></span>
+      </a>
+      <a href="index.html#contacto" class="btn btn-primary" style="padding:12px 22px;">Pedir presupuesto</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html#inicio">Inicio</a>
+    <span class="sep">/</span>
+    <a href="index.html#productos">Productos</a>
+    <span class="sep">/</span>
+    <span class="current" id="bcCurrent">Producto</span>
+  </div>
+</div>
+
+<!-- ============ CATEGORY HERO ============ -->
+<section class="cat-hero">
+  <div class="cat-hero-bg" id="catHeroBg"></div>
+  <div class="container">
+    <div class="cat-hero-inner">
+      <span class="eyebrow" id="catEyebrow">Catálogo</span>
+      <h1 id="catTitle">Producto</h1>
+      <p id="catIntro">Descripción de la categoría.</p>
+      <a href="index.html#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIECES GRID ============ -->
+<section class="section">
+  <div class="container">
+    <div class="pieces-head reveal">
+      <span class="eyebrow">Piezas de esta categoría</span>
+      <h2 id="piecesTitle">Ver piezas del producto</h2>
+      <p>Selecciona una pieza para ver su modelo 3D interactivo, características técnicas y descargas. Todas nuestras piezas se fabrican a medida en acero certificado S275-JR.</p>
+    </div>
+    <div class="pieces-grid" id="piecesGrid"></div>
+  </div>
+</section>
+
+<!-- ============ PIECE DETAIL ============ -->
+<section class="section detail-section" id="detailSection">
+  <div class="container">
+    <div class="detail-lead reveal">
+      <span class="eyebrow" id="detailEyebrow">Pieza seleccionada</span>
+      <h2 id="detailTitle">Pieza</h2>
+      <p id="detailLeadText"></p>
+    </div>
+
+    <!-- 3D VIEWER -->
+    <div class="viewer-wrap reveal">
+      <canvas class="viewer-canvas" id="viewerCanvas"></canvas>
+      <div class="viewer-top">
+        <div class="viewer-brand">n</div>
+        <div class="viewer-top-right">
+          <button id="shareBtn" title="Compartir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+        </div>
+      </div>
+      <div class="viewer-hint" id="viewerHint"><svg viewBox="0 0 24 24"><path d="M13 2v6h6l-8 14v-6H5z" opacity="0"/><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7z"/><path d="M12 3v4l3-2z"/></svg>Arrastra para girar la pieza en 3D</div>
+      <div class="viewer-bar">
+        <div class="viewer-cube" id="resetView" title="Restablecer vista">
+          <svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.3 6.5 3.6L12 11.5 5.5 7.9 12 4.3zM5 9.4l6 3.3v6.9l-6-3.3V9.4zm14 0v6.9l-6 3.3v-6.9l6-3.3z"/></svg>
+        </div>
+        <div class="viewer-tools">
+          <button id="autoRotateBtn" class="active" title="Rotación automática"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6V3L8 7l4 4V8a4 4 0 1 1-4 4H6a6 6 0 1 0 6-6z"/></svg></button>
+          <button title="Calidad HD"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="hd">HD</span></button>
+          <button title="Capas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></button>
+          <button title="Vista VR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="3"/><circle cx="8" cy="12" r="1.5"/><circle cx="16" cy="12" r="1.5"/></svg></button>
+          <button id="fullscreenBtn" title="Pantalla completa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="detail-text reveal" id="detailText"></div>
+
+    <!-- VIDEOS -->
+    <div class="videos-block reveal" id="videosBlock">
+      <h3>Vídeos relacionados</h3>
+      <div id="videosList"></div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features-block reveal">
+      <h3 id="featuresTitle">Características esenciales</h3>
+      <ul class="feat-list" id="featuresList"></ul>
+    </div>
+
+    <!-- WHAT IS -->
+    <div class="whatis-box reveal" id="whatisBox">
+      <div class="head"><h3 id="whatisTitle">¿Qué es?</h3></div>
+      <div class="body" id="whatisBody"></div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery-block reveal">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESCARGAS ============ -->
+<section class="section downloads-section">
+  <div class="container">
+    <div class="downloads-hero reveal">
+      <img id="downloadsHeroImg" src="https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg" alt="Descargas">
+    </div>
+    <div class="downloads-head reveal">
+      <h2>Descargas</h2>
+      <p>Descarga aquí las diferentes vistas y fichas sobre este producto y sus varias aplicaciones…</p>
+    </div>
+    <div class="downloads-list" id="downloadsList"></div>
+    <div class="downloads-cta reveal">
+      <a href="index.html#contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta">
+        <p>En T.M.I somos especialistas en el diseño de piezas a medida para anclajes de hormigón. Fabricamos todo tipo de piezas para prefabricado de hormigón sobre plano.</p>
+        <div class="footer-social">
+          <a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18H5.6V9.6h2.7V18zM7 8.5c-.9 0-1.5-.6-1.5-1.4S6.1 5.7 7 5.7s1.5.6 1.5 1.4S7.9 8.5 7 8.5zM18.5 18h-2.7v-4.4c0-1.1-.4-1.9-1.4-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8V18h-2.7s.1-7.6 0-8.4h2.7v1.2c.4-.6 1-1.4 2.6-1.4 1.9 0 3.3 1.2 3.3 3.9V18z"/></svg></a>
+          <a href="https://wa.me/34629747960" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="producto-detalle.html?producto=paneles">Sujeción paneles</a></li>
+          <li><a href="producto-detalle.html?producto=escuadras">Escuadras dentadas</a></li>
+          <li><a href="producto-detalle.html?producto=anclajes">Anclajes ocultos</a></li>
+          <li><a href="producto-detalle.html?producto=correas">Sujeción correas</a></li>
+          <li><a href="producto-detalle.html?producto=placas">Placas de anclaje</a></li>
+          <li><a href="producto-detalle.html?producto=canalon">Sujeción canalón</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="index.html#nosotros">Quiénes somos</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg><span>629 747 960</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span>pedidos@talleresiniesta.es</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Calle Baco 22, Pol. Ind. de Fortuna, Murcia, 30620</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Copyright Talleres M. Iniesta. 2026. Todos los derechos reservados.</span>
+      <div class="legal-links"><a href="#">Política de privacidad</a><a href="#">Política de cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Volver arriba"><svg viewBox="0 0 24 24"><path d="M12 4 4 12l1.4 1.4L11 7.8V20h2V7.8l5.6 5.6L20 12z"/></svg></button>
+<div class="toast" id="toast"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span id="toastMsg"></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
+<script src="data.js"></script>
+<script src="viewer.js"></script>
+<script src="app.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c2e27cf9196061',t:'MTc4NDIyNDU5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
