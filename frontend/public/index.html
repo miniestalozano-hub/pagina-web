@@ -166,48 +166,64 @@
   }
 
   /* ============ HERO SLIDER ============ */
-  .hero{position:relative; height:88vh; min-height:560px; max-height:800px; overflow:hidden; background:var(--gray-900);}
+  .hero{position:relative; min-height:640px; overflow:hidden; background:linear-gradient(115deg, #0a2c5c 0%, #14488f 50%, #1857a8 100%);}
+  .hero::before{
+    content:''; position:absolute; inset:0; opacity:.12; pointer-events:none;
+    background-image:radial-gradient(circle at 15% 20%, #fff 0, transparent 55%), radial-gradient(circle at 85% 80%, #7fb2f2 0, transparent 45%);
+  }
   .hero-slide{
-    position:absolute; inset:0; opacity:0; transition:opacity 1.1s ease; background-size:cover; background-position:center;
+    position:absolute; inset:0; opacity:0; transition:opacity .9s ease;
   }
   .hero-slide.active{opacity:1;}
-  .hero-slide::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(90deg, rgba(10,15,30,.82) 10%, rgba(10,15,30,.45) 60%, rgba(10,15,30,.25) 100%);
-  }
+  .hero-slide::after{content:none;}
   .hero-content{
-    position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:center;
-    max-width:640px; padding:0 24px; color:#fff;
+    position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:70px 32px 110px;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center; min-height:600px;
   }
+  .hero-content > *{max-width:none;}
   .hero-content .tag{
     display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); backdrop-filter:blur(6px);
     padding:8px 16px; border-radius:30px; font-size:.82rem; font-weight:600; margin-bottom:22px; width:fit-content;
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.25); color:#fff;
   }
   .hero-content .tag .dot{width:7px; height:7px; border-radius:50%; background:#4fd17c;}
-  .hero-title{font-size:clamp(2.1rem, 5vw, 3.4rem); font-weight:800; color:#fff; margin-bottom:18px; letter-spacing:-.5px;}
+  .hero-title{font-size:clamp(1.9rem, 4vw, 2.9rem); font-weight:800; color:#fff; margin-bottom:18px; letter-spacing:-.5px; line-height:1.1;}
   .hero-title span{color:#7fb2f2;}
-  .hero-sub{font-size:1.1rem; color:rgba(255,255,255,.85); margin-bottom:34px; max-width:520px;}
-  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-sub{font-size:1.05rem; color:rgba(255,255,255,.85); margin-bottom:30px; max-width:520px; line-height:1.6;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-visual{position:relative; height:100%; min-height:420px; display:flex; align-items:center; justify-content:center;}
+  .hero-visual-inner{
+    position:relative; width:100%; max-width:520px; aspect-ratio:1/1;
+    background:radial-gradient(circle at 50% 45%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 65%);
+    border-radius:24px; display:flex; align-items:center; justify-content:center;
+  }
+  .hero-visual-inner img{width:82%; height:82%; object-fit:contain; filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));}
 
   .hero-slide-content{position:absolute; inset:0; z-index:2; opacity:0; transition:opacity .6s ease .3s;}
   .hero-slide.active .hero-slide-content{opacity:1;}
 
-  .hero-nav{position:absolute; z-index:3; bottom:34px; left:0; right:0;}
+  .hero-nav{position:absolute; z-index:3; bottom:26px; left:0; right:0;}
   .hero-nav .container{display:flex; justify-content:space-between; align-items:center;}
   .hero-dots{display:flex; gap:10px;}
   .hero-dots button{width:34px; height:4px; border-radius:4px; background:rgba(255,255,255,.35); border:none; cursor:pointer; transition:background .3s;}
   .hero-dots button.active{background:#fff;}
   .hero-arrows{display:flex; gap:10px;}
   .hero-arrows button{
-    width:46px; height:46px; border-radius:50%; border:1.5px solid rgba(255,255,255,.4); background:rgba(255,255,255,.08);
+    width:44px; height:44px; border-radius:50%; border:1.5px solid rgba(255,255,255,.4); background:rgba(255,255,255,.08);
     color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--transition);
   }
   .hero-arrows button:hover{background:#fff; color:var(--blue-dark); border-color:#fff;}
   .hero-arrows svg{width:16px; height:16px;}
+  @media (max-width:900px){
+    .hero-content{grid-template-columns:1fr; gap:28px; padding:56px 24px 90px; min-height:auto;}
+    .hero-visual{min-height:280px; order:-1;}
+    .hero-visual-inner{max-width:320px; aspect-ratio:1/1;}
+  }
   @media (max-width:640px){
-    .hero{height:82vh;}
     .hero-nav .hero-arrows{display:none;}
+    .hero-title{font-size:1.85rem;}
+    .hero-sub{font-size:.97rem; margin-bottom:22px;}
+    .hero-actions .btn{flex:1; min-width:0; padding:12px 16px;}
   }
 
   /* ============ QUICK STATS STRIP ============ */
@@ -413,8 +429,41 @@
   }
   .to-top.show{opacity:1; visibility:visible; transform:none;}
   .to-top svg{width:18px; height:18px; fill:#fff;}
+
+  /* ==== HERO BADGES ==== */
+  .hero-badges{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .hero-badge{
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); border-radius:12px;
+    padding:12px 18px; backdrop-filter:blur(10px); min-width:110px;
+  }
+  .hero-badge strong{display:block; color:#fff; font-size:1.15rem; font-weight:800; margin-bottom:2px;}
+  .hero-badge span{color:rgba(255,255,255,.78); font-size:.78rem; text-transform:uppercase; letter-spacing:1px;}
+  @media (max-width:640px){ .hero-badges{gap:8px;} .hero-badge{padding:10px 14px; min-width:0; flex:1;} .hero-badge strong{font-size:.95rem;} .hero-badge span{font-size:.68rem;} }
+
+  /* ==== cat-card as link ==== */
+  a.cat-card{color:inherit; text-decoration:none; display:block;}
+  a.cat-card:hover{color:inherit;}
+
+  /* ==== SERVICES GRID ==== */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px;}
+  .service-item{
+    background:#fff; border:1px solid var(--gray-100); border-radius:16px; padding:28px;
+    box-shadow:var(--shadow); transition:transform .35s, box-shadow .35s, border-color .35s;
+  }
+  .service-item:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:transparent;}
+  .service-ico{
+    width:52px; height:52px; border-radius:14px; background:var(--blue-light); color:var(--blue);
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .service-ico svg{width:26px; height:26px;}
+  .service-item h4{color:var(--gray-900); font-size:1.12rem; margin-bottom:10px;}
+  .service-item p{color:var(--gray-500); font-size:.94rem; line-height:1.6;}
+  @media (max-width:980px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .services-grid{grid-template-columns:1fr;} }
 </style>
-<script defer src="/static/js/bundle.js"></script><script>
+<script defer src="/static/js/bundle.js"></script>
+<script src="data.js"></script>
+<script>
 if(window.self!==window.top){
   var s=document.createElement("script");s.src="/visual-edit-overlay.js";document.head.appendChild(s);
   window.tailwind=window.tailwind||{};tailwind.config={corePlugins:{preflight:false}};var t=document.createElement("script");t.src="https://cdn.tailwindcss.com";document.head.appendChild(t);
@@ -459,19 +508,17 @@ if(window.self!==window.top){
     <nav class="main-nav" id="mainNav">
       <ul>
         <li class="active"><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Quiénes Somos</a></li>
         <li class="has-dropdown" id="prodDropdown">
           <a href="#productos">Productos <span class="caret"></span></a>
           <div class="dropdown">
-            <a href="#p-paneles">Sujeción de paneles</a>
-            <a href="#p-escuadras">Escuadras dentadas</a>
-            <a href="#p-anclajes">Anclajes ocultos</a>
-            <a href="#p-correas">Sujeción de correas</a>
-            <a href="#p-placas">Placas de anclaje</a>
-            <a href="#p-canalon">Sujeción de canalón</a>
+            <a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a>
+            <a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a>
+            <a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a>
+            <a href="producto-detalle.html?producto=placas">Placas de Anclaje</a>
           </div>
         </li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Quiénes Somos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -492,41 +539,61 @@ if(window.self!==window.top){
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="inicio">
-  <div class="hero-slide active" style="background-image:url('https://talleresiniesta.es/wp-content/uploads/2024/01/herrajes-de-hormigon-a-medida.png');">
+  <div class="hero-slide active">
     <div class="hero-content">
-      <div class="hero-slide-content">
-        <span class="tag"><span class="dot"></span>Fabricación en Fortuna, Murcia</span>
-        <h1 class="hero-title">Herrajes para <span>prefabricado de hormigón</span> a medida</h1>
-        <p class="hero-sub">Fabricamos anclajes, escuadras, placas y sujeciones según el plano del cliente, con tolerancias ajustadas y materiales certificados S275-JR.</p>
+      <div class="hero-text">
+        <span class="tag"><span class="dot"></span>Fabricación en Fortuna, Murcia · +40 años</span>
+        <h1 class="hero-title">Herrajes de acero <span>a medida</span> para prefabricado de hormigón</h1>
+        <p class="hero-sub">Guías perfil 40/22, tornillería TCA, bayonetas, escuadras, anclajes ocultos y placas. Marcado CE 1239, EN 1090-1 y homologaciones Tecnalia.</p>
         <div class="hero-actions">
-          <a href="#productos" class="btn btn-primary">Ver productos</a>
+          <a href="#productos" class="btn btn-primary">Ver catálogo</a>
           <a href="#contacto" class="btn btn-outline">Solicitar presupuesto</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge"><strong>CE 1239</strong><span>Marcado CE</span></div>
+          <div class="hero-badge"><strong>S275JR</strong><span>Acero certificado</span></div>
+          <div class="hero-badge"><strong>1 pieza</strong><span>Sin mínimo</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Herraje TMI">
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-slide" style="background-image:url('https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png');">
+  <div class="hero-slide">
     <div class="hero-content">
-      <div class="hero-slide-content">
-        <span class="tag"><span class="dot"></span>Sin mínimos de pedido</span>
-        <h1 class="hero-title">Fabricación a medida, <span>desde 1 sola pieza</span></h1>
-        <p class="hero-sub">Escuadras, ángulos y piezas especiales fabricadas bajo plano o croquis del cliente, con plazos de entrega comprometidos.</p>
+      <div class="hero-text">
+        <span class="tag"><span class="dot"></span>Sistema Antivuelco</span>
+        <h1 class="hero-title">Sistema completo <span>guía + tornillo TCA + bayoneta</span></h1>
+        <p class="hero-sub">Sujeción regulable de paneles verticales con capacidad de carga certificada hasta 50 KN. Ajustable en obra sin necesidad de taladrar el hormigón.</p>
         <div class="hero-actions">
-          <a href="#p-escuadras" class="btn btn-primary">Ver escuadras dentadas</a>
-          <a href="#contacto" class="btn btn-outline">Solicitar presupuesto</a>
+          <a href="producto-detalle.html?producto=paneles" class="btn btn-primary">Ver piezas antivuelco</a>
+          <a href="#servicios" class="btn btn-outline">Nuestros servicios</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Screenshot_258.png" alt="Guía perfil 40/22">
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-slide" style="background-image:url('https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg');">
+  <div class="hero-slide">
     <div class="hero-content">
-      <div class="hero-slide-content">
-        <span class="tag"><span class="dot"></span>Más de 40 años de experiencia</span>
-        <h1 class="hero-title">Suministramos <span>en toda España</span></h1>
-        <p class="hero-sub">Especialistas en piezas para el montaje de paneles de hormigón prefabricado, naves industriales y construcción residencial.</p>
+      <div class="hero-text">
+        <span class="tag"><span class="dot"></span>Placas a medida</span>
+        <h1 class="hero-title">Placas de anclaje <span>de 6 a 35 mm</span></h1>
+        <p class="hero-sub">Cualquier medida y acabado (negro, zincado, galvanizado, inox) sobre el plano del cliente. Con o sin pernos soldados y rigidizadores.</p>
         <div class="hero-actions">
-          <a href="#nosotros" class="btn btn-primary">Conócenos</a>
+          <a href="producto-detalle.html?producto=placas" class="btn btn-primary">Ver placas</a>
           <a href="#contacto" class="btn btn-outline">Contactar</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp" alt="Placas de anclaje">
         </div>
       </div>
     </div>
@@ -575,77 +642,53 @@ if(window.self!==window.top){
     </div>
 
     <div class="products-grid">
-      <div class="cat-card reveal" id="p-paneles">
+      <a href="producto-detalle.html?producto=paneles" class="cat-card reveal" id="p-paneles">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Sujeción Paneles de Prefabricados de Hormigón">
-          <div class="cat-card-hover"><h4>Sujeción Paneles</h4><p>Guías perfil 40/22 · tornillería M-12 y M-16</p></div>
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Fijaciones Antivuelco" loading="lazy">
+          <div class="cat-card-hover"><h4>Fijaciones Antivuelco</h4><p>Guía perfil 40/22 · Tornillería TCA · Bayoneta</p></div>
         </div>
         <div class="cat-card-body">
-          <h3>Sujeción Paneles de Prefabricados de Hormigón</h3>
-          <p>Guías perfil 40/22 hasta 2000 mm de longitud. Tornillería M-12 y M-16. Sistemas anti vuelco y escuadras a medida.</p>
-          <a href="producto-detalle.html?producto=paneles" class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
+          <h3>Fijaciones Antivuelco</h3>
+          <p>Guía perfil 40/22, tornillería TCA M-12 y M-16, bayonetas, ángulos de montaje y escuadras con refuerzo.</p>
+          <span class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
         </div>
-      </div>
+      </a>
 
-      <div class="cat-card reveal reveal-delay-1" id="p-escuadras">
+      <a href="producto-detalle.html?producto=ajustables" class="cat-card reveal reveal-delay-1" id="p-ajustables">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp" alt="Escuadras dentadas">
-          <div class="cat-card-hover"><h4>Escuadras Dentadas</h4><p>Sistema antideslizamiento dentado a medida</p></div>
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp" alt="Fijaciones Ajustables" loading="lazy">
+          <div class="cat-card-hover"><h4>Fijaciones Ajustables</h4><p>Escuadras fresadas · Arandelas dentadas</p></div>
         </div>
         <div class="cat-card-body">
-          <h3>Escuadras Dentadas</h3>
-          <p>Sistema antideslizamiento dentado de cualquier medida. Unión segura entre pilares, jácenas y paneles prefabricados.</p>
-          <a href="producto-detalle.html?producto=escuadras" class="cat-link">Ver productos <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
+          <h3>Fijaciones Ajustables</h3>
+          <p>Sistema antideslizante con escuadras fresadas 50x8, 60x8, 80x8 y arandelas dentadas.</p>
+          <span class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
         </div>
-      </div>
+      </a>
 
-      <div class="cat-card reveal reveal-delay-2" id="p-anclajes">
+      <a href="producto-detalle.html?producto=cubiertas" class="cat-card reveal reveal-delay-2" id="p-cubiertas">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-anclajes-ocultos.webp" alt="Anclajes Ocultos">
-          <div class="cat-card-hover"><h4>Anclajes Ocultos</h4><p>Fijación limpia sin elementos vistos en fachada</p></div>
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp" alt="Fijación de Cubiertas" loading="lazy">
+          <div class="cat-card-hover"><h4>Fijación de Cubiertas</h4><p>U Correa · Z Cubierta · S Montaje · Argollas</p></div>
         </div>
         <div class="cat-card-body">
-          <h3>Anclajes Ocultos</h3>
-          <p>Para paneles de 12, 14 y 16 cm. Fijación limpia y resistente sin elementos visibles en fachada. Acero galvanizado e inoxidable 304.</p>
-          <a href="producto-detalle.html?producto=anclajes" class="cat-link">Ver productos <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
+          <h3>Fijación de Cubiertas</h3>
+          <p>U Correa, SCE, Z Correa, Z Cubierta, S Montaje, S Canalón y argollas de elevación para prefabricados.</p>
+          <span class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
         </div>
-      </div>
+      </a>
 
-      <div class="cat-card reveal" id="p-correas">
+      <a href="producto-detalle.html?producto=placas" class="cat-card reveal" id="p-placas">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp" alt="Sujeción de correas – vigas delta">
-          <div class="cat-card-hover"><h4>Sujeción de Correas</h4><p>Abrazaderas para vigas delta a medida</p></div>
-        </div>
-        <div class="cat-card-body">
-          <h3>Sujeción de Correas – Vigas Delta</h3>
-          <p>Escuadras y abrazaderas para la sujeción de correas y vigas delta sobre soportes de hormigón prefabricado.</p>
-          <a href="producto-detalle.html?producto=correas" class="cat-link">Ver productos <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="cat-card reveal reveal-delay-1" id="p-placas">
-        <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp" alt="Placas de anclaje">
-          <div class="cat-card-hover"><h4>Placas de Anclaje</h4><p>De 5 a 50 mm de espesor, a medida</p></div>
+          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp" alt="Placas de Anclaje" loading="lazy">
+          <div class="cat-card-hover"><h4>Placas de Anclaje</h4><p>De 6 a 35 mm de espesor · A medida</p></div>
         </div>
         <div class="cat-card-body">
           <h3>Placas de Anclaje</h3>
-          <p>Cualquier medida, desde 5 hasta 50 mm de espesor. Perforadas, con rigidizadores o pernos embebidos según proyecto.</p>
-          <a href="producto-detalle.html?producto=placas" class="cat-link">Ver productos <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
+          <p>Placas fabricadas a medida en cualquier espesor (6 a 35 mm) y acabado. Con pernos y rigidizadores según proyecto.</p>
+          <span class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
         </div>
-      </div>
-
-      <div class="cat-card reveal reveal-delay-2" id="p-canalon">
-        <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-canalon-y-otros-150x150.webp" alt="Sujeción de canalón y otros">
-          <div class="cat-card-hover"><h4>Sujeción de Canalón</h4><p>Para canalones de 80 y 120 mm y piezas especiales</p></div>
-        </div>
-        <div class="cat-card-body">
-          <h3>Sujeción de Canalón y Otros</h3>
-          <p>Para canalones de 80 y 120 mm, abrazaderas de correa, argollas de elevación y piezas especiales bajo plano.</p>
-          <a href="producto-detalle.html?producto=canalon" class="cat-link">Ver productos <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -704,6 +747,18 @@ if(window.self!==window.top){
         <p>Más de 40 años de experiencia y un trato directo y personalizado con cada cliente.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="section services-section" id="servicios" style="background:linear-gradient(180deg,var(--gray-50),#fff);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="text-align:center; width:100%;">Servicios</span>
+      <h2>Más que fabricación</h2>
+      <p>Diseño, cálculo, mecanizado CNC, tratamientos térmicos y logística para toda España desde nuestro taller de Fortuna, Murcia.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
   </div>
 </section>
 
@@ -823,12 +878,10 @@ if(window.self!==window.top){
       <div>
         <h4>Productos</h4>
         <ul>
-          <li><a href="#p-paneles">Sujeción paneles</a></li>
-          <li><a href="#p-escuadras">Escuadras dentadas</a></li>
-          <li><a href="#p-anclajes">Anclajes ocultos</a></li>
-          <li><a href="#p-correas">Sujeción correas</a></li>
-          <li><a href="#p-placas">Placas de anclaje</a></li>
-          <li><a href="#p-canalon">Sujeción canalón</a></li>
+          <li><a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a></li>
+          <li><a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a></li>
+          <li><a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a></li>
+          <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a></li>
         </ul>
       </div>
       <div>
@@ -991,12 +1044,59 @@ setTimeout(() => cookieBanner.classList.add('show'), 1200);
 document.getElementById('cookieAccept').addEventListener('click', () => cookieBanner.classList.remove('show'));
 document.getElementById('cookieReject').addEventListener('click', () => cookieBanner.classList.remove('show'));
 
-/* ---------- Contact form (demo) ---------- */
-document.getElementById('contactForm').addEventListener('submit', (e) => {
+/* ---------- Contact form (backend) ---------- */
+const BACKEND_URL_META = 'https://woodcraft-preview-4.preview.emergentagent.com';
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  document.getElementById('formNote').classList.add('show');
-  e.target.reset();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const note = document.getElementById('formNote');
+  const payload = {
+    nombre: form.nombre.value.trim(),
+    empresa: form.empresa.value.trim(),
+    email: form.email.value.trim(),
+    telefono: form.telefono.value.trim(),
+    mensaje: form.mensaje ? form.mensaje.value.trim() : ''
+  };
+  btn.disabled = true; btn.textContent = 'Enviando...';
+  try {
+    const res = await fetch(BACKEND_URL_META + '/api/contact', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('http ' + res.status);
+    note.textContent = '¡Gracias ' + payload.nombre + '! Hemos recibido tu solicitud. Te contactaremos en menos de 24 h.';
+    note.classList.add('show');
+    form.reset();
+  } catch (err) {
+    note.textContent = 'No hemos podido enviar el formulario. Escríbenos a pedidos@talleresiniesta.es o llámanos al 629 747 960.';
+    note.classList.add('show');
+    note.style.color = '#c0392b';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Solicitar presupuesto';
+  }
 });
+
+/* ---------- Render Servicios ---------- */
+(function renderServices(){
+  const grid = document.getElementById('servicesGrid');
+  if (!grid || typeof SERVICES === 'undefined') return;
+  const icons = {
+    design:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>',
+    cnc:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>',
+    custom:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l7 7-11 11H3v-7z"/><path d="M14 3l7 7"/></svg>',
+    cert:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 13l-3 8 6-4 6 4-3-8"/></svg>',
+    deliver: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>',
+    support: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15a4 4 0 0 1-4 4H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>'
+  };
+  grid.innerHTML = SERVICES.map(s =>
+    '<div class="service-item reveal">' +
+      '<div class="service-ico">' + (icons[s.icon] || icons.design) + '</div>' +
+      '<h4>' + s.title + '</h4>' +
+      '<p>' + s.text + '</p>' +
+    '</div>'
+  ).join('');
+})();
 
 /* ---------- Smooth anchor + close mobile menu on nav ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(a => {

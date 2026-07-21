@@ -232,6 +232,40 @@
   .acc-item.open .acc-body{max-height:1200px; padding:6px 28px 26px;}
   .acc-body p{margin-bottom:12px; font-size:.98rem; line-height:1.65;}
   .acc-body p:last-child{margin-bottom:0;}
+
+  /* PIEZA HERO */
+  .pieza-hero{padding:70px 0 40px; background:linear-gradient(180deg, var(--gray-50), #fff);}
+  .pieza-hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center;}
+  .pieza-hero-text .eyebrow{margin-bottom:14px;}
+  .pieza-hero-text h1{font-size:2.6rem; color:var(--gray-900); margin-bottom:14px; line-height:1.15;}
+  .pieza-code{display:inline-block; background:var(--blue-light); color:var(--blue); padding:6px 14px; border-radius:20px; font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:18px;}
+  .pieza-hero-text p{font-size:1.08rem; color:var(--gray-500); line-height:1.65; margin-bottom:24px;}
+  .pieza-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .pieza-hero-img{
+    background:radial-gradient(circle at 50% 40%, #fff 0%, #e8eef7 100%);
+    border-radius:20px; padding:40px; box-shadow:var(--shadow-lg); border:1px solid var(--gray-100);
+    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .pieza-hero-img img{max-width:100%; max-height:100%; object-fit:contain;}
+  @media (max-width:900px){
+    .pieza-hero-grid{grid-template-columns:1fr; gap:34px;}
+    .pieza-hero-text h1{font-size:2rem;}
+    .pieza-hero-img{max-width:400px; margin:0 auto; aspect-ratio:auto; padding:24px;}
+  }
+
+  /* RELATED PIECES */
+  .related-pieces{max-width:1100px; margin-top:56px;}
+  .related-pieces h3{color:var(--gray-900); font-size:1.35rem; margin-bottom:22px; text-align:center;}
+  .related-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .related-card{
+    background:#fff; border:1px solid var(--gray-100); border-radius:12px; padding:16px;
+    text-align:center; text-decoration:none; color:inherit; transition:var(--transition);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .related-card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--blue-accent);}
+  .related-card img{width:80px; height:80px; object-fit:contain;}
+  .related-card span{font-size:.85rem; font-weight:600; color:var(--gray-700); line-height:1.3;}
+  @media (max-width:760px){ .related-grid{grid-template-columns:repeat(2,1fr);} }
   .whatis-box .body p strong{color:var(--gray-900);}
 
   .gallery-block{margin-top:44px;}
@@ -344,42 +378,85 @@
     <span class="sep">/</span>
     <a href="index.html#productos">Productos</a>
     <span class="sep">/</span>
-    <span class="current" id="bcCurrent">Producto</span>
+    <a id="bcCategory" href="#">Categoría</a>
+    <span class="sep">/</span>
+    <span class="current" id="bcCurrent">Pieza</span>
   </div>
 </div>
 
-<!-- ============ CATEGORY HERO ============ -->
-<section class="cat-hero">
-  <div class="cat-hero-bg" id="catHeroBg"></div>
-  <div class="container">
-    <div class="cat-hero-inner">
-      <span class="eyebrow" id="catEyebrow">Catálogo</span>
-      <h1 id="catTitle">Producto</h1>
-      <p id="catIntro">Descripción de la categoría.</p>
-      <a href="index.html#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+<!-- ============ PIECE HERO ============ -->
+<section class="pieza-hero">
+  <div class="container pieza-hero-grid">
+    <div class="pieza-hero-text reveal">
+      <span class="eyebrow" id="pzEyebrow">Pieza seleccionada</span>
+      <h1 id="pzTitle">Pieza</h1>
+      <div class="pieza-code" id="pzCode"></div>
+      <p id="pzLead"></p>
+      <div class="pieza-actions">
+        <a href="index.html#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+        <a id="pzBackCat" href="#" class="btn btn-outline-blue">Ver categoría</a>
+      </div>
+    </div>
+    <div class="pieza-hero-img reveal reveal-delay-1">
+      <img id="pzImg" src="" alt="Pieza">
     </div>
   </div>
 </section>
 
-<!-- ============ PIECES GRID ============ -->
-<section class="section">
+<!-- ============ PIECE DETAIL ============ -->
+<section class="section detail-section" id="detailSection">
   <div class="container">
-    <div class="pieces-head reveal">
-      <span class="eyebrow">Piezas de esta categoría</span>
-      <h2 id="piecesTitle">Ver piezas del producto</h2>
-      <p>Selecciona una pieza para ver su modelo 3D interactivo, características técnicas y descripción detallada. Todas nuestras piezas se fabrican a medida en acero certificado.</p>
+
+    <!-- 3D VIEWER -->
+    <div class="viewer-wrap reveal">
+      <canvas class="viewer-canvas" id="viewerCanvas"></canvas>
+      <div class="viewer-top">
+        <div class="viewer-brand">TMI</div>
+        <div class="viewer-top-right">
+          <button id="shareBtn" title="Compartir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+        </div>
+      </div>
+      <div class="viewer-hint" id="viewerHint"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7z"/><path d="M12 3v4l3-2z"/></svg>Arrastra para girar la pieza en 3D</div>
+      <div class="viewer-bar">
+        <div class="viewer-cube" id="resetView" title="Restablecer vista">
+          <svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.3 6.5 3.6L12 11.5 5.5 7.9 12 4.3zM5 9.4l6 3.3v6.9l-6-3.3V9.4zm14 0v6.9l-6 3.3v-6.9l6-3.3z"/></svg>
+        </div>
+        <div class="viewer-tools">
+          <button id="autoRotateBtn" class="active" title="Rotación automática"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6V3L8 7l4 4V8a4 4 0 1 1-4 4H6a6 6 0 1 0 6-6z"/></svg></button>
+          <button title="Calidad HD"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg><span class="hd">HD</span></button>
+          <button id="fullscreenBtn" title="Pantalla completa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        </div>
+      </div>
     </div>
-    <div class="pieces-grid" id="piecesGrid"></div>
+
+    <!-- DESCRIPTION -->
+    <div class="detail-text reveal" id="detailText"></div>
+
+    <!-- FEATURES -->
+    <div class="features-block reveal">
+      <h3 id="featuresTitle">Características esenciales</h3>
+      <ul class="feat-list" id="featuresList"></ul>
+    </div>
+
+    <!-- ACCORDIONS (Descripción del sistema, Materiales, Dimensiones, Instrucciones, ¿Qué es?) -->
+    <div class="whatis-box reveal" id="whatisBox"></div>
+
+    <!-- OTHER PIECES OF SAME CATEGORY -->
+    <div class="related-pieces reveal">
+      <h3>Otras piezas de esta categoría</h3>
+      <div class="related-grid" id="relatedGrid"></div>
+    </div>
+
   </div>
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section class="section" style="background:var(--gray-50); padding:56px 0;">
-  <div class="container" style="text-align:center; max-width:720px;">
-    <span class="eyebrow">¿Necesitas algo específico?</span>
-    <h2 style="font-size:1.8rem; margin:10px 0 12px;">Fabricamos también <span style="color:var(--blue);">a medida</span> sobre tu plano</h2>
-    <p style="color:var(--gray-500); margin-bottom:24px;">Envíanos tu croquis o plano y te asesoramos sin compromiso.</p>
-    <a href="index.html#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+<section class="section" style="background:linear-gradient(120deg,var(--blue-darker),var(--blue));">
+  <div class="container" style="text-align:center; max-width:720px; color:#fff;">
+    <span class="eyebrow" style="color:#7fb2f2;">¿Necesitas esta pieza?</span>
+    <h2 style="font-size:1.9rem; margin:10px 0 12px; color:#fff;">Solicita presupuesto sin compromiso</h2>
+    <p style="color:rgba(255,255,255,.85); margin-bottom:24px;">Nuestro equipo técnico te asesora en la fabricación de piezas a medida.</p>
+    <a href="index.html#contacto" class="btn btn-outline" style="border-color:#fff; color:#fff;">Solicitar presupuesto</a>
   </div>
 </section>
 
@@ -437,6 +514,6 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
 <script src="data.js"></script>
 <script src="viewer.js"></script>
-<script src="app.js"></script>
+<script src="pieza.js"></script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c2e27cf9196061',t:'MTc4NDIyNDU5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

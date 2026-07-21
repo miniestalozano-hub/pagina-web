@@ -37,6 +37,25 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+
+class ContactCreate(BaseModel):
+    nombre: str
+    empresa: str | None = ""
+    email: str
+    telefono: str
+    mensaje: str | None = ""
+
+
+class Contact(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    nombre: str
+    empresa: str = ""
+    email: str
+    telefono: str
+    mensaje: str = ""
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -65,6 +84,24 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+
+@api_router.post("/contact", response_model=Contact)
+async def create_contact(payload: ContactCreate):
+    contact = Contact(**payload.model_dump())
+    doc = contact.model_dump()
+    doc['created_at'] = doc['created_at'].isoformat()
+    await db.contacts.insert_one(doc)
+    return contact
+
+
+@api_router.get("/contact", response_model=List[Contact])
+async def list_contacts():
+    docs = await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    for d in docs:
+        if isinstance(d.get('created_at'), str):
+            d['created_at'] = datetime.fromisoformat(d['created_at'])
+    return docs
 
 # Include the router in the main app
 app.include_router(api_router)

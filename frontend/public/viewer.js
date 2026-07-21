@@ -68,14 +68,16 @@ const Viewer3D = (function () {
 
     switch (shape) {
       case 'escuadra':
-      case 'bracket': {
+      case 'bracket':
+      case 'bracket_coliso':
+      case 'escuadra_cartela': {
         const wing1 = makePlate(3, 2.4, 0.3, gridHoles(3, 2.4, 2, 2, 0.28));
         wing1.rotation.x = Math.PI / 2;
         wing1.position.set(0, 0, 1.2);
         const wing2 = makePlate(3, 2.4, 0.3, gridHoles(3, 2.4, 2, 2, 0.28));
         wing2.position.set(0, 1.2, 0);
         g.add(wing1, wing2);
-        if (shape === 'bracket') {
+        if (shape === 'bracket' || shape === 'bracket_coliso' || shape === 'escuadra_cartela') {
           const gusset = makePlate(2.2, 2.2, 0.25, []);
           gusset.rotation.y = Math.PI / 2;
           gusset.position.set(0, 0.05, 0.05);
@@ -221,6 +223,77 @@ const Viewer3D = (function () {
         stemL.position.set(-0.5, -0.9, 0);
         const stemR = stemL.clone(); stemR.position.x = 0.5;
         g.add(stemL, stemR);
+        break;
+      }
+      case 'bayoneta':
+      case 'bayoneta_fresada': {
+        // Pletina plegada 35x8, extremos con taladros
+        const bar1 = makePlate(3.8, 0.7, 0.2, [{x:-1.5,y:0,r:0.14},{x:1.5,y:0,r:0.14}]);
+        bar1.position.set(0, 0.8, 0);
+        const bar2 = makePlate(2.6, 0.7, 0.2, [{x:0.8,y:0,r:0.14}]);
+        bar2.rotation.z = Math.PI / 2.4;
+        bar2.position.set(1.5, 0.2, 0);
+        g.add(bar1, bar2);
+        if (shape === 'bayoneta_fresada') {
+          const teeth = new THREE.Group();
+          addTeeth(teeth, 3.6, 12, 'x');
+          teeth.position.set(0, 0.68, 0.1);
+          g.add(teeth);
+        }
+        break;
+      }
+      case 'arandela': {
+        // arandela dentada con agujero central
+        const geo = new THREE.RingGeometry(0.4, 1.1, 40);
+        const disc = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 0.25, 40), galvMat());
+        const hole = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.4, 24), new THREE.MeshBasicMaterial({color:0x000000}));
+        disc.rotation.x = 0;
+        g.add(disc);
+        // dentado radial
+        for (let i = 0; i < 16; i++) {
+          const tooth = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.1, 0.35), galvMat());
+          const a = (i / 16) * Math.PI * 2;
+          tooth.position.set(Math.cos(a) * 0.95, 0.16, Math.sin(a) * 0.95);
+          tooth.rotation.y = -a;
+          g.add(tooth);
+        }
+        void geo; void hole;
+        break;
+      }
+      case 'u_correa': {
+        // Pieza en U
+        const base = makePlate(3.6, 0.9, 0.22, [{x:0,y:0,r:0.16}]);
+        base.position.set(0, 0, 0);
+        const side1 = makePlate(1.8, 0.9, 0.22, [{x:-0.4,y:0,r:0.14}]);
+        side1.rotation.x = Math.PI / 2;
+        side1.position.set(-1.8, 0.9, 0);
+        const side2 = side1.clone();
+        side2.position.set(1.8, 0.9, 0);
+        g.add(base, side1, side2);
+        break;
+      }
+      case 'z_piece': {
+        // Pieza en Z (dos alas paralelas invertidas)
+        const a1 = makePlate(2.4, 1.2, 0.22, [{x:-0.6,y:0,r:0.15}]);
+        a1.position.set(-1.2, 0.4, 0);
+        const web = makePlate(2.4, 1.2, 0.22, []);
+        web.rotation.x = Math.PI / 2;
+        web.position.set(0, 0, 0);
+        const a2 = makePlate(2.4, 1.2, 0.22, [{x:0.6,y:0,r:0.15}]);
+        a2.position.set(1.2, -0.4, 0);
+        g.add(a1, web, a2);
+        break;
+      }
+      case 's_piece': {
+        // Pieza en S (tres tramos plegados)
+        const t1 = makePlate(2.2, 1.0, 0.22, [{x:-0.5,y:0,r:0.14}]);
+        t1.position.set(-1.3, 0.9, 0);
+        const t2 = makePlate(1.6, 1.0, 0.22, []);
+        t2.rotation.z = -Math.PI / 2.5;
+        t2.position.set(0, 0.3, 0);
+        const t3 = makePlate(2.2, 1.0, 0.22, [{x:0.5,y:0,r:0.14}]);
+        t3.position.set(1.3, -0.5, 0);
+        g.add(t1, t2, t3);
         break;
       }
       case 'tube':
