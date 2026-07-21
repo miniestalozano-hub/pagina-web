@@ -1,59 +1,53 @@
 # PRD — Talleres M. Iniesta (Web réplica + rework)
 
 ## Problema original
-Rehacer la web `woodcraft-demo.preview.emergentagent.com` (réplica de talleresiniesta.es) con las siguientes correcciones y mejoras:
-1. Imágenes de piezas específicas (ya no la genérica de logo)
-2. LinkedIn / WhatsApp reales
-3. Formulario "Solicitar presupuesto" funcional (backend)
-4. Desplegables faltantes en la descripción (Descripción del sistema, Materiales, Dimensiones, Instrucciones de uso, ¿Qué es?)
-5. Página propia por producto (no misma página)
-6. Hero rediseñado con 2 columnas (texto + imagen) sin espacios vacíos
-7. Datos y fotos del catálogo TMI 2024 (adjunto PDF)
-8. Vista 3D para cada pieza
-9. Sección de servicios
-10. Menú hamburguesa funcional
-11. Descargas: descartadas por ahora
+Réplica de talleresiniesta.es con catálogo TMI 2024 completo, correcciones y mejoras.
+
+## Historial de correcciones aplicadas
+
+### Iteración 1 (base)
+- Copia + rework total de la web original desde preview
+- Hero rediseñado en 2 columnas (texto + imagen)
+- Página propia por pieza (`pieza.html?id=<id>`) con visor 3D + acordeones
+- 5 acordeones interactivos (Sistema, Materiales, Dimensiones, Instrucciones, ¿Qué es?)
+- LinkedIn/WhatsApp reales
+- Formulario contacto → POST `/api/contact` (guarda en MongoDB)
+- Sección Servicios (6 tarjetas)
+- Menú hamburguesa funcional
+- Sección Descargas eliminada
+
+### Iteración 2 (correcciones catálogo)
+- **Imágenes sin cuadrado blanco**: `mix-blend-mode: multiply` en todas las fotos de piezas
+- **Catálogo TMI 2024 completo**: 88 páginas PDF procesadas, ~40 productos añadidos con imágenes extraídas del PDF
+- **6 categorías** completas:
+  1. Fijaciones Antivuelco (21 piezas)
+  2. Fijaciones Ajustables (10 piezas)
+  3. Fijación de Cubiertas (8 piezas)
+  4. Placas de Anclaje (1 a medida)
+  5. Soluciones a Medida (1)
+  6. Mecanizado (1)
+- **Sección Catálogo redesign**: gradient azul + tarjeta rotada -2deg + fila de 4 stats (+40 años, 40+ piezas, 6 CNC, 1 pieza mínimo)
+- **Menú hamburguesa** reforzado con CSS y JS
+- **Imágenes reales del PDF** extraídas a `/catalog_img/` (Guía, Tornillo TCA, Bayoneta, Anclaje oculto, Escuadras, Fresadas, U Correa, Z Cubierta, Argollas, etc.)
 
 ## Arquitectura
-- **Frontend estático** HTML/JS servido desde `/app/frontend/public/` por webpack-dev-server
-  - `index.html` — home con hero 2-col, categorías, servicios, contacto
-  - `producto-detalle.html` — página de categoría con grid de piezas → navega a `pieza.html`
-  - `pieza.html` — página propia por pieza con visor 3D, ficha técnica y 5 acordeones
-  - `data.js` — catálogo completo TMI 2024 (4 categorías, 21 piezas)
-  - `app.js` — lógica de página categoría
-  - `pieza.js` — lógica de página individual con acordeones interactivos + relacionadas
-  - `viewer.js` — visor 3D Three.js con shapes: escuadra, bracket, escuadra_dentada, channel, bolt, bayoneta, bayoneta_fresada, arandela, u_correa, z_piece, s_piece, anclaje, argolla, placa, canalon
+- **Frontend estático** HTML/JS en `/app/frontend/public/`
 - **Backend FastAPI** en `/app/backend/server.py`
-  - `POST /api/contact` — guarda solicitud de presupuesto en MongoDB
-  - `GET /api/contact` — lista contactos guardados
-
-## Implementado (2026-07-21)
-- [x] Copia + rework total de la web original desde preview
-- [x] Data catálogo TMI 2024 completo con nombres, códigos, materiales, cargas
-- [x] Hero rediseñado en 2 columnas (texto izquierda + imagen producto derecha)
-- [x] Página propia por pieza (`pieza.html?id=<id>`) con visor 3D + acordeones
-- [x] 5 acordeones interactivos (Sistema, Materiales, Dimensiones, Instrucciones, ¿Qué es?)
-- [x] LinkedIn → `https://es.linkedin.com/company/talleres-m-iniesta`
-- [x] WhatsApp → `https://wa.me/34629747960`
-- [x] Formulario contacto → POST `/api/contact` (guarda en MongoDB)
-- [x] Sección Servicios (6 tarjetas: Diseño, CNC, A medida, Calidad, Logística, Asesoría)
-- [x] Menú hamburguesa funcional con overlay y dropdown de productos
-- [x] Nuevas categorías (Fijaciones Antivuelco, Ajustables, Cubiertas, Placas)
-- [x] Nuevos shapes 3D: bayoneta, arandela, u_correa, z_piece, s_piece
-- [x] Sección Descargas eliminada
-- [x] Responsive móvil verificado
-
-## Backlog / Próximas mejoras (P1)
-- [ ] Añadir 1 pieza más a "Fijaciones Antivuelco" para llegar a 12 según catálogo
-- [ ] Modelos 3D más detallados con dentados y taladros mecanizados
-- [ ] `data-testid` en todos los interactive elements para QA
-- [ ] Envío real de email al form (Resend/SendGrid) cuando el usuario lo pida
-- [ ] Sección "Quiénes Somos" con datos reales del catálogo (40 años, certificaciones)
-- [ ] Página propia por categoría con filtros (por tipo, por carga admisible)
-- [ ] Panel admin para consultar los mensajes de `/api/contact` sin curl
+- **Imágenes catálogo** extraídas del PDF a `/app/frontend/public/catalog_img/`
+- **PDF fuente** guardado en `/app/memory/catalog.pdf`
 
 ## Rutas
-- `/` — Home
-- `/producto-detalle.html?producto=paneles|ajustables|cubiertas|placas`
-- `/pieza.html?id=guia-4022|tornillo-tca|bayoneta|...`
-- `/api/contact` (POST/GET)
+- `/` — Home con hero + 6 categorías + servicios + catálogo TMI 2024 + contacto
+- `/producto-detalle.html?producto=antivuelco|ajustables|cubiertas|placas|medida|mecanizado`
+- `/pieza.html?id=guia-4022|tornillo-tca|bayoneta|...` (40+ piezas)
+- `POST /api/contact` — guarda solicitud presupuesto
+- `GET /api/contact` — lista solicitudes
+
+## Backlog / Próximas mejoras
+- [ ] Modelos 3D específicos por cada pieza (con dentados y taladros reales del catálogo)
+- [ ] Sección "Quiénes Somos" con datos completos (40 años, certificaciones)
+- [ ] Envío real de email al form (Resend/SendGrid) — usuario dijo no de momento
+- [ ] Panel admin para consultar mensajes de `/api/contact`
+- [ ] Filtros por carga admisible / dimensiones en cada categoría
+- [ ] Datos técnicos: tabla de capacidad portante por pieza
+- [ ] Mostrar acabados disponibles como toggles en la ficha
