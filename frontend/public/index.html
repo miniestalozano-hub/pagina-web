@@ -460,6 +460,68 @@
   .service-item p{color:var(--gray-500); font-size:.94rem; line-height:1.6;}
   @media (max-width:980px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:640px){ .services-grid{grid-template-columns:1fr;} }
+
+  /* ==== ELIMINAR fondo blanco de fotos catalogo ==== */
+  .cat-card-img img,
+  .piece-card-img img,
+  .related-card img,
+  .pieza-hero-img img,
+  .hero-visual-inner img{
+    mix-blend-mode: multiply;
+  }
+
+  /* ==== CATALOG SECTION rediseñada (dinámica, no aburrida) ==== */
+  .catalog-section{padding:100px 0; position:relative; overflow:hidden;
+    background:linear-gradient(120deg, #0a2c5c 0%, #14488f 50%, #1857a8 100%);}
+  .catalog-section::before{
+    content:''; position:absolute; inset:0; opacity:.14; pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 25%, #fff 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, #7fb2f2 0, transparent 40%);
+  }
+  .catalog-grid{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:center;
+  }
+  .catalog-grid .eyebrow{color:#7fb2f2; margin-bottom:16px;}
+  .catalog-grid h2{color:#fff; font-size:clamp(1.7rem,3vw,2.4rem); margin-bottom:16px; line-height:1.15;}
+  .catalog-grid p{color:rgba(255,255,255,.82); font-size:1.02rem; line-height:1.65; margin-bottom:22px; max-width:520px;}
+  .catalog-grid ul{list-style:none; padding:0; margin:0 0 28px;}
+  .catalog-grid ul li{
+    display:flex; align-items:center; gap:12px; margin-bottom:14px; color:#fff; font-size:.98rem;
+  }
+  .catalog-grid ul li svg{width:22px; height:22px; padding:5px; background:rgba(255,255,255,.14); border-radius:50%; fill:#7fb2f2; flex-shrink:0;}
+  .catalog-card{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); backdrop-filter:blur(14px);
+    padding:36px 32px; border-radius:20px; text-align:center; color:#fff; box-shadow:0 20px 60px rgba(0,0,0,.3);
+    transform:rotate(-2deg); transition:transform .5s ease;
+  }
+  .catalog-card:hover{transform:rotate(0deg) scale(1.02);}
+  .catalog-card h3{color:#fff; font-size:1.4rem; margin-bottom:12px;}
+  .catalog-card p{color:rgba(255,255,255,.85); font-size:.98rem; margin-bottom:22px; max-width:none;}
+  .catalog-card .btn-primary{background:#fff; color:var(--blue-dark);}
+  .catalog-card .btn-primary:hover{background:var(--blue-light); color:var(--blue-dark);}
+  .catalog-stats{
+    position:relative; z-index:2; margin-top:60px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  .catalog-stat{
+    text-align:center; color:#fff; padding:24px 12px; border-radius:14px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+    transition:transform .4s, background .4s;
+  }
+  .catalog-stat:hover{transform:translateY(-6px); background:rgba(255,255,255,.12);}
+  .catalog-stat strong{display:block; font-size:2.4rem; font-weight:800; color:#7fb2f2; line-height:1;}
+  .catalog-stat span{font-size:.85rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:1.2px; margin-top:8px; display:block;}
+  @media (max-width:900px){
+    .catalog-grid{grid-template-columns:1fr; gap:36px;}
+    .catalog-card{transform:none; max-width:420px; margin:0 auto;}
+    .catalog-stats{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* Nav overlay fix hamburguesa mobile */
+  .nav-overlay{position:fixed; inset:0; background:rgba(10,15,25,.55); z-index:1100; opacity:0; pointer-events:none; transition:opacity .35s; display:block;}
+  .nav-overlay.open{opacity:1; pointer-events:auto;}
 </style>
 <script defer src="/static/js/bundle.js"></script>
 <script src="data.js"></script>
@@ -511,10 +573,12 @@ if(window.self!==window.top){
         <li class="has-dropdown" id="prodDropdown">
           <a href="#productos">Productos <span class="caret"></span></a>
           <div class="dropdown">
-            <a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a>
+            <a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a>
             <a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a>
             <a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a>
             <a href="producto-detalle.html?producto=placas">Placas de Anclaje</a>
+            <a href="producto-detalle.html?producto=medida">Soluciones a Medida</a>
+            <a href="producto-detalle.html?producto=mecanizado">Mecanizado</a>
           </div>
         </li>
         <li><a href="#servicios">Servicios</a></li>
@@ -569,7 +633,7 @@ if(window.self!==window.top){
         <h1 class="hero-title">Sistema completo <span>guía + tornillo TCA + bayoneta</span></h1>
         <p class="hero-sub">Sujeción regulable de paneles verticales con capacidad de carga certificada hasta 50 KN. Ajustable en obra sin necesidad de taladrar el hormigón.</p>
         <div class="hero-actions">
-          <a href="producto-detalle.html?producto=paneles" class="btn btn-primary">Ver piezas antivuelco</a>
+          <a href="producto-detalle.html?producto=antivuelco" class="btn btn-primary">Ver piezas antivuelco</a>
           <a href="#servicios" class="btn btn-outline">Nuestros servicios</a>
         </div>
       </div>
@@ -642,7 +706,7 @@ if(window.self!==window.top){
     </div>
 
     <div class="products-grid">
-      <a href="producto-detalle.html?producto=paneles" class="cat-card reveal" id="p-paneles">
+      <a href="producto-detalle.html?producto=antivuelco" class="cat-card reveal" id="p-paneles">
         <div class="cat-card-img">
           <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Fijaciones Antivuelco" loading="lazy">
           <div class="cat-card-hover"><h4>Fijaciones Antivuelco</h4><p>Guía perfil 40/22 · Tornillería TCA · Bayoneta</p></div>
@@ -687,6 +751,30 @@ if(window.self!==window.top){
           <h3>Placas de Anclaje</h3>
           <p>Placas fabricadas a medida en cualquier espesor (6 a 35 mm) y acabado. Con pernos y rigidizadores según proyecto.</p>
           <span class="cat-link">Ver piezas <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
+        </div>
+      </a>
+
+      <a href="producto-detalle.html?producto=medida" class="cat-card reveal reveal-delay-1" id="p-medida">
+        <div class="cat-card-img">
+          <img src="/catalog_img/p85_img01.jpeg" alt="Soluciones a Medida" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/herrajes-de-hormigon-a-medida.png'">
+          <div class="cat-card-hover"><h4>Soluciones a Medida</h4><p>Diseño y fabricación bajo pedido</p></div>
+        </div>
+        <div class="cat-card-body">
+          <h3>Soluciones a Medida</h3>
+          <p>Todo tipo de anclajes hechos a medida o diseño de soluciones nuevas. Tratamientos térmicos y materiales especiales (INOX, F-114, S355JR).</p>
+          <span class="cat-link">Ver detalles <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
+        </div>
+      </a>
+
+      <a href="producto-detalle.html?producto=mecanizado" class="cat-card reveal reveal-delay-2" id="p-mecanizado">
+        <div class="cat-card-img">
+          <img src="/catalog_img/p87_img42.jpeg" alt="Mecanizado" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg'">
+          <div class="cat-card-hover"><h4>Mecanizado</h4><p>Centro CNC · Tornos · Fresas · Plegadoras</p></div>
+        </div>
+        <div class="cat-card-body">
+          <h3>Mecanizado</h3>
+          <p>2 centros de mecanizado, 4 tornos automáticos, 2 tornos manuales, numerosas fresas y plegadoras. Fabricamos casi cualquier pieza.</p>
+          <span class="cat-link">Ver capacidades <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
         </div>
       </a>
     </div>
@@ -764,22 +852,34 @@ if(window.self!==window.top){
 
 <!-- ============ CATÁLOGO / PRESUPUESTO CTA ============ -->
 <section class="section catalog-section">
-  <div class="container catalog-grid">
-    <div class="reveal">
-      <span class="eyebrow" style="color:#7fb2f2;">Catálogo online</span>
-      <h2>Sistemas de sujeción para el prefabricado de hormigón</h2>
-      <p>Fabricamos anclajes, escuadras dentadas, placas y sujeciones bajo plano del cliente, con tolerancias ajustadas y materiales certificados.</p>
-      <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Pedido posible desde 1 sola pieza</li>
-        <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Fabricación sobre plano o croquis</li>
-        <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Envíos a toda España</li>
-      </ul>
-      <a href="#contacto" class="btn btn-outline">Solicitar presupuesto</a>
+  <div class="container">
+    <div class="catalog-grid">
+      <div class="reveal">
+        <span class="eyebrow">Catálogo TMI 2024</span>
+        <h2>+40 años fabricando herrajes para el prefabricado de hormigón</h2>
+        <p>Fabricamos anclajes, escuadras dentadas, placas y sujeciones bajo plano del cliente, con tolerancias ajustadas, materiales certificados y capacidad de carga verificada según <strong>UNE-EN 1993-1-1/8</strong>.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Pedido posible desde 1 sola pieza</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Fabricación sobre plano o croquis del cliente</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Envíos a toda España desde Fortuna, Murcia</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Marcado CE 1239 · EN 1090-1 · Homologaciones Tecnalia</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Solicitar presupuesto</a>
+      </div>
+      <div class="catalog-card reveal reveal-delay-1">
+        <h3>¿Necesitas piezas a medida?</h3>
+        <p>Envíanos tu plano o croquis y te asesoramos sin compromiso sobre la fabricación de tus herrajes.</p>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;">Contactar ahora</a>
+        <p style="margin-top:20px; font-size:.85rem; color:rgba(255,255,255,.65);">
+          <strong style="color:#fff;">629 747 960</strong><br>pedidos@talleresiniesta.es
+        </p>
+      </div>
     </div>
-    <div class="catalog-card reveal reveal-delay-1">
-      <h3>¿Necesitas piezas a medida?</h3>
-      <p>Envíanos tu plano o croquis y te asesoramos sin compromiso sobre la fabricación de tus piezas para prefabricado de hormigón.</p>
-      <a href="#contacto" class="btn btn-primary" style="width:100%;">Contactar ahora</a>
+    <div class="catalog-stats reveal">
+      <div class="catalog-stat"><strong>+40</strong><span>Años de experiencia</span></div>
+      <div class="catalog-stat"><strong>40+</strong><span>Piezas de catálogo</span></div>
+      <div class="catalog-stat"><strong>6</strong><span>Máquinas CNC</span></div>
+      <div class="catalog-stat"><strong>1</strong><span>Pieza mínimo</span></div>
     </div>
   </div>
 </section>
@@ -878,7 +978,7 @@ if(window.self!==window.top){
       <div>
         <h4>Productos</h4>
         <ul>
-          <li><a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a></li>
+          <li><a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a></li>
           <li><a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a></li>
           <li><a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a></li>
           <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a></li>

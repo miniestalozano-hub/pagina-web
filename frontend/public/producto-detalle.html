@@ -156,6 +156,35 @@
   .piece-card:hover .piece-underline, .piece-card.active .piece-underline{width:70px;}
   .piece-card-body span{display:block; color:var(--gray-500); font-size:.9rem; margin-top:8px;}
   .piece-code{color:var(--blue) !important; font-weight:700; font-size:.78rem !important; text-transform:uppercase; letter-spacing:1px; margin-top:12px !important;}
+
+  /* ==== Eliminar cuadrado blanco de fotos ==== */
+  .piece-card-img img,
+  .cat-hero-bg,
+  .downloads-hero img{ mix-blend-mode: multiply; }
+  .piece-card-img{background:#fff !important;}
+
+  /* ==== Menú hamburguesa móvil ==== */
+  .nav-overlay{position:fixed; inset:0; background:rgba(10,15,30,.55); z-index:98; opacity:0; pointer-events:none; transition:opacity .35s;}
+  .nav-overlay.open{opacity:1; pointer-events:auto;}
+  @media (max-width:980px){
+    .main-nav{
+      position:fixed !important; top:0; right:-100%; height:100vh; width:min(320px, 85vw);
+      background:#fff; z-index:99; padding:80px 24px 32px !important;
+      transition:right .45s cubic-bezier(.4,0,.2,1);
+      box-shadow:-10px 0 40px rgba(0,0,0,.15); overflow-y:auto;
+    }
+    .main-nav.open{right:0;}
+    .main-nav ul{flex-direction:column !important; align-items:flex-start !important; gap:8px !important;}
+    .main-nav ul li{width:100%;}
+    .main-nav ul li a{display:block; padding:14px 8px; font-size:1.05rem; border-bottom:1px solid var(--gray-100); color:var(--gray-900) !important;}
+    .has-dropdown .dropdown{
+      position:static !important; box-shadow:none !important; opacity:1 !important; visibility:visible !important;
+      transform:none !important; padding:0 0 8px 16px !important; max-height:0; overflow:hidden;
+      transition:max-height .35s ease;
+    }
+    .has-dropdown.open .dropdown{max-height:400px;}
+    .has-dropdown .dropdown a{border-bottom:none; padding:8px 6px; font-size:.95rem; color:var(--gray-500) !important;}
+  }
   @media (max-width:980px){ .pieces-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:600px){ .pieces-grid{grid-template-columns:1fr;} }
 
@@ -315,10 +344,12 @@
         <li class="has-dropdown active" id="prodDropdown">
           <a href="index.html#productos">Productos <span class="caret"></span></a>
           <div class="dropdown">
-            <a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a>
+            <a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a>
             <a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a>
             <a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a>
             <a href="producto-detalle.html?producto=placas">Placas de Anclaje</a>
+            <a href="producto-detalle.html?producto=medida">Soluciones a Medida</a>
+            <a href="producto-detalle.html?producto=mecanizado">Mecanizado</a>
           </div>
         </li>
         <li><a href="index.html#servicios">Servicios</a></li>
@@ -398,10 +429,12 @@
       <div>
         <h4>Productos</h4>
         <ul>
-          <li><a href="producto-detalle.html?producto=paneles">Fijaciones Antivuelco</a></li>
+          <li><a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a></li>
           <li><a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a></li>
           <li><a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a></li>
-          <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a></li>
+          <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a>
+            <a href="producto-detalle.html?producto=medida">Soluciones a Medida</a>
+            <a href="producto-detalle.html?producto=mecanizado">Mecanizado</a></li>
         </ul>
       </div>
       <div>
