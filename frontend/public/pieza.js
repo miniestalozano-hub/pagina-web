@@ -33,6 +33,26 @@
     '<span><strong>' + f[0] + ':</strong> ' + f[1] + '</span></li>'
   ).join('');
 
+  // Galería adicional del catálogo
+  const galleryImgs = (typeof GALLERY !== 'undefined' && GALLERY[piece.id]) || [];
+  if (galleryImgs.length) {
+    const gEl = document.getElementById('galleryBlock');
+    if (gEl) {
+      gEl.style.display = 'block';
+      gEl.innerHTML = '<h3>Más imágenes de esta pieza</h3><div class="piece-gallery">' +
+        galleryImgs.map((src, i) =>
+          '<div class="pg-item" data-i="'+i+'"><img src="'+src+'" alt="'+piece.name+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
+        ).join('') + '</div>';
+      // Lightbox
+      gEl.querySelectorAll('.pg-item').forEach(it => it.addEventListener('click', function(){
+        const src = this.querySelector('img').src;
+        const lb = document.getElementById('lightbox');
+        document.getElementById('lightboxImg').src = src;
+        lb.classList.add('open');
+      }));
+    }
+  }
+
   // Acordeones
   const acc = accordionsFor(piece);
   const items = [

@@ -166,64 +166,88 @@
   }
 
   /* ============ HERO SLIDER ============ */
-  .hero{position:relative; min-height:640px; overflow:hidden; background:linear-gradient(115deg, #0a2c5c 0%, #14488f 50%, #1857a8 100%);}
+  .hero{position:relative; overflow:hidden; background:linear-gradient(115deg, #0a2c5c 0%, #14488f 55%, #1857a8 100%);}
   .hero::before{
-    content:''; position:absolute; inset:0; opacity:.12; pointer-events:none;
-    background-image:radial-gradient(circle at 15% 20%, #fff 0, transparent 55%), radial-gradient(circle at 85% 80%, #7fb2f2 0, transparent 45%);
+    content:''; position:absolute; inset:0; opacity:.1; pointer-events:none;
+    background-image:
+      radial-gradient(circle at 12% 22%, #fff 0, transparent 45%),
+      radial-gradient(circle at 88% 78%, #7fb2f2 0, transparent 40%);
   }
-  .hero-slide{
-    position:absolute; inset:0; opacity:0; transition:opacity .9s ease;
+  .hero::after{
+    content:''; position:absolute; left:0; right:0; bottom:-1px; height:80px; pointer-events:none;
+    background:linear-gradient(180deg, transparent 0%, #fff 100%);
   }
+  .hero-slide{position:absolute; inset:0; opacity:0; transition:opacity .9s ease;}
   .hero-slide.active{opacity:1;}
-  .hero-slide::after{content:none;}
   .hero-content{
-    position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:70px 32px 110px;
-    display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center; min-height:600px;
+    position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:80px 32px 130px;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
   }
   .hero-content > *{max-width:none;}
-  .hero-content .tag{
-    display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); backdrop-filter:blur(6px);
-    padding:8px 16px; border-radius:30px; font-size:.82rem; font-weight:600; margin-bottom:22px; width:fit-content;
-    border:1px solid rgba(255,255,255,.25); color:#fff;
+  .hero-text .tag{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.13); backdrop-filter:blur(8px);
+    padding:9px 18px; border-radius:30px; font-size:.82rem; font-weight:600; margin-bottom:20px; width:fit-content;
+    border:1px solid rgba(255,255,255,.28); color:#fff;
   }
-  .hero-content .tag .dot{width:7px; height:7px; border-radius:50%; background:#4fd17c;}
-  .hero-title{font-size:clamp(1.9rem, 4vw, 2.9rem); font-weight:800; color:#fff; margin-bottom:18px; letter-spacing:-.5px; line-height:1.1;}
-  .hero-title span{color:#7fb2f2;}
-  .hero-sub{font-size:1.05rem; color:rgba(255,255,255,.85); margin-bottom:30px; max-width:520px; line-height:1.6;}
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
-  .hero-visual{position:relative; height:100%; min-height:420px; display:flex; align-items:center; justify-content:center;}
-  .hero-visual-inner{
-    position:relative; width:100%; max-width:520px; aspect-ratio:1/1;
-    background:radial-gradient(circle at 50% 45%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 65%);
-    border-radius:24px; display:flex; align-items:center; justify-content:center;
+  .hero-text .tag .dot{width:8px; height:8px; border-radius:50%; background:#4fd17c; box-shadow:0 0 12px #4fd17c;}
+  .hero-title{font-size:clamp(1.85rem, 3.7vw, 2.8rem); font-weight:800; color:#fff; margin-bottom:16px; letter-spacing:-.5px; line-height:1.12;}
+  .hero-title span{color:#7fb2f2; display:inline-block;}
+  .hero-sub{font-size:1.02rem; color:rgba(255,255,255,.85); margin-bottom:28px; max-width:520px; line-height:1.6;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .hero-actions .btn-outline{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.4);}
+  .hero-actions .btn-outline:hover{background:#fff; color:var(--blue-dark);}
+
+  /* Visual: floating cards con foto real */
+  .hero-visual{position:relative; height:460px; display:flex; align-items:center; justify-content:center;}
+  .hero-visual-inner{position:relative; width:100%; height:100%;}
+  .hero-float{
+    position:absolute; background:#fff; border-radius:20px; padding:20px;
+    box-shadow:0 30px 70px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.4);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
-  .hero-visual-inner img{width:82%; height:82%; object-fit:contain; filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));}
+  .hero-float img{width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;}
+  .hero-float.f1{top:0; left:8%; width:56%; height:60%; animation:floatA 6s ease-in-out infinite;}
+  .hero-float.f2{bottom:0; right:0; width:48%; height:52%; animation:floatB 7s ease-in-out infinite;}
+  .hero-float.f3{
+    top:38%; right:32%; width:130px; height:130px; border-radius:50%; padding:14px;
+    animation:floatC 5s ease-in-out infinite;
+  }
+  @keyframes floatA{0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-12px) rotate(-3deg)}}
+  @keyframes floatB{0%,100%{transform:translateY(0) rotate(4deg)} 50%{transform:translateY(-14px) rotate(4deg)}}
+  @keyframes floatC{0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-8px) scale(1.05)}}
 
-  .hero-slide-content{position:absolute; inset:0; z-index:2; opacity:0; transition:opacity .6s ease .3s;}
-  .hero-slide.active .hero-slide-content{opacity:1;}
+  .hero-badges{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;}
+  .hero-badge{
+    background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.22); border-radius:12px;
+    padding:11px 16px; backdrop-filter:blur(10px); min-width:100px;
+  }
+  .hero-badge strong{display:block; color:#fff; font-size:1.1rem; font-weight:800;}
+  .hero-badge span{color:rgba(255,255,255,.78); font-size:.72rem; text-transform:uppercase; letter-spacing:1px;}
 
-  .hero-nav{position:absolute; z-index:3; bottom:26px; left:0; right:0;}
+  .hero-nav{position:absolute; z-index:3; bottom:36px; left:0; right:0;}
   .hero-nav .container{display:flex; justify-content:space-between; align-items:center;}
   .hero-dots{display:flex; gap:10px;}
   .hero-dots button{width:34px; height:4px; border-radius:4px; background:rgba(255,255,255,.35); border:none; cursor:pointer; transition:background .3s;}
   .hero-dots button.active{background:#fff;}
   .hero-arrows{display:flex; gap:10px;}
   .hero-arrows button{
-    width:44px; height:44px; border-radius:50%; border:1.5px solid rgba(255,255,255,.4); background:rgba(255,255,255,.08);
+    width:42px; height:42px; border-radius:50%; border:1.5px solid rgba(255,255,255,.4); background:rgba(255,255,255,.08);
     color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--transition);
   }
   .hero-arrows button:hover{background:#fff; color:var(--blue-dark); border-color:#fff;}
-  .hero-arrows svg{width:16px; height:16px;}
+  .hero-arrows svg{width:15px; height:15px;}
   @media (max-width:900px){
-    .hero-content{grid-template-columns:1fr; gap:28px; padding:56px 24px 90px; min-height:auto;}
-    .hero-visual{min-height:280px; order:-1;}
-    .hero-visual-inner{max-width:320px; aspect-ratio:1/1;}
+    .hero-content{grid-template-columns:1fr; gap:22px; padding:60px 24px 100px;}
+    .hero-visual{height:340px; order:-1;}
+    .hero-float.f3{width:100px; height:100px;}
   }
   @media (max-width:640px){
     .hero-nav .hero-arrows{display:none;}
-    .hero-title{font-size:1.85rem;}
-    .hero-sub{font-size:.97rem; margin-bottom:22px;}
-    .hero-actions .btn{flex:1; min-width:0; padding:12px 16px;}
+    .hero-title{font-size:1.75rem;}
+    .hero-sub{font-size:.94rem; margin-bottom:20px;}
+    .hero-actions .btn{flex:1; min-width:0; padding:12px 14px; font-size:.9rem;}
+    .hero-badges{gap:8px;} .hero-badge{padding:9px 12px; flex:1; min-width:0;} .hero-badge strong{font-size:.95rem;}
+    .hero-visual{height:280px;}
   }
 
   /* ============ QUICK STATS STRIP ============ */
@@ -468,7 +492,16 @@
   .pieza-hero-img img,
   .hero-visual-inner img{
     mix-blend-mode: multiply;
+    object-fit: contain !important;
   }
+  .cat-card-img img{padding:14px;}
+  .cat-card:hover .cat-card-img img{transform:scale(1.02) !important;}
+  .piece-card-img img{padding:18px !important;}
+  .piece-card:hover .piece-card-img img{transform:scale(1.02) !important;}
+
+  /* ==== REVEAL fallback (asegurar visible sin observer) ==== */
+  .reveal{opacity:1 !important; transform:none !important;}
+  .reveal.is-visible{opacity:1; transform:none;}
 
   /* ==== CATALOG SECTION rediseñada (dinámica, no aburrida) ==== */
   .catalog-section{padding:100px 0; position:relative; overflow:hidden;
@@ -621,7 +654,9 @@ if(window.self!==window.top){
       </div>
       <div class="hero-visual">
         <div class="hero-visual-inner">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Herraje TMI">
+          <div class="hero-float f1"><img src="/catalog_img/p09_img01.png" alt="Guía Perfil 40/22" onerror="this.style.display='none'"></div>
+          <div class="hero-float f2"><img src="/catalog_img/p26_img08.png" alt="Ángulo montaje" onerror="this.style.display='none'"></div>
+          <div class="hero-float f3"><img src="/catalog_img/p64_img02.png" alt="Arandela dentada" onerror="this.style.display='none'"></div>
         </div>
       </div>
     </div>
@@ -639,7 +674,9 @@ if(window.self!==window.top){
       </div>
       <div class="hero-visual">
         <div class="hero-visual-inner">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Screenshot_258.png" alt="Guía perfil 40/22">
+          <div class="hero-float f1"><img src="/catalog_img/p32_img01.png" alt="Escuadra" onerror="this.style.display='none'"></div>
+          <div class="hero-float f2"><img src="/catalog_img/p11_img04.jpeg" alt="Tornillo TCA" onerror="this.style.display='none'"></div>
+          <div class="hero-float f3"><img src="/catalog_img/p17_img01.png" alt="Anclaje" onerror="this.style.display='none'"></div>
         </div>
       </div>
     </div>
@@ -657,7 +694,9 @@ if(window.self!==window.top){
       </div>
       <div class="hero-visual">
         <div class="hero-visual-inner">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp" alt="Placas de anclaje">
+          <div class="hero-float f1"><img src="/catalog_img/p51_img01.png" alt="Escuadra fresada" onerror="this.style.display='none'"></div>
+          <div class="hero-float f2"><img src="/catalog_img/p81_img03.png" alt="Argolla" onerror="this.style.display='none'"></div>
+          <div class="hero-float f3"><img src="/catalog_img/p75_img03.jpeg" alt="Z Cubierta" onerror="this.style.display='none'"></div>
         </div>
       </div>
     </div>
@@ -706,9 +745,9 @@ if(window.self!==window.top){
     </div>
 
     <div class="products-grid">
-      <a href="producto-detalle.html?producto=antivuelco" class="cat-card reveal" id="p-paneles">
+      <a href="producto-detalle.html?producto=antivuelco" class="cat-card reveal" id="p-antivuelco">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png" alt="Fijaciones Antivuelco" loading="lazy">
+          <img src="/catalog_img/p26_img08.png" alt="Fijaciones Antivuelco" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png'">
           <div class="cat-card-hover"><h4>Fijaciones Antivuelco</h4><p>Guía perfil 40/22 · Tornillería TCA · Bayoneta</p></div>
         </div>
         <div class="cat-card-body">
@@ -720,7 +759,7 @@ if(window.self!==window.top){
 
       <a href="producto-detalle.html?producto=ajustables" class="cat-card reveal reveal-delay-1" id="p-ajustables">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp" alt="Fijaciones Ajustables" loading="lazy">
+          <img src="/catalog_img/p51_img01.png" alt="Fijaciones Ajustables" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp'">
           <div class="cat-card-hover"><h4>Fijaciones Ajustables</h4><p>Escuadras fresadas · Arandelas dentadas</p></div>
         </div>
         <div class="cat-card-body">
@@ -732,7 +771,7 @@ if(window.self!==window.top){
 
       <a href="producto-detalle.html?producto=cubiertas" class="cat-card reveal reveal-delay-2" id="p-cubiertas">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp" alt="Fijación de Cubiertas" loading="lazy">
+          <img src="/catalog_img/p75_img03.jpeg" alt="Fijación de Cubiertas" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp'">
           <div class="cat-card-hover"><h4>Fijación de Cubiertas</h4><p>U Correa · Z Cubierta · S Montaje · Argollas</p></div>
         </div>
         <div class="cat-card-body">
@@ -744,7 +783,7 @@ if(window.self!==window.top){
 
       <a href="producto-detalle.html?producto=placas" class="cat-card reveal" id="p-placas">
         <div class="cat-card-img">
-          <img src="https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp" alt="Placas de Anclaje" loading="lazy">
+          <img src="/catalog_img/p83_img03.jpeg" alt="Placas de Anclaje" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp'">
           <div class="cat-card-hover"><h4>Placas de Anclaje</h4><p>De 6 a 35 mm de espesor · A medida</p></div>
         </div>
         <div class="cat-card-body">
@@ -1143,6 +1182,33 @@ const cookieBanner = document.getElementById('cookieBanner');
 setTimeout(() => cookieBanner.classList.add('show'), 1200);
 document.getElementById('cookieAccept').addEventListener('click', () => cookieBanner.classList.remove('show'));
 document.getElementById('cookieReject').addEventListener('click', () => cookieBanner.classList.remove('show'));
+
+/* ---------- Counter animation ---------- */
+(function initCounters(){
+  const stats = document.querySelectorAll('.catalog-stat strong');
+  if (!stats.length) return;
+  const animate = (el) => {
+    const raw = el.textContent.replace(/[^0-9]/g,'');
+    const target = parseInt(raw, 10) || 0;
+    const prefix = el.textContent.trim().startsWith('+') ? '+' : '';
+    const suffix = el.textContent.includes('+') && !el.textContent.startsWith('+') ? '+' : '';
+    const duration = 1400; const start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start) / duration, 1);
+      const val = Math.floor(p * target);
+      el.textContent = prefix + val + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  stats.forEach(s => io.observe(s));
+})();
 
 /* ---------- Contact form (backend) ---------- */
 const BACKEND_URL_META = 'https://woodcraft-preview-4.preview.emergentagent.com';

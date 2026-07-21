@@ -635,3 +635,34 @@ const ALL_PIECES = (function(){
   });
   return map;
 })();
+
+// ---------- Galería adicional por pieza (imágenes reales del catálogo) ----------
+const GALLERY = {
+  "guia-4022":      ["/catalog_img/p09_img01.png","/catalog_img/p10_img03.jpeg","/catalog_img/p11_img03.png"],
+  "tornillo-tca":   ["/catalog_img/p11_img04.jpeg","/catalog_img/p11_img05.png","/catalog_img/p11_img06.png"],
+  "bayoneta":       ["/catalog_img/p13_img06.jpeg","/catalog_img/p13_img07.jpeg","/catalog_img/p13_img08.jpeg"],
+  "bayoneta-fresada":["/catalog_img/p15_img01.jpeg","/catalog_img/p15_img02.jpeg","/catalog_img/p15_img03.png"],
+  "anclaje-oculto": ["/catalog_img/p17_img01.png","/catalog_img/p23_img04.png","/catalog_img/p23_img05.png"],
+  "aoculto-fresado":["/catalog_img/p19_img02.jpeg","/catalog_img/p19_img03.png","/catalog_img/p19_img04.png"],
+  "aoculto-100":    ["/catalog_img/p21_img03.jpeg","/catalog_img/p21_img04.png","/catalog_img/p21_img05.png"],
+  "angulo-100x10":  ["/catalog_img/p24_img01.jpeg","/catalog_img/p24_img03.jpeg","/catalog_img/p24_img04.jpeg"],
+  "angulo-coliso":  ["/catalog_img/p25_img02.png","/catalog_img/p26_img04.png","/catalog_img/p26_img09.jpeg"],
+  "angulo-medida":  ["/catalog_img/p26_img08.png","/catalog_img/p26_img10.png","/catalog_img/p26_img11.png"],
+  "plantilla-montaje":["/catalog_img/p29_img01.png","/catalog_img/p29_img02.png","/catalog_img/p29_img05.jpeg"],
+  "escuadra-50x8":  ["/catalog_img/p32_img01.png","/catalog_img/p26_img07.png","/catalog_img/p26_img04.png"],
+  "escuadra-60x8":  ["/catalog_img/p34_img02.jpeg","/catalog_img/p26_img04.png","/catalog_img/p32_img01.png"],
+  "escuadra-80x8":  ["/catalog_img/p36_img02.jpeg","/catalog_img/p26_img08.png","/catalog_img/p26_img07.png"],
+  "escuadra-refuerzo-50":["/catalog_img/p38_img01.jpeg","/catalog_img/p38_img03.png","/catalog_img/p38_img04.png"],
+  "esc-fresada-50": ["/catalog_img/p51_img01.png","/catalog_img/p47_img03.png","/catalog_img/p47_img04.png"],
+  "esc-fresada-60": ["/catalog_img/p49_img01.jpeg","/catalog_img/p51_img01.png","/catalog_img/p47_img03.png"],
+  "esc-fresada-80r":["/catalog_img/p63_img03.png","/catalog_img/p51_img01.png","/catalog_img/p47_img03.png"],
+  "arandela-dentada":["/catalog_img/p64_img02.png","/catalog_img/p64_img04.png","/catalog_img/p51_img01.png"],
+  "u-correa":       ["/catalog_img/p67_img02.jpeg","/catalog_img/p67_img03.jpeg","/catalog_img/p68_img03.png"],
+  "sce":            ["/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.png","/catalog_img/p70_img03.png"],
+  "z-correa":       ["/catalog_img/p71_img02.png","/catalog_img/p72_img03.png","/catalog_img/p71_img03.png"],
+  "z-cubierta":     ["/catalog_img/p75_img03.jpeg","/catalog_img/p75_img04.png","/catalog_img/p76_img03.png"],
+  "s-montaje":      ["/catalog_img/p77_img02.jpeg","/catalog_img/p77_img03.png","/catalog_img/p77_img04.png"],
+  "s-canalon":      ["/catalog_img/p79_img02.jpeg","/catalog_img/p79_img03.png","/catalog_img/p79_img04.png"],
+  "argollas":       ["/catalog_img/p81_img03.png","/catalog_img/p81_img04.png","/catalog_img/p81_img05.png"],
+  "placa-medida":   ["/catalog_img/p83_img03.jpeg","/catalog_img/p83_img04.png","/catalog_img/p83_img05.png"]
+};
