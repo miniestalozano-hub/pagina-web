@@ -10,8 +10,8 @@ const IMG = {
   // Piezas reales extraídas del PDF
   guia:        CAT+"p09_img01.png",   // Guía perfil 40/22
   tornillo:    CAT+"p11_img04.jpeg",  // Tornillo TCA
-  bayoneta:    CAT+"p13_img06.jpeg",
-  bayoneta_f:  CAT+"p15_img01.jpeg",
+  bayoneta:    CAT+"p14_img03.jpeg", // Bayoneta contexto real
+  bayoneta_f:  CAT+"p14_img03.jpeg",
   anclaje:     CAT+"p17_img01.png",   // Anclaje oculto con corcho
   anclaje_f:   CAT+"p19_img02.jpeg",
   anclaje100:  CAT+"p21_img03.jpeg",
@@ -22,7 +22,7 @@ const IMG = {
   angulo_med2: CAT+"p26_img09.jpeg",
   plantilla:   CAT+"p27_img05.jpeg",
   plantilla_m: CAT+"p29_img01.png",   // Plantilla con coliso
-  pletina:     CAT+"p30_img02.jpeg",
+  pletina:     CAT+"p31_img04.png", // Pletina real
   escuadra50:  CAT+"p32_img01.png",   // Escuadra con coliso
   escuadra60:  CAT+"p34_img02.jpeg",
   escuadra80:  CAT+"p36_img02.jpeg",

@@ -1,36 +1,30 @@
-# PRD — Talleres M. Iniesta (Web réplica + rework)
+# PRD — Talleres M. Iniesta (Web)
 
-## Iteración 3 (correcciones visuales solicitadas por usuario)
+## Iteración 4 (correcciones finales)
 
 ### Cambios aplicados
-- **Hero rediseñado**: layout con 3 tarjetas flotantes con animación suave (translateY + rotación) y difuminado en el borde inferior para que no invada la sección siguiente
-- **Reveal fix**: los elementos ya no arrancan con `opacity:0`, evita las secciones "vacías" cuando el observer no dispara (fallo notable en "Más que fabricación")
-- **Fotos de piezas sin zoom**: `object-fit:contain` + padding, hover reducido a scale 1.02
-- **Solo fotos de piezas** (no diagramas): categoría "Ajustables" ahora usa foto real de escuadra fresada, Antivuelco usa ángulo largo, Cubiertas usa Z Cubierta, Placas usa foto real
-- **Galería adicional en cada pieza** (`pieza.html`): 3 fotos extra del catálogo debajo de las características, con lightbox al pulsar
-- **Contador animado** en las 4 estadísticas del catálogo (dispara al scroll)
-- **Iconos mejorados en imágenes de categoría** con onerror fallback
+- **Hero completamente rediseñado**: se añade `padding-top:96px` para respetar el header fijo y ya no se corta la parte superior. Las tarjetas flotantes se ven perfectas.
+- **Animación estilo noxifer**: las tarjetas de categoría ahora tienen overlay que se desliza desde abajo (transform:translateY 100%→0), gradient azul intenso, con el título+descripción emergiendo. Mismo efecto en piece-cards del listado.
+- **Fotos incorrectas corregidas**:
+  - Bayoneta/Bayoneta fresada → `p14_img03.jpeg` (foto real en contexto de guía embebida)
+  - Pletina 250x50x8 / Pletina a Medida → `p31_img04.png` (foto real de la pletina con 4 taladros)
+- **Nueva sección "Nuestras capacidades"** con 3 tarjetas (Mecanizado CNC, Torneado, Soldadura homologada) usando fotos reales del catálogo (p87_img42, p87_img43, p87_img47) + fila de 5 badges de certificaciones (CE 1239, EN 1090-1, Tecnalia, Bureau Veritas, UNE-EN 1993-1-1/8).
 
-### Contenido dinámico añadido
-- Contador animado stats (+40, 40+, 6, 1) al entrar en viewport
-- 3 imágenes flotantes en cada slide del hero, cada una con animación de flotación distinta
-- Lightbox modal para ver fotos de pieza a gran tamaño
-- Galería adicional (3 fotos por pieza extraídas del catálogo PDF)
+### Contenido dinámico
+- Contador animado en stats (+40, 40+, 6, 1)
+- Tarjetas flotantes en hero (3 animaciones distintas)
+- Lightbox modal en galería de piezas
+- Hover slide-up con gradient en categorías y piezas (estilo noxifer)
+- Nueva sección de procesos con imágenes reales del catálogo TMI
 
-## Historial resumido (iteraciones 1-3)
-- **Iter 1**: base HTML + backend contact + pieza.html + LinkedIn/WhatsApp reales
-- **Iter 2**: catálogo TMI 2024 completo (40+ piezas, 6 categorías) + mix-blend-mode + fix hamburguesa
-- **Iter 3**: hero rediseñado + galería + contadores + fix reveal + imágenes categoría corregidas
-
-## Rutas activas
-- `/` — Home
-- `/producto-detalle.html?producto=<antivuelco|ajustables|cubiertas|placas|medida|mecanizado>`
-- `/pieza.html?id=<40+ piezas>`
-- `POST /api/contact` · `GET /api/contact`
+## Historial resumido
+- Iter 1: Base HTML + backend contact + LinkedIn/WhatsApp
+- Iter 2: Catálogo TMI 2024 (40+ piezas), 6 categorías, mix-blend-mode
+- Iter 3: Hero 2-col, reveal fix, galería pieza con lightbox, contadores
+- Iter 4: Hero fix (no cutoff), noxifer hover, fotos corregidas, sección procesos
 
 ## Backlog
-- [ ] Modelos 3D específicos por pieza usando fotos del catálogo como referencia
-- [ ] Sección "Quiénes Somos" con datos completos
-- [ ] Comparativa interactiva de piezas (Bayoneta vs Bayoneta Fresada, etc.)
-- [ ] Envío real de email cuando el usuario lo pida (Resend/SendGrid)
-- [ ] Panel admin para leer los mensajes recibidos
+- Modelos 3D específicos por pieza con detalle industrial exacto
+- Sección "Quiénes Somos" con historia completa 40 años
+- Comparativa interactiva entre piezas
+- Envío real de email (Resend/SendGrid cuando el usuario lo pida)

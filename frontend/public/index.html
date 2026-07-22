@@ -166,7 +166,7 @@
   }
 
   /* ============ HERO SLIDER ============ */
-  .hero{position:relative; overflow:hidden; background:linear-gradient(115deg, #0a2c5c 0%, #14488f 55%, #1857a8 100%);}
+  .hero{position:relative; overflow:hidden; background:linear-gradient(115deg, #0a2c5c 0%, #14488f 55%, #1857a8 100%); padding-top:96px;}
   .hero::before{
     content:''; position:absolute; inset:0; opacity:.1; pointer-events:none;
     background-image:
@@ -177,11 +177,11 @@
     content:''; position:absolute; left:0; right:0; bottom:-1px; height:80px; pointer-events:none;
     background:linear-gradient(180deg, transparent 0%, #fff 100%);
   }
-  .hero-slide{position:absolute; inset:0; opacity:0; transition:opacity .9s ease;}
-  .hero-slide.active{opacity:1;}
+  .hero-slide{position:relative; opacity:0; transition:opacity .9s ease; display:none;}
+  .hero-slide.active{opacity:1; display:block;}
   .hero-content{
-    position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:80px 32px 130px;
-    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
+    position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:60px 32px 140px;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; min-height:520px;
   }
   .hero-content > *{max-width:none;}
   .hero-text .tag{
@@ -277,19 +277,20 @@
     background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--gray-100);
     transition:var(--transition); display:flex; flex-direction:column;
   }
-  .cat-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:transparent;}
-  .cat-card-img{height:210px; overflow:hidden; position:relative; background:var(--gray-100);}
-  .cat-card-img img{width:100%; height:100%; object-fit:cover; transition:transform .7s ease, filter .4s ease;}
-  .cat-card:hover .cat-card-img img{transform:scale(1.08); filter:brightness(.28);}
-  /* Overlay que aparece SOBRE la imagen al pasar el ratón / primer toque (igual que en el vídeo de referencia) */
+  .cat-card:hover{transform:translateY(-10px); box-shadow:0 30px 60px rgba(24,87,168,.25); border-color:var(--blue-accent);}
+  .cat-card-img{height:220px; overflow:hidden; position:relative; background:#fff;}
+  .cat-card-img img{width:100%; height:100%; object-fit:contain; padding:14px; transition:transform .7s cubic-bezier(.4,0,.2,1);}
+  .cat-card:hover .cat-card-img img{transform:scale(1.04);}
+  /* Overlay estilo noxifer: se desliza desde abajo con el hover */
   .cat-card-hover{
-    position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:18px;
-    opacity:0; transition:opacity .35s ease; pointer-events:none;
-    background:rgba(6,12,26,.5);
+    position:absolute; left:0; right:0; bottom:0; padding:20px 22px;
+    background:linear-gradient(180deg, rgba(10,44,92,0) 0%, rgba(10,44,92,.92) 55%, rgba(10,44,92,.98) 100%);
+    transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1);
+    pointer-events:none;
   }
-  .cat-card:hover .cat-card-hover{opacity:1;}
-  .cat-card-hover h4{color:#fff; font-size:1.05rem; margin-bottom:6px;}
-  .cat-card-hover p{color:rgba(255,255,255,.9); font-size:.85rem; margin-bottom:0;}
+  .cat-card:hover .cat-card-hover{transform:translateY(0);}
+  .cat-card-hover h4{color:#fff; font-size:1.1rem; margin-bottom:6px;}
+  .cat-card-hover p{color:rgba(255,255,255,.9); font-size:.86rem; margin-bottom:0;}
   .cat-card-body{padding:24px 24px 26px; display:flex; flex-direction:column; flex:1;}
   .cat-card-body h3{font-size:1.15rem; margin-bottom:10px;}
   .cat-card-body p{color:var(--gray-500); font-size:.92rem; flex:1; margin-bottom:18px;}
@@ -873,6 +874,53 @@ if(window.self!==window.top){
         <h4>Atención cercana</h4>
         <p>Más de 40 años de experiencia y un trato directo y personalizado con cada cliente.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESOS / CAPACIDADES (nuevo, del catálogo) ============ -->
+<section class="section processes-section" style="background:var(--gray-50); padding:80px 0;">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="text-align:center; width:100%; display:block;">Nuestras capacidades</span>
+      <h2>Procesos, maquinaria y certificaciones</h2>
+      <p>2 centros de mecanizado, 4 tornos automáticos, 2 tornos manuales, numerosas fresas y plegadoras. Marcado CE 1239 y homologaciones EN 1090-1, Tecnalia y Bureau Veritas.</p>
+    </div>
+    <div class="processes-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px;">
+      <div class="process-card reveal" style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); transition:transform .4s, box-shadow .4s;">
+        <div style="height:220px; background:#f0f2f5; overflow:hidden; position:relative;">
+          <img src="/catalog_img/p87_img42.jpeg" alt="Mecanizado CNC" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div style="padding:24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Mecanizado CNC</h4>
+          <p style="color:var(--gray-500); font-size:.92rem; line-height:1.55;">2 centros de mecanizado + 4 tornos automáticos + fresas y plegadoras propias para casi cualquier geometría.</p>
+        </div>
+      </div>
+      <div class="process-card reveal reveal-delay-1" style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);">
+        <div style="height:220px; background:#f0f2f5; overflow:hidden; position:relative;">
+          <img src="/catalog_img/p87_img43.jpeg" alt="Torneado" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div style="padding:24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Torneado de precisión</h4>
+          <p style="color:var(--gray-500); font-size:.92rem; line-height:1.55;">Tornos automáticos y manuales para tornillería especial TCA y piezas de revolución bajo plano.</p>
+        </div>
+      </div>
+      <div class="process-card reveal reveal-delay-2" style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);">
+        <div style="height:220px; background:#f0f2f5; overflow:hidden; position:relative;">
+          <img src="/catalog_img/p87_img47.jpeg" alt="Soldadura homologada" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div style="padding:24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Soldadura homologada</h4>
+          <p style="color:var(--gray-500); font-size:.92rem; line-height:1.55;">Procedimientos homologados <strong>Bureau Veritas WPQR</strong> para las escuadras con cartelas y anclajes ocultos.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:44px; display:flex; flex-wrap:wrap; justify-content:center; gap:14px;" class="reveal">
+      <div class="cert-pill" style="background:#fff; border:1px solid var(--gray-100); border-radius:30px; padding:10px 22px; font-weight:700; font-size:.88rem; color:var(--blue); box-shadow:var(--shadow);">CE 1239</div>
+      <div class="cert-pill" style="background:#fff; border:1px solid var(--gray-100); border-radius:30px; padding:10px 22px; font-weight:700; font-size:.88rem; color:var(--blue); box-shadow:var(--shadow);">EN 1090-1:2009+A1:2011</div>
+      <div class="cert-pill" style="background:#fff; border:1px solid var(--gray-100); border-radius:30px; padding:10px 22px; font-weight:700; font-size:.88rem; color:var(--blue); box-shadow:var(--shadow);">Tecnalia Certification</div>
+      <div class="cert-pill" style="background:#fff; border:1px solid var(--gray-100); border-radius:30px; padding:10px 22px; font-weight:700; font-size:.88rem; color:var(--blue); box-shadow:var(--shadow);">Bureau Veritas WPQR</div>
+      <div class="cert-pill" style="background:#fff; border:1px solid var(--gray-100); border-radius:30px; padding:10px 22px; font-weight:700; font-size:.88rem; color:var(--blue); box-shadow:var(--shadow);">UNE-EN 1993-1-1/8</div>
     </div>
   </div>
 </section>
