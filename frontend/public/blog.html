@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Talleres M. Iniesta</title>
+<meta name="description" content="Blog técnico de Talleres M. Iniesta: guías de instalación de herrajes para prefabricado de hormigón, comparativas de sistemas antivuelco y ajustables, casos de estudio.">
+<meta name="keywords" content="blog herrajes hormigón, guía perfil 40/22, sistema antivuelco, bayoneta fresada, escuadras dentadas, prefabricado, tutoriales Talleres Iniesta">
+<link rel="canonical" href="https://www.talleresiniesta.es/blog.html">
+<meta property="og:title" content="Blog · Talleres M. Iniesta">
+<meta property="og:description" content="Guías técnicas, tutoriales y comparativas del sistema TMI.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1857a8; --blue-dark:#0a2c5c; --blue-light:#e8eef7; --gray-50:#f7f9fc; --gray-100:#e8ecf3; --gray-500:#5c6980; --gray-900:#141b2c;}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Inter','Manrope',sans-serif; color:var(--gray-900); background:#fff; line-height:1.6;}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif; letter-spacing:-.3px; line-height:1.2;}
+a{color:inherit; text-decoration:none;}
+.container{max-width:1180px; margin:0 auto; padding:0 24px;}
+/* header */
+.topbar{background:var(--blue-dark); color:rgba(255,255,255,.85); font-size:.82rem; padding:8px 0;}
+.topbar .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+.topbar a{color:rgba(255,255,255,.85); margin-right:14px;}
+.header{background:#fff; border-bottom:1px solid var(--gray-100); position:sticky; top:0; z-index:10; padding:16px 0;}
+.header .container{display:flex; justify-content:space-between; align-items:center;}
+.brand{font-family:'Manrope',sans-serif; font-weight:800; font-size:1.15rem; color:var(--blue); letter-spacing:-.5px;}
+.brand span{color:var(--gray-900);}
+.header nav{display:flex; gap:26px;}
+.header nav a{color:var(--gray-500); font-size:.94rem; font-weight:500;}
+.header nav a:hover, .header nav a.active{color:var(--blue);}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:11px 20px; border-radius:8px; font-weight:600; transition:.3s;}
+.btn-primary{background:var(--blue); color:#fff;}
+.btn-primary:hover{background:var(--blue-dark);}
+/* hero */
+.hero{background:linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%); color:#fff; padding:80px 0 60px; position:relative; overflow:hidden;}
+.hero::before{content:''; position:absolute; inset:0; opacity:.1; background:radial-gradient(circle at 20% 30%, #fff 0, transparent 45%), radial-gradient(circle at 80% 70%, #7fb2f2 0, transparent 40%);}
+.hero .container{position:relative; z-index:1;}
+.hero h1{font-size:clamp(2rem, 4vw, 2.8rem); font-weight:800; margin-bottom:14px;}
+.hero p{font-size:1.1rem; color:rgba(255,255,255,.85); max-width:680px;}
+.eyebrow{display:inline-block; background:rgba(255,255,255,.15); backdrop-filter:blur(6px); padding:6px 14px; border-radius:20px; font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:16px; border:1px solid rgba(255,255,255,.25);}
+/* posts */
+.posts{padding:70px 0;}
+.posts-head{margin-bottom:44px;}
+.posts-head h2{font-size:1.8rem; margin-bottom:10px;}
+.posts-head p{color:var(--gray-500); font-size:1rem;}
+.posts-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+.post-card{background:#fff; border:1px solid var(--gray-100); border-radius:16px; overflow:hidden; box-shadow:0 4px 12px rgba(20,32,58,.05); transition:.4s; cursor:pointer; position:relative;}
+.post-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px rgba(24,87,168,.2); border-color:transparent;}
+.post-img{height:200px; background:var(--gray-50); overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; padding:18px;}
+.post-img img{max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply; transition:transform .6s;}
+.post-card:hover .post-img img{transform:scale(1.05);}
+.post-body{padding:24px;}
+.post-cat{color:var(--blue); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; display:block;}
+.post-body h3{font-size:1.15rem; margin-bottom:10px; line-height:1.35;}
+.post-body p{color:var(--gray-500); font-size:.92rem; margin-bottom:16px;}
+.post-meta{display:flex; justify-content:space-between; align-items:center; font-size:.82rem; color:var(--gray-500);}
+.post-meta .read-more{color:var(--blue); font-weight:600; display:flex; align-items:center; gap:4px;}
+/* CTA */
+.cta{background:var(--gray-50); padding:70px 0; text-align:center;}
+.cta h2{font-size:1.9rem; margin-bottom:14px;}
+.cta p{color:var(--gray-500); margin-bottom:24px; max-width:520px; margin-left:auto; margin-right:auto;}
+/* footer */
+footer{background:var(--blue-dark); color:rgba(255,255,255,.7); padding:44px 0 22px; font-size:.9rem;}
+footer .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+footer a{color:rgba(255,255,255,.85);}
+footer a:hover{color:#fff;}
+@media (max-width:900px){
+  .posts-grid{grid-template-columns:1fr; gap:20px;}
+  .header nav{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <div><a href="mailto:pedidos@talleresiniesta.es">📧 pedidos@talleresiniesta.es</a><a href="tel:+34629747960">📞 629 747 960</a></div>
+  <div><a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></div>
+<header class="header"><div class="container">
+  <a href="index.html" class="brand">Talleres <span>M.Iniesta</span></a>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#productos">Productos</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="container">
+  <span class="eyebrow">Blog técnico TMI</span>
+  <h1>Guías, comparativas y casos de estudio del prefabricado</h1>
+  <p>Artículos técnicos escritos por nuestro equipo con +40 años de experiencia en herrajes para prefabricado de hormigón. Ideal para proyectistas, ingenieros y jefes de obra.</p>
+</div></section>
+
+<section class="posts"><div class="container">
+  <div class="posts-head">
+    <h2>Últimos artículos</h2>
+    <p>Todo lo que necesitas saber sobre sistemas de fijación, diseño estructural y montaje.</p>
+  </div>
+  <div class="posts-grid" id="postsGrid"></div>
+</div></section>
+
+<section class="cta"><div class="container">
+  <h2>¿Necesitas asesoramiento técnico?</h2>
+  <p>Nuestro equipo de ingenieros te ayuda a elegir el sistema más adecuado para tu proyecto de prefabricado.</p>
+  <a href="index.html#contacto" class="btn btn-primary">Contactar</a>
+</div></section>
+
+<footer><div class="container">
+  <div>© 2026 Talleres M. Iniesta SL — Fortuna, Murcia</div>
+  <div><a href="index.html">Inicio</a> · <a href="index.html#productos">Productos</a> · <a href="index.html#contacto">Contacto</a></div>
+</div></footer>
+
+<script>
+const POSTS = [
+  {cat:"Sistemas", title:"Guía Perfil 40/22: cómo elegir la longitud correcta según el panel", excerpt:"La guía perfil 40/22 se fabrica en longitudes de 240 y 500 mm y también a medida. Analizamos qué longitud usar según el tipo de panel y carga a soportar.", img:"/catalog_img/p09_img01.png", date:"22 Jul 2026", read:"5 min"},
+  {cat:"Comparativa", title:"Bayoneta vs Bayoneta Fresada: ¿cuándo usar cada una?", excerpt:"La versión fresada garantiza la ausencia de deslizamiento tras el apriete. Explicamos en qué situaciones el sobrecoste está justificado y cuándo basta con la estándar.", img:"/catalog_img/p13_img22.jpeg", date:"18 Jul 2026", read:"7 min"},
+  {cat:"Instalación", title:"Cómo montar el sistema Guía + TCA + Bayoneta paso a paso", excerpt:"Guía visual completa del montaje del sistema antivuelco: colocación del perfil embebido, introducción del tornillo TCA, giro 90° y fijación final.", img:"/catalog_img/p14_img05.jpeg", date:"12 Jul 2026", read:"8 min"},
+  {cat:"Materiales", title:"Diferencias entre S235JR, S275JR y S355JR en herrajes prefabricado", excerpt:"Cada calidad de acero tiene aplicaciones específicas en el catálogo TMI. Vemos por qué se usa uno u otro en cada pieza y qué implicaciones tiene para el proyecto.", img:"/catalog_img/p32_img01.png", date:"05 Jul 2026", read:"6 min"},
+  {cat:"Certificaciones", title:"Marcado CE 1239 y EN 1090-1: qué significa para tus proyectos", excerpt:"Nuestros herrajes cuentan con Marcado CE, homologación Tecnalia y Bureau Veritas. Explicamos qué garantiza cada certificación y por qué es imprescindible.", img:"/catalog_img/p87_img42.jpeg", date:"28 Jun 2026", read:"4 min"},
+  {cat:"Cubiertas", title:"Sistema completo para fijación de correas y canalones en cubiertas prefabricadas", excerpt:"U Correa, SCE, Z Correa, Z Cubierta, S Montaje, S Canalón — presentamos el sistema completo TMI para cubiertas con ejemplos de aplicación real.", img:"/catalog_img/p75_img03.jpeg", date:"20 Jun 2026", read:"9 min"}
+];
+document.getElementById('postsGrid').innerHTML = POSTS.map(p =>
+  '<article class="post-card">' +
+    '<div class="post-img"><img src="'+p.img+'" alt="'+p.title+'" loading="lazy"></div>' +
+    '<div class="post-body">' +
+      '<span class="post-cat">'+p.cat+'</span>' +
+      '<h3>'+p.title+'</h3>' +
+      '<p>'+p.excerpt+'</p>' +
+      '<div class="post-meta"><span>'+p.date+' · '+p.read+'</span><span class="read-more">Leer más ›</span></div>' +
+    '</div>' +
+  '</article>'
+).join('');
+</script>
+</body>
+</html>
