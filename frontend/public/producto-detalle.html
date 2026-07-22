@@ -179,6 +179,10 @@
   .downloads-hero img{ mix-blend-mode: multiply; }
   .piece-card-img{background:#fff !important;}
 
+  /* Forzar contain universal para no recortar piezas */
+  .piece-card-img img{ object-fit: contain !important; padding: 22px !important; width:100% !important; height:100% !important; }
+  .piece-card-img{ min-height: 210px; }
+
   /* ==== Menú hamburguesa móvil ==== */
   .nav-overlay{position:fixed; inset:0; background:rgba(10,15,30,.55); z-index:98; opacity:0; pointer-events:none; transition:opacity .35s;}
   .nav-overlay.open{opacity:1; pointer-events:auto;}

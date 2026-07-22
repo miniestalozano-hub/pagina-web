@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Artículo | Talleres M. Iniesta</title>
+<meta name="description" id="metaDesc" content="Blog de Talleres M. Iniesta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#fff; --gray-50:#f5f7fa; --gray-100:#eaeef2; --gray-200:#dde3ea; --gray-300:#c2cbd6;
+    --gray-500:#6b7684; --gray-700:#3c4552; --gray-800:#262f3b; --gray-900:#161c24;
+    --blue:#1857a8; --blue-dark:#0e3d80; --blue-darker:#0a2c5c; --blue-light:#e8f0fb; --blue-accent:#2f7ee0;
+    --radius:10px; --shadow:0 10px 30px rgba(16,32,58,.08); --shadow-lg:0 20px 50px rgba(16,32,58,.16);
+    --transition:.35s cubic-bezier(.4,0,.2,1); font-family:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{color:var(--gray-800); line-height:1.7; background:#fff;}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif; line-height:1.25; color:var(--gray-900);}
+  .container{max-width:1200px; margin:0 auto; padding:0 24px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; justify-content:center; padding:14px 28px; border-radius:6px; font-weight:600; font-size:.95rem; cursor:pointer; border:2px solid transparent; transition:var(--transition); white-space:nowrap;}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{background:var(--blue-dark); transform:translateY(-2px); box-shadow:var(--shadow-lg);}
+  .btn-outline{background:transparent; color:var(--blue); border-color:var(--blue);}
+  .btn-outline:hover{background:var(--blue); color:#fff;}
+  .eyebrow{text-transform:uppercase; letter-spacing:2px; font-size:.78rem; font-weight:700; color:var(--blue); margin-bottom:12px; display:block;}
+
+  .topbar{background:var(--blue-darker); color:rgba(255,255,255,.85); font-size:.82rem;}
+  .topbar .container{display:flex; justify-content:space-between; align-items:center; padding-top:8px; padding-bottom:8px;}
+  .topbar-left{display:flex; gap:22px; flex-wrap:wrap;}
+  .topbar-left a{color:rgba(255,255,255,.85);}
+  .topbar-right{display:flex; gap:14px;}
+  .topbar-right a{width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center;}
+  .topbar-right svg{width:14px; height:14px; fill:#fff;}
+  @media (max-width:760px){ .topbar-left span.hide-mobile{display:none;} }
+
+  header.site-header{position:sticky; top:0; z-index:1000; background:#fff; box-shadow:0 2px 18px rgba(16,32,58,.06);}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo img{height:42px; filter:invert(20%) sepia(60%) saturate(900%) hue-rotate(180deg);}
+  nav.main-nav > ul{display:flex; gap:4px;}
+  nav.main-nav > ul > li > a{display:block; padding:12px 16px; font-weight:600; font-size:.94rem; color:var(--gray-800); border-radius:6px;}
+  nav.main-nav > ul > li > a:hover{color:var(--blue); background:var(--blue-light);}
+  @media (max-width:900px){ nav.main-nav{display:none;} }
+
+  .breadcrumb{background:var(--gray-50); border-bottom:1px solid var(--gray-100);}
+  .breadcrumb .container{display:flex; align-items:center; gap:8px; padding:16px 24px; font-size:.85rem; color:var(--gray-500); flex-wrap:wrap;}
+  .breadcrumb a{color:var(--blue); font-weight:600;}
+  .breadcrumb .current{color:var(--gray-800); font-weight:600;}
+  .breadcrumb .sep{color:var(--gray-300);}
+
+  /* ARTICLE HERO */
+  .art-hero{background:linear-gradient(120deg,#0a2c5c 0%,#14488f 55%,#1857a8 100%); color:#fff; padding:80px 0 60px; position:relative; overflow:hidden;}
+  .art-hero::before{content:''; position:absolute; inset:0; opacity:.12; background:radial-gradient(circle at 20% 30%, #fff 0, transparent 45%), radial-gradient(circle at 85% 70%, #7fb2f2 0, transparent 40%);}
+  .art-hero .container{position:relative; z-index:2; max-width:820px;}
+  .art-hero .eyebrow{color:#7fb2f2;}
+  .art-hero h1{font-size:clamp(1.9rem,3.4vw,2.7rem); color:#fff; margin-bottom:18px; line-height:1.2;}
+  .art-hero .meta{display:flex; gap:18px; flex-wrap:wrap; color:rgba(255,255,255,.75); font-size:.9rem;}
+  .art-hero .meta span{display:flex; align-items:center; gap:6px;}
+  .art-hero .meta svg{width:14px; height:14px; fill:#7fb2f2;}
+
+  /* ARTICLE BODY */
+  .art-body{padding:70px 0 40px; background:#fff;}
+  .art-body .container{max-width:820px;}
+  .art-cover{border-radius:16px; overflow:hidden; margin-bottom:44px; background:#fff; border:1px solid var(--gray-100); box-shadow:var(--shadow); aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; padding:24px;}
+  .art-cover img{max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply;}
+  .art-content p{color:var(--gray-700); font-size:1.06rem; margin-bottom:22px;}
+  .art-content p strong{color:var(--gray-900);}
+  .art-content p em{color:var(--blue-dark);}
+  .art-content h2{font-size:1.6rem; margin:44px 0 18px; color:var(--gray-900);}
+  .art-content h3{font-size:1.25rem; margin:32px 0 14px; color:var(--gray-900);}
+
+  /* CTA */
+  .art-cta{margin:60px 0 20px; padding:38px; background:linear-gradient(120deg, var(--blue-darker), var(--blue-dark)); color:#fff; border-radius:16px; text-align:center;}
+  .art-cta h3{color:#fff; font-size:1.4rem; margin-bottom:10px;}
+  .art-cta p{color:rgba(255,255,255,.85); margin-bottom:22px; font-size:.98rem;}
+  .art-cta .btn-primary{background:#fff; color:var(--blue-dark);}
+  .art-cta .btn-primary:hover{background:var(--blue-light);}
+
+  /* RELATED */
+  .art-related{padding:70px 0 90px; background:var(--gray-50); border-top:1px solid var(--gray-100);}
+  .art-related h2{font-size:1.6rem; margin-bottom:28px; text-align:center;}
+  .rel-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .rel-card{background:#fff; border:1px solid var(--gray-100); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); display:flex; flex-direction:column;}
+  .rel-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:var(--blue-accent);}
+  .rel-thumb{aspect-ratio:16/9; background:#f0f4fa; overflow:hidden;}
+  .rel-thumb img{width:100%; height:100%; object-fit:cover;}
+  .rel-body{padding:20px 22px 22px;}
+  .rel-date{font-size:.74rem; color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;}
+  .rel-body h4{font-size:1rem; margin-bottom:12px; line-height:1.35;}
+  .rel-more{font-size:.85rem; font-weight:700; color:var(--gray-900); display:inline-flex; align-items:center; gap:6px;}
+  .rel-more svg{width:12px; height:12px; fill:currentColor;}
+  @media (max-width:900px){ .rel-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .rel-grid{grid-template-columns:1fr;} }
+
+  footer{background:var(--blue-darker); color:rgba(255,255,255,.7); padding:60px 0 20px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-brand img{height:38px; filter:brightness(0) invert(1); margin-bottom:16px;}
+  .footer-brand p{font-size:.9rem; line-height:1.7; max-width:280px;}
+  footer h4{color:#fff; font-size:1rem; margin-bottom:16px;}
+  footer ul li{margin-bottom:10px; font-size:.9rem; color:rgba(255,255,255,.65);}
+  footer ul li a:hover{color:#fff;}
+  .footer-bottom{padding:22px 0; font-size:.82rem; text-align:center;}
+  @media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
+
+  .empty-state{padding:120px 0; text-align:center;}
+  .empty-state h2{font-size:1.6rem; margin-bottom:14px;}
+  .empty-state p{color:var(--gray-500); margin-bottom:24px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:629747960">629 747 960</a>
+      <a href="mailto:pedidos@talleresiniesta.es" class="hide-mobile">pedidos@talleresiniesta.es</a>
+      <span class="hide-mobile">Fortuna, Murcia · Pedido desde 1 pieza</span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18H5.6V9.6h2.7V18zM7 8.5c-.9 0-1.5-.6-1.5-1.4S6.1 5.7 7 5.7s1.5.6 1.5 1.4S7.9 8.5 7 8.5zM18.5 18h-2.7v-4.4c0-1.1-.4-1.9-1.4-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8V18h-2.7s.1-7.6 0-8.4h2.7v1.2c.4-.6 1-1.4 2.6-1.4 1.9 0 3.3 1.2 3.3 3.9V18z"/></svg></a>
+      <a href="https://wa.me/34629747960" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="index.html#inicio" class="logo"><img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta"></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="index.html#nosotros">Quiénes Somos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#contacto" class="btn btn-primary" style="padding:12px 22px;">Pedir presupuesto</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html#inicio">Inicio</a>
+    <span class="sep">/</span>
+    <a href="blog.html">Blog</a>
+    <span class="sep">/</span>
+    <span class="current" id="bcCurrent">Artículo</span>
+  </div>
+</div>
+
+<div id="articleRoot"></div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta">
+        <p>Especialistas en el diseño de piezas a medida para anclajes de hormigón. Fabricamos herrajes sobre plano desde Fortuna, Murcia.</p>
+      </div>
+      <div><h4>Productos</h4><ul>
+        <li><a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a></li>
+        <li><a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a></li>
+        <li><a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a></li>
+        <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a></li>
+      </ul></div>
+      <div><h4>Empresa</h4><ul>
+        <li><a href="index.html#nosotros">Quiénes somos</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul></div>
+      <div><h4>Contacto</h4><ul>
+        <li>629 747 960</li>
+        <li>pedidos@talleresiniesta.es</li>
+        <li>C/ Baco 22, Pol. Ind. Fortuna, Murcia</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">© Copyright Talleres M. Iniesta. 2026. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  const root = document.getElementById('articleRoot');
+  if (typeof ARTICLES === 'undefined') return;
+  const article = ARTICLES.find(a => a.slug === slug) || ARTICLES[0];
+  if (!article) {
+    root.innerHTML = '<div class="empty-state"><div class="container"><h2>Artículo no encontrado</h2><p>El artículo que buscas ya no está disponible.</p><a href="blog.html" class="btn btn-primary">Volver al blog</a></div></div>';
+    return;
+  }
+  document.getElementById('pageTitle').textContent = article.title + ' | Blog TMI';
+  document.getElementById('metaDesc').setAttribute('content', article.excerpt);
+  document.getElementById('bcCurrent').textContent = article.title.length > 60 ? article.title.slice(0,60)+'…' : article.title;
+
+  const related = ARTICLES.filter(a => a.slug !== article.slug).slice(0,3);
+
+  root.innerHTML =
+    '<section class="art-hero"><div class="container">' +
+      '<span class="eyebrow">' + article.category + '</span>' +
+      '<h1>' + article.title + '</h1>' +
+      '<div class="meta">' +
+        '<span><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V8h14v11z"/></svg>' + article.date + '</span>' +
+        '<span><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>Equipo técnico TMI</span>' +
+      '</div>' +
+    '</div></section>' +
+    '<section class="art-body"><div class="container">' +
+      '<div class="art-cover"><img src="' + article.cover + '" alt="' + article.title + '" onerror="this.parentElement.style.display=\'none\'"></div>' +
+      '<div class="art-content">' +
+        article.body.map(p => '<p>' + p + '</p>').join('') +
+      '</div>' +
+      '<div class="art-cta">' +
+        '<h3>¿Necesitas herrajes a medida para tu proyecto?</h3>' +
+        '<p>Envíanos tu plano o croquis y te asesoramos sin compromiso. Fabricamos desde una sola pieza.</p>' +
+        '<a href="index.html#contacto" class="btn btn-primary">Solicitar presupuesto</a>' +
+      '</div>' +
+    '</div></section>' +
+    (related.length ? (
+      '<section class="art-related"><div class="container">' +
+        '<h2>Sigue leyendo</h2>' +
+        '<div class="rel-grid">' +
+        related.map(r =>
+          '<a class="rel-card" href="articulo.html?slug=' + r.slug + '">' +
+            '<div class="rel-thumb"><img src="' + r.cover + '" alt="' + r.title + '" onerror="this.parentElement.style.background=\'linear-gradient(135deg,#1857a8,#2f7ee0)\'"></div>' +
+            '<div class="rel-body">' +
+              '<span class="rel-date">' + r.category + ' · ' + r.date + '</span>' +
+              '<h4>' + r.title + '</h4>' +
+              '<span class="rel-more">Leer <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>' +
+            '</div>' +
+          '</a>'
+        ).join('') +
+        '</div></div></section>'
+    ) : '');
+  window.scrollTo(0,0);
+})();
+</script>
+</body>
+</html>

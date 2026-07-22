@@ -1,139 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog · Talleres M. Iniesta</title>
-<meta name="description" content="Blog técnico de Talleres M. Iniesta: guías de instalación de herrajes para prefabricado de hormigón, comparativas de sistemas antivuelco y ajustables, casos de estudio.">
-<meta name="keywords" content="blog herrajes hormigón, guía perfil 40/22, sistema antivuelco, bayoneta fresada, escuadras dentadas, prefabricado, tutoriales Talleres Iniesta">
-<link rel="canonical" href="https://www.talleresiniesta.es/blog.html">
-<meta property="og:title" content="Blog · Talleres M. Iniesta">
-<meta property="og:description" content="Guías técnicas, tutoriales y comparativas del sistema TMI.">
-<meta property="og:type" content="website">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Talleres M. Iniesta</title>
+<meta name="description" content="Blog de Talleres M. Iniesta: novedades sobre herrajes para prefabricado de hormigón, certificación CE, sistemas antivuelco y fabricación a medida.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#1857a8; --blue-dark:#0a2c5c; --blue-light:#e8eef7; --gray-50:#f7f9fc; --gray-100:#e8ecf3; --gray-500:#5c6980; --gray-900:#141b2c;}
-*{box-sizing:border-box; margin:0; padding:0;}
-body{font-family:'Inter','Manrope',sans-serif; color:var(--gray-900); background:#fff; line-height:1.6;}
-h1,h2,h3,h4{font-family:'Manrope',sans-serif; letter-spacing:-.3px; line-height:1.2;}
-a{color:inherit; text-decoration:none;}
-.container{max-width:1180px; margin:0 auto; padding:0 24px;}
-/* header */
-.topbar{background:var(--blue-dark); color:rgba(255,255,255,.85); font-size:.82rem; padding:8px 0;}
-.topbar .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
-.topbar a{color:rgba(255,255,255,.85); margin-right:14px;}
-.header{background:#fff; border-bottom:1px solid var(--gray-100); position:sticky; top:0; z-index:10; padding:16px 0;}
-.header .container{display:flex; justify-content:space-between; align-items:center;}
-.brand{font-family:'Manrope',sans-serif; font-weight:800; font-size:1.15rem; color:var(--blue); letter-spacing:-.5px;}
-.brand span{color:var(--gray-900);}
-.header nav{display:flex; gap:26px;}
-.header nav a{color:var(--gray-500); font-size:.94rem; font-weight:500;}
-.header nav a:hover, .header nav a.active{color:var(--blue);}
-.btn{display:inline-flex; align-items:center; justify-content:center; padding:11px 20px; border-radius:8px; font-weight:600; transition:.3s;}
-.btn-primary{background:var(--blue); color:#fff;}
-.btn-primary:hover{background:var(--blue-dark);}
-/* hero */
-.hero{background:linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%); color:#fff; padding:80px 0 60px; position:relative; overflow:hidden;}
-.hero::before{content:''; position:absolute; inset:0; opacity:.1; background:radial-gradient(circle at 20% 30%, #fff 0, transparent 45%), radial-gradient(circle at 80% 70%, #7fb2f2 0, transparent 40%);}
-.hero .container{position:relative; z-index:1;}
-.hero h1{font-size:clamp(2rem, 4vw, 2.8rem); font-weight:800; margin-bottom:14px;}
-.hero p{font-size:1.1rem; color:rgba(255,255,255,.85); max-width:680px;}
-.eyebrow{display:inline-block; background:rgba(255,255,255,.15); backdrop-filter:blur(6px); padding:6px 14px; border-radius:20px; font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:16px; border:1px solid rgba(255,255,255,.25);}
-/* posts */
-.posts{padding:70px 0;}
-.posts-head{margin-bottom:44px;}
-.posts-head h2{font-size:1.8rem; margin-bottom:10px;}
-.posts-head p{color:var(--gray-500); font-size:1rem;}
-.posts-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
-.post-card{background:#fff; border:1px solid var(--gray-100); border-radius:16px; overflow:hidden; box-shadow:0 4px 12px rgba(20,32,58,.05); transition:.4s; cursor:pointer; position:relative;}
-.post-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px rgba(24,87,168,.2); border-color:transparent;}
-.post-img{height:200px; background:var(--gray-50); overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; padding:18px;}
-.post-img img{max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply; transition:transform .6s;}
-.post-card:hover .post-img img{transform:scale(1.05);}
-.post-body{padding:24px;}
-.post-cat{color:var(--blue); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; display:block;}
-.post-body h3{font-size:1.15rem; margin-bottom:10px; line-height:1.35;}
-.post-body p{color:var(--gray-500); font-size:.92rem; margin-bottom:16px;}
-.post-meta{display:flex; justify-content:space-between; align-items:center; font-size:.82rem; color:var(--gray-500);}
-.post-meta .read-more{color:var(--blue); font-weight:600; display:flex; align-items:center; gap:4px;}
-/* CTA */
-.cta{background:var(--gray-50); padding:70px 0; text-align:center;}
-.cta h2{font-size:1.9rem; margin-bottom:14px;}
-.cta p{color:var(--gray-500); margin-bottom:24px; max-width:520px; margin-left:auto; margin-right:auto;}
-/* footer */
-footer{background:var(--blue-dark); color:rgba(255,255,255,.7); padding:44px 0 22px; font-size:.9rem;}
-footer .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
-footer a{color:rgba(255,255,255,.85);}
-footer a:hover{color:#fff;}
-@media (max-width:900px){
-  .posts-grid{grid-template-columns:1fr; gap:20px;}
-  .header nav{display:none;}
-}
+  :root{
+    --white:#fff; --gray-50:#f5f7fa; --gray-100:#eaeef2; --gray-200:#dde3ea; --gray-300:#c2cbd6;
+    --gray-500:#6b7684; --gray-700:#3c4552; --gray-800:#262f3b; --gray-900:#161c24;
+    --blue:#1857a8; --blue-dark:#0e3d80; --blue-darker:#0a2c5c; --blue-light:#e8f0fb; --blue-accent:#2f7ee0;
+    --radius:10px; --shadow:0 10px 30px rgba(16,32,58,.08); --shadow-lg:0 20px 50px rgba(16,32,58,.16);
+    --transition:.35s cubic-bezier(.4,0,.2,1); font-family:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{color:var(--gray-800); line-height:1.6; background:#fff;}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif; line-height:1.25; color:var(--gray-900);}
+  .container{max-width:1200px; margin:0 auto; padding:0 24px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; justify-content:center; padding:14px 28px; border-radius:6px; font-weight:600; font-size:.95rem; cursor:pointer; border:2px solid transparent; transition:var(--transition); white-space:nowrap;}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{background:var(--blue-dark); transform:translateY(-2px); box-shadow:var(--shadow-lg);}
+  .eyebrow{text-transform:uppercase; letter-spacing:2px; font-size:.78rem; font-weight:700; color:var(--blue); margin-bottom:12px; display:block;}
+
+  /* topbar / header base identical to index */
+  .topbar{background:var(--blue-darker); color:rgba(255,255,255,.85); font-size:.82rem;}
+  .topbar .container{display:flex; justify-content:space-between; align-items:center; padding-top:8px; padding-bottom:8px;}
+  .topbar-left{display:flex; gap:22px; flex-wrap:wrap;}
+  .topbar-left a{display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.85);}
+  .topbar-right{display:flex; gap:14px;}
+  .topbar-right a{width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center;}
+  .topbar-right svg{width:14px; height:14px; fill:#fff;}
+  @media (max-width:760px){ .topbar-left span.hide-mobile{display:none;} }
+
+  header.site-header{position:sticky; top:0; z-index:1000; background:#fff; box-shadow:0 2px 18px rgba(16,32,58,.06);}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:12px;}
+  .logo img{height:42px; filter:invert(20%) sepia(60%) saturate(900%) hue-rotate(180deg);}
+  nav.main-nav > ul{display:flex; gap:4px;}
+  nav.main-nav > ul > li > a{display:block; padding:12px 16px; font-weight:600; font-size:.94rem; color:var(--gray-800); border-radius:6px;}
+  nav.main-nav > ul > li > a:hover, nav.main-nav > ul > li.active > a{color:var(--blue); background:var(--blue-light);}
+  .header-cta{display:flex; align-items:center; gap:14px;}
+  @media (max-width:900px){ nav.main-nav{display:none;} }
+
+  /* hero */
+  .blog-hero{position:relative; overflow:hidden; padding:100px 0 80px; background:linear-gradient(120deg,#0a2c5c 0%,#14488f 55%,#1857a8 100%); color:#fff;}
+  .blog-hero::before{content:''; position:absolute; inset:0; opacity:.12; pointer-events:none; background:radial-gradient(circle at 20% 30%, #fff 0, transparent 45%), radial-gradient(circle at 85% 70%, #7fb2f2 0, transparent 40%);}
+  .blog-hero .container{position:relative; z-index:2; text-align:center;}
+  .blog-hero .eyebrow{color:#7fb2f2;}
+  .blog-hero h1{font-size:clamp(2.2rem,4vw,3.4rem); color:#fff; margin-bottom:14px;}
+  .blog-hero p{color:rgba(255,255,255,.85); font-size:1.1rem; max-width:640px; margin:0 auto;}
+
+  /* breadcrumb */
+  .breadcrumb{background:var(--gray-50); border-bottom:1px solid var(--gray-100);}
+  .breadcrumb .container{display:flex; align-items:center; gap:8px; padding:16px 24px; font-size:.85rem; color:var(--gray-500);}
+  .breadcrumb a{color:var(--blue); font-weight:600;}
+  .breadcrumb .current{color:var(--gray-800); font-weight:600;}
+  .breadcrumb .sep{color:var(--gray-300);}
+
+  /* list */
+  .blog-section{padding:80px 0;}
+  .blog-list{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .b-card{background:#fff; border:1px solid var(--gray-100); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); display:flex; flex-direction:column;}
+  .b-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--blue-accent);}
+  .b-thumb{aspect-ratio:16/10; background:#f0f4fa; overflow:hidden; position:relative;}
+  .b-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease;}
+  .b-card:hover .b-thumb img{transform:scale(1.05);}
+  .b-thumb .b-tag{position:absolute; top:14px; left:14px; background:var(--blue); color:#fff; padding:6px 12px; border-radius:20px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; z-index:2;}
+  .b-body{padding:24px 24px 26px; flex:1; display:flex; flex-direction:column;}
+  .b-date{font-size:.78rem; color:var(--gray-500); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;}
+  .b-body h3{font-size:1.12rem; margin-bottom:12px; line-height:1.35;}
+  .b-body p{color:var(--gray-500); font-size:.93rem; flex:1; margin-bottom:16px;}
+  .b-more{display:inline-flex; align-items:center; gap:8px; color:var(--blue); font-weight:700; font-size:.9rem;}
+  .b-more svg{width:14px; height:14px; fill:currentColor; transition:transform .25s;}
+  .b-card:hover .b-more svg{transform:translateX(5px);}
+  @media (max-width:980px){ .blog-list{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .blog-list{grid-template-columns:1fr;} }
+
+  /* footer */
+  footer{background:var(--blue-darker); color:rgba(255,255,255,.7); padding:60px 0 20px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-brand img{height:38px; filter:brightness(0) invert(1); margin-bottom:16px;}
+  .footer-brand p{font-size:.9rem; line-height:1.7; max-width:280px;}
+  footer h4{color:#fff; font-size:1rem; margin-bottom:16px;}
+  footer ul li{margin-bottom:10px;}
+  footer ul li a{font-size:.9rem; color:rgba(255,255,255,.65);}
+  footer ul li a:hover{color:#fff;}
+  .footer-bottom{padding:22px 0; font-size:.82rem; text-align:center;}
+  @media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
-<div class="topbar"><div class="container">
-  <div><a href="mailto:pedidos@talleresiniesta.es">📧 pedidos@talleresiniesta.es</a><a href="tel:+34629747960">📞 629 747 960</a></div>
-  <div><a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener">LinkedIn</a></div>
-</div></div>
-<header class="header"><div class="container">
-  <a href="index.html" class="brand">Talleres <span>M.Iniesta</span></a>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="index.html#productos">Productos</a>
-    <a href="index.html#servicios">Servicios</a>
-    <a href="blog.html" class="active">Blog</a>
-    <a href="index.html#contacto">Contacto</a>
-  </nav>
-</div></header>
 
-<section class="hero"><div class="container">
-  <span class="eyebrow">Blog técnico TMI</span>
-  <h1>Guías, comparativas y casos de estudio del prefabricado</h1>
-  <p>Artículos técnicos escritos por nuestro equipo con +40 años de experiencia en herrajes para prefabricado de hormigón. Ideal para proyectistas, ingenieros y jefes de obra.</p>
-</div></section>
-
-<section class="posts"><div class="container">
-  <div class="posts-head">
-    <h2>Últimos artículos</h2>
-    <p>Todo lo que necesitas saber sobre sistemas de fijación, diseño estructural y montaje.</p>
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:629747960">629 747 960</a>
+      <a href="mailto:pedidos@talleresiniesta.es" class="hide-mobile">pedidos@talleresiniesta.es</a>
+      <span class="hide-mobile">Fortuna, Murcia · Pedido desde 1 pieza</span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18H5.6V9.6h2.7V18zM7 8.5c-.9 0-1.5-.6-1.5-1.4S6.1 5.7 7 5.7s1.5.6 1.5 1.4S7.9 8.5 7 8.5zM18.5 18h-2.7v-4.4c0-1.1-.4-1.9-1.4-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8V18h-2.7s.1-7.6 0-8.4h2.7v1.2c.4-.6 1-1.4 2.6-1.4 1.9 0 3.3 1.2 3.3 3.9V18z"/></svg></a>
+      <a href="https://wa.me/34629747960" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
+    </div>
   </div>
-  <div class="posts-grid" id="postsGrid"></div>
-</div></section>
+</div>
 
-<section class="cta"><div class="container">
-  <h2>¿Necesitas asesoramiento técnico?</h2>
-  <p>Nuestro equipo de ingenieros te ayuda a elegir el sistema más adecuado para tu proyecto de prefabricado.</p>
-  <a href="index.html#contacto" class="btn btn-primary">Contactar</a>
-</div></section>
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="index.html#inicio" class="logo"><img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta"></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="index.html#nosotros">Quiénes Somos</a></li>
+        <li class="active"><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="index.html#contacto" class="btn btn-primary" style="padding:12px 22px;">Pedir presupuesto</a>
+    </div>
+  </div>
+</header>
 
-<footer><div class="container">
-  <div>© 2026 Talleres M. Iniesta SL — Fortuna, Murcia</div>
-  <div><a href="index.html">Inicio</a> · <a href="index.html#productos">Productos</a> · <a href="index.html#contacto">Contacto</a></div>
-</div></footer>
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html#inicio">Inicio</a>
+    <span class="sep">/</span>
+    <span class="current">Blog</span>
+  </div>
+</div>
 
+<section class="blog-hero">
+  <div class="container">
+    <span class="eyebrow">Blog TMI</span>
+    <h1>Novedades y conocimiento técnico</h1>
+    <p>Artículos escritos por nuestro equipo técnico sobre herrajes para prefabricado de hormigón, certificación CE y casos reales de fabricación a medida.</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-list" id="blogList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://talleresiniesta.es/wp-content/uploads/2024/01/Talleres-Iniesta-blanco.png" alt="Talleres Iniesta">
+        <p>Especialistas en el diseño de piezas a medida para anclajes de hormigón. Fabricamos herrajes sobre plano desde nuestro taller de Fortuna, Murcia.</p>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="producto-detalle.html?producto=antivuelco">Fijaciones Antivuelco</a></li>
+          <li><a href="producto-detalle.html?producto=ajustables">Fijaciones Ajustables</a></li>
+          <li><a href="producto-detalle.html?producto=cubiertas">Fijación de Cubiertas</a></li>
+          <li><a href="producto-detalle.html?producto=placas">Placas de Anclaje</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="index.html#nosotros">Quiénes somos</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>629 747 960</li>
+          <li>pedidos@talleresiniesta.es</li>
+          <li>C/ Baco 22, Pol. Ind. Fortuna, Murcia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© Copyright Talleres M. Iniesta. 2026. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
 <script>
-const POSTS = [
-  {cat:"Sistemas", title:"Guía Perfil 40/22: cómo elegir la longitud correcta según el panel", excerpt:"La guía perfil 40/22 se fabrica en longitudes de 240 y 500 mm y también a medida. Analizamos qué longitud usar según el tipo de panel y carga a soportar.", img:"/catalog_img/p09_img01.png", date:"22 Jul 2026", read:"5 min"},
-  {cat:"Comparativa", title:"Bayoneta vs Bayoneta Fresada: ¿cuándo usar cada una?", excerpt:"La versión fresada garantiza la ausencia de deslizamiento tras el apriete. Explicamos en qué situaciones el sobrecoste está justificado y cuándo basta con la estándar.", img:"/catalog_img/p13_img22.jpeg", date:"18 Jul 2026", read:"7 min"},
-  {cat:"Instalación", title:"Cómo montar el sistema Guía + TCA + Bayoneta paso a paso", excerpt:"Guía visual completa del montaje del sistema antivuelco: colocación del perfil embebido, introducción del tornillo TCA, giro 90° y fijación final.", img:"/catalog_img/p14_img05.jpeg", date:"12 Jul 2026", read:"8 min"},
-  {cat:"Materiales", title:"Diferencias entre S235JR, S275JR y S355JR en herrajes prefabricado", excerpt:"Cada calidad de acero tiene aplicaciones específicas en el catálogo TMI. Vemos por qué se usa uno u otro en cada pieza y qué implicaciones tiene para el proyecto.", img:"/catalog_img/p32_img01.png", date:"05 Jul 2026", read:"6 min"},
-  {cat:"Certificaciones", title:"Marcado CE 1239 y EN 1090-1: qué significa para tus proyectos", excerpt:"Nuestros herrajes cuentan con Marcado CE, homologación Tecnalia y Bureau Veritas. Explicamos qué garantiza cada certificación y por qué es imprescindible.", img:"/catalog_img/p87_img42.jpeg", date:"28 Jun 2026", read:"4 min"},
-  {cat:"Cubiertas", title:"Sistema completo para fijación de correas y canalones en cubiertas prefabricadas", excerpt:"U Correa, SCE, Z Correa, Z Cubierta, S Montaje, S Canalón — presentamos el sistema completo TMI para cubiertas con ejemplos de aplicación real.", img:"/catalog_img/p75_img03.jpeg", date:"20 Jun 2026", read:"9 min"}
-];
-document.getElementById('postsGrid').innerHTML = POSTS.map(p =>
-  '<article class="post-card">' +
-    '<div class="post-img"><img src="'+p.img+'" alt="'+p.title+'" loading="lazy"></div>' +
-    '<div class="post-body">' +
-      '<span class="post-cat">'+p.cat+'</span>' +
-      '<h3>'+p.title+'</h3>' +
-      '<p>'+p.excerpt+'</p>' +
-      '<div class="post-meta"><span>'+p.date+' · '+p.read+'</span><span class="read-more">Leer más ›</span></div>' +
-    '</div>' +
-  '</article>'
-).join('');
+(function(){
+  const list = document.getElementById('blogList');
+  if (!list || typeof ARTICLES === 'undefined') return;
+  list.innerHTML = ARTICLES.map(a =>
+    '<a class="b-card" href="articulo.html?slug=' + a.slug + '">' +
+      '<div class="b-thumb">' +
+        '<span class="b-tag">' + a.category + '</span>' +
+        '<img src="' + a.cover + '" alt="' + a.title + '" loading="lazy">' +
+      '</div>' +
+      '<div class="b-body">' +
+        '<span class="b-date">' + a.date + '</span>' +
+        '<h3>' + a.title + '</h3>' +
+        '<p>' + a.excerpt + '</p>' +
+        '<span class="b-more">Leer artículo <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>' +
+      '</div>' +
+    '</a>'
+  ).join('');
+})();
 </script>
 </body>
 </html>

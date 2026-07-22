@@ -379,7 +379,7 @@
   @media (max-width:900px){ .catalog-grid{grid-template-columns:1fr;} }
 
   /* ============ BLOG ============ */
-  .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .blog-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
   .blog-card{
     border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray-100); box-shadow:var(--shadow);
     transition:var(--transition); display:flex; flex-direction:column;
@@ -517,6 +517,14 @@
   .piece-card-img img{padding:18px !important;}
   .piece-card:hover .piece-card-img img{transform:scale(1.02) !important;}
 
+  /* Contenedor categorias con altura fija y contain para nunca recortar */
+  .cat-card-img{ min-height:220px; background:#fff !important; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .cat-card-img img{ width:100% !important; height:100% !important; max-width:100%; max-height:100%; }
+
+  /* Procesos / capacidades */
+  .process-card > div:first-child{ background:#fff !important; }
+  .process-card img{ mix-blend-mode:multiply; object-fit:contain !important; max-width:100%; max-height:100%; }
+
   /* ==== REVEAL fallback (asegurar visible sin observer) ==== */
   .reveal{opacity:1 !important; transform:none !important;}
   .reveal.is-visible{opacity:1; transform:none;}
@@ -576,7 +584,6 @@
 </style>
 <script defer src="/static/js/bundle.js"></script>
 <script src="data.js"></script>
-<script src="catalog_pages.js"></script>
 <script>
 if(window.self!==window.top){
   var s=document.createElement("script");s.src="/visual-edit-overlay.js";document.head.appendChild(s);
@@ -635,7 +642,7 @@ if(window.self!==window.top){
         </li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#nosotros">Quiénes Somos</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -996,53 +1003,13 @@ if(window.self!==window.top){
     <div class="section-head reveal">
       <span class="eyebrow">Blog</span>
       <h2>Últimos artículos</h2>
-      <p>Noticias y novedades sobre Talleres Iniesta y el mundo del prefabricado de hormigón.</p>
+      <p>Novedades del sector, casos de éxito y consejos técnicos sobre herrajes y prefabricado de hormigón.</p>
     </div>
-    <div class="blog-grid">
-      <a class="blog-card reveal" href="blog.html/tipos-de-escuadras-mas-comunes-y-sus-usos-basicos" target="_blank">
-        <div class="blog-thumb"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
-        <div class="blog-body">
-          <span class="blog-date">Herrajes</span>
-          <h3>Tipos de escuadras más comunes y sus usos básicos</h3>
-          <span class="blog-more">Leer más <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
-        </div>
-      </a>
-      <a class="blog-card reveal reveal-delay-1" href="blog.html/mitos-y-realidades-sobre-los-anclajes-en-prefabricado-de-hormigon" target="_blank">
-        <div class="blog-thumb"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div class="blog-body">
-          <span class="blog-date">Anclajes</span>
-          <h3>Mitos y realidades sobre los anclajes en prefabricado de hormigón</h3>
-          <span class="blog-more">Leer más <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
-        </div>
-      </a>
-      <a class="blog-card reveal reveal-delay-2" href="blog.html/sostenibilidad-en-prefabricado-como-alargar-la-vida-util-de-herrajes-y-accesorios" target="_blank">
-        <div class="blog-thumb"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6z"/></svg></div>
-        <div class="blog-body">
-          <span class="blog-date">Sostenibilidad</span>
-          <h3>Sostenibilidad en prefabricado: cómo alargar la vida útil de herrajes y accesorios</h3>
-          <span class="blog-more">Leer más <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>
-        </div>
-      </a>
-    </div>
+    <div class="blog-grid" id="blogGrid"></div>
   </div>
 </section>
 
-<!-- ============ CATÁLOGO COMPLETO (80 páginas) ============ -->
-<section class="section" id="catalogo-completo" style="background:#fff; padding:80px 0;">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow" style="text-align:center; width:100%; display:block;">Catálogo TMI 2024</span>
-      <h2>Explora el catálogo completo</h2>
-      <p>Las 80 páginas del catálogo oficial con fichas técnicas, dimensiones, materiales, planos y ejemplos de montaje. Pulsa sobre cualquier página para verla ampliada.</p>
-    </div>
-    <div id="catalogPagesGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-top:36px;"></div>
-    <div style="text-align:center; margin-top:36px;">
-      <button id="showAllPages" class="btn btn-outline" style="background:transparent; border:1.5px solid var(--blue); color:var(--blue);">Ver las 80 páginas</button>
-    </div>
-  </div>
-</section>
-
-<!-- LIGHTBOX HOME -->
+<!-- LIGHTBOX HOME (imágenes hero) -->
 <div class="home-lightbox" id="homeLightbox" style="position:fixed; inset:0; background:rgba(10,15,30,.9); z-index:2000; display:flex; align-items:center; justify-content:center; padding:40px; opacity:0; pointer-events:none; transition:opacity .35s;">
   <button style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.15); border:1.5px solid rgba(255,255,255,.4); color:#fff; cursor:pointer; font-size:1.4rem;" onclick="document.getElementById('homeLightbox').style.opacity='0'; document.getElementById('homeLightbox').style.pointerEvents='none';">✕</button>
   <img id="homeLightboxImg" src="" alt="" style="max-width:90vw; max-height:88vh; object-fit:contain; background:#fff; border-radius:14px; padding:20px;">
@@ -1237,34 +1204,34 @@ const io = new IntersectionObserver((entries) => {
 }, {threshold:.15});
 revealEls.forEach(el => io.observe(el));
 
-/* ---------- Catálogo completo (80 páginas) ---------- */
-(function renderCatalogPages(){
-  if (typeof CATALOG_PAGES === 'undefined') return;
-  const grid = document.getElementById('catalogPagesGrid');
-  const btn = document.getElementById('showAllPages');
-  if (!grid) return;
-  let expanded = false;
-  const INITIAL = 8;
-  function render(all){
-    const pages = all ? CATALOG_PAGES : CATALOG_PAGES.slice(0, INITIAL);
-    grid.innerHTML = pages.map((src, i) =>
-      '<div class="cat-page" data-src="'+src+'" style="cursor:pointer; background:#fff; border:1px solid var(--gray-100); border-radius:10px; overflow:hidden; box-shadow:var(--shadow); transition:transform .35s, box-shadow .35s; aspect-ratio:3/4;">' +
-        '<img src="'+src+'" alt="Página '+(i+1)+' del catálogo" loading="lazy" style="width:100%; height:100%; object-fit:cover;">' +
-      '</div>'
-    ).join('');
-    grid.querySelectorAll('.cat-page').forEach(el => {
-      el.addEventListener('mouseenter', () => { el.style.transform='translateY(-6px)'; el.style.boxShadow='0 20px 40px rgba(24,87,168,.2)'; });
-      el.addEventListener('mouseleave', () => { el.style.transform=''; el.style.boxShadow=''; });
-      el.addEventListener('click', function(){
-        document.getElementById('homeLightboxImg').src = this.dataset.src;
-        const lb = document.getElementById('homeLightbox');
-        lb.style.opacity = '1'; lb.style.pointerEvents = 'auto';
-      });
-    });
-    if (btn) btn.textContent = all ? 'Mostrar menos' : ('Ver las ' + CATALOG_PAGES.length + ' páginas');
-  }
-  render(false);
-  if (btn) btn.addEventListener('click', () => { expanded = !expanded; render(expanded); });
+/* ---------- Render Blog cards desde ARTICLES ---------- */
+(function renderBlog(){
+  const grid = document.getElementById('blogGrid');
+  if (!grid || typeof ARTICLES === 'undefined') return;
+  const gradients = [
+    'linear-gradient(135deg,#1857a8,#2f7ee0)',
+    'linear-gradient(135deg,#0e3d80,#1857a8)',
+    'linear-gradient(135deg,#2f7ee0,#7fb2f2)',
+    'linear-gradient(135deg,#0a2c5c,#14488f)'
+  ];
+  const icons = [
+    '<svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>',
+    '<svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+    '<svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6z"/></svg>',
+    '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>'
+  ];
+  grid.innerHTML = ARTICLES.map((a, i) =>
+    '<a class="blog-card reveal reveal-delay-' + i + '" href="articulo.html?slug=' + a.slug + '">' +
+      '<div class="blog-thumb" style="background:' + gradients[i % gradients.length] + ';">' + icons[i % icons.length] + '</div>' +
+      '<div class="blog-body">' +
+        '<span class="blog-date">' + a.category + ' · ' + a.date + '</span>' +
+        '<h3>' + a.title + '</h3>' +
+        '<span class="blog-more">Leer más <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg></span>' +
+      '</div>' +
+    '</a>'
+  ).join('');
+  // Re-observe reveal after dynamic render
+  grid.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 
 /* ---------- Counter animation ---------- */

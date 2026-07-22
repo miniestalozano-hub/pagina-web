@@ -681,3 +681,90 @@ const GALLERY = {
   "solucion-medida": ["/catalog_img/p85_img01.jpeg","/catalog_img/p86_img03.jpeg","/catalog_img/p85_img03.jpeg"],
   "mecanizado":      ["/catalog_img/p87_img42.jpeg","/catalog_img/p87_img43.jpeg","/catalog_img/p87_img44.jpeg","/catalog_img/p87_img47.jpeg","/catalog_img/p87_img48.jpeg"]
 };
+
+/* ---------------- BLOG: 4 artículos ---------------- */
+const ARTICLES = [
+  {
+    slug: "marcado-ce-1239-en-1090-que-implica-para-tus-herrajes",
+    title: "Marcado CE 1239 y EN 1090-1: qué implica en tus herrajes de prefabricado",
+    category: "Certificación",
+    date: "12 Feb 2026",
+    excerpt: "Todos los herrajes estructurales que se instalan en edificación en Europa deben ir marcados CE. En este artículo explicamos qué controlamos en TMI para que tu obra cumpla desde el primer día.",
+    cover: "/catalog_img/p87_img48.jpeg",
+    body: [
+      "Desde 2014, cualquier <strong>elemento estructural de acero</strong> que se incorpore a una obra en la Unión Europea debe llevar marcado CE conforme a la norma armonizada <strong>EN 1090-1</strong>. Los herrajes de anclaje, escuadras, bayonetas y placas que fabricamos en Talleres M. Iniesta no son una excepción: llevan marcado CE con número de identificación <strong>1239</strong>, otorgado por Tecnalia Certification.",
+      "Este número no es simbólico. Detrás de él hay un Plan de Control de Producción en Fábrica (PCF) auditado periódicamente, en el que verificamos:",
+      "· <strong>Trazabilidad del material</strong>: cada colada de acero S275JR llega con su certificado 3.1 según EN 10204 y se registra en la orden de fabricación correspondiente.",
+      "· <strong>Cualificación de soldadores y procedimientos</strong>: nuestros WPQR de <em>Bureau Veritas</em> cubren las uniones cordón-cartela de nuestras escuadras reforzadas y anclajes ocultos.",
+      "· <strong>Ensayos dimensionales</strong>: control de tolerancias de plegado, taladros y coliso, con calas y calibres trazables al Sistema Internacional.",
+      "· <strong>Acabado</strong>: espesor mínimo verificado en el zincado electrolítico (>8 µm según EN ISO 2081) o en el galvanizado en caliente (>35 µm según EN ISO 1461).",
+      "En la práctica, para el instalador esto significa dos cosas: <strong>puede exigir la Declaración de Prestaciones (DoP)</strong> de cada referencia — se la enviamos con cada albarán — y <strong>el proyectista puede confiar en las capacidades de carga</strong> publicadas en el catálogo, calculadas conforme a UNE-EN 1993-1-1 y 1993-1-8.",
+      "Si tienes dudas sobre el marcado o necesitas la DoP de una pieza concreta, escríbenos a pedidos@talleresiniesta.es y te la enviamos en el mismo día."
+    ]
+  },
+  {
+    slug: "sistema-antivuelco-guia-40-22-tornillo-tca",
+    title: "Sistema antivuelco Guía 40/22 + Tornillo TCA: cómo funciona en obra",
+    category: "Producto",
+    date: "28 Ene 2026",
+    excerpt: "El sistema estrella del catálogo TMI. Te explicamos por qué combinar la guía embebida con el tornillo de cabeza ancla es la forma más rápida y segura de fijar paneles verticales.",
+    cover: "/catalog_img/p09_img01.png",
+    body: [
+      "El sistema <strong>Guía Perfil 40/22 + Tornillo TCA</strong> es probablemente el conjunto más utilizado en las fachadas prefabricadas de hormigón que se montan hoy en España. Lo que empezó como una solución alemana para paneles verticales se ha convertido en un estándar de facto, y en Talleres M. Iniesta llevamos más de dos décadas fabricando ambos elementos con acero S275JR y S235JR según EN 10025-2.",
+      "<strong>¿Cómo funciona?</strong> La guía es un canal de acero de sección 40 × 22 mm que se coloca embebido en el panel durante el hormigonado, con dos o tres pernos anclados que garantizan que no se mueve. Se rellena con una espuma de polietileno que impide que el hormigón entre en el canal.",
+      "En obra, el instalador retira la espuma, introduce el tornillo TCA (Tornillo Cabeza Ancla) con la cabeza plana paralela al canal, y lo <strong>gira 90°</strong>: la geometría de la cabeza queda retenida contra el canal. Sobre este tornillo se monta la escuadra, bayoneta o ángulo que conecta con la estructura.",
+      "<strong>Ventajas frente al taco expansivo directo:</strong>",
+      "· No hay que taladrar el hormigón del panel: la posición ya viene definida desde fábrica.",
+      "· La fijación se puede regular a lo largo de todo el perfil, absorbiendo tolerancias de estructura.",
+      "· El sistema es reversible: si en el futuro hay que retirar el panel para rehabilitación, basta con desmontar el TCA.",
+      "· La capacidad de carga está <strong>certificada bajo EN 1993-1-8</strong> y comprobada por Tecnalia.",
+      "En Talleres M. Iniesta fabricamos la guía en longitudes estándar de 240 y 500 mm, y el TCA en métricas M-12 (40, 50, 60, 70 y 100 mm) y M-16 (60 y 80 mm). Cualquier medida especial la producimos bajo pedido — <strong>desde una sola pieza</strong> — con plazo comprometido."
+    ]
+  },
+  {
+    slug: "escuadras-fresadas-arandela-dentada-antideslizamiento",
+    title: "Escuadras fresadas con arandela dentada: la solución al deslizamiento por vibración",
+    category: "Innovación",
+    date: "15 Ene 2026",
+    excerpt: "Cuando la unión está sometida a cargas cíclicas o vibración, un simple apriete no basta. Así funciona nuestro sistema antideslizante mecánico con arandela dentada F50508.",
+    cover: "/catalog_img/p51_img01.png",
+    body: [
+      "En una unión atornillada convencional, la carga se transmite por <strong>rozamiento</strong>: la tuerca aprieta y las superficies quedan bloqueadas por fricción. El problema aparece cuando la unión sufre <strong>vibraciones, cambios de temperatura o cargas cíclicas</strong>: el apriete se pierde con el tiempo y el rozamiento deja de ser suficiente. Pequeños deslizamientos pueden acabar en una falla de servicio.",
+      "En herrajes de prefabricado esto es especialmente crítico en <strong>fachadas ventiladas, cerramientos de naves industriales expuestos al viento</strong> y estructuras cerca de vías de tren o carreteras.",
+      "La solución que fabricamos en Talleres M. Iniesta desde hace años es el <strong>sistema fresado</strong>: la superficie de la escuadra (o de la bayoneta) se mecaniza con un dentado, y sobre él se aprieta una <strong>arandela dentada F50508, F40358, F55358 o F60608</strong> con dentado inverso. Al apretar, los dientes engranan y bloquean la unión mecánicamente: aunque el tornillo pierda parte de su par, las piezas <strong>no pueden deslizarse</strong>.",
+      "<strong>Referencias disponibles:</strong>",
+      "· Escuadras fresadas 50×8, 60×8 y 80×8 en longitudes 150-300 mm.",
+      "· Versiones con cartela soldada y doble cartela para las cargas más elevadas.",
+      "· Escuadra fresada interior 80×8 para volar el panel hasta 4 cm del forjado.",
+      "· Bayoneta fresada BF120358 – BF250358 para el sistema antivuelco.",
+      "El diseño está calculado conforme a <strong>UNE-EN 1993-1-1</strong> y verificado por Tecnalia. Combinado con nuestro procedimiento de soldadura homologado <em>Bureau Veritas WPQR</em>, garantiza el comportamiento del conjunto durante toda la vida útil del edificio."
+    ]
+  },
+  {
+    slug: "fabricacion-a-medida-desde-una-pieza-casos-reales",
+    title: "Fabricación a medida desde 1 pieza: cómo trabajamos sobre plano del cliente",
+    category: "Servicios",
+    date: "3 Ene 2026",
+    excerpt: "En TMI no hay lote mínimo. Recibimos un plano PDF o DWG, lo revisamos con ingeniería, y en 10-15 días fabricamos la pieza. Así funciona nuestro proceso de fabricación bajo pedido.",
+    cover: "/catalog_img/p87_img42.jpeg",
+    body: [
+      "El 60% de las piezas que salen de nuestro taller de <strong>Fortuna (Murcia)</strong> no están en el catálogo estándar: son placas de anclaje con pernos soldados a medida, escuadras con geometrías especiales, anclajes ocultos con cámara de aire para fachadas ventiladas, plantillas para estructuras metálicas complejas... Todo bajo el plano del cliente.",
+      "<strong>El proceso, paso a paso:</strong>",
+      "<strong>1. Envío del plano.</strong> Aceptamos PDF, DWG, DXF o incluso un croquis a mano con dimensiones. Lo que necesitamos: sección, longitudes, taladros (con cotas de posición), material solicitado, acabado, cantidad y plazo objetivo.",
+      "<strong>2. Revisión técnica (24-48 h).</strong> Nuestro departamento de ingeniería revisa fabricabilidad, propone alternativas si algo puede mejorarse (por ejemplo, cambiar un plegado por una soldadura para mayor rigidez), calcula capacidades y devuelve presupuesto con plazo firme.",
+      "<strong>3. Fabricación.</strong> Utilizamos 2 centros de mecanizado CNC, 4 tornos automáticos, 2 tornos manuales, fresas y plegadoras propias. La mayoría de las piezas se producen en el mismo día que entra la orden en taller.",
+      "<strong>4. Control de calidad.</strong> Cada pieza pasa por control dimensional. Las soldadas, además, por control visual conforme a EN ISO 5817 nivel C.",
+      "<strong>5. Acabado y envío.</strong> Zincado electrolítico (interno), galvanizado en caliente (subcontratado con proveedor homologado) o imprimación. Enviamos a toda España, en 24-72 h con transporte concertado.",
+      "<strong>Materiales que trabajamos:</strong> S235JR, S275JR, S355JR, F-114 templado, chapa galvanizada, inoxidable AISI 304 y 316. Tratamientos térmicos (temple, revenido) subcontratados con proveedor homologado.",
+      "<strong>¿Sin plano?</strong> Cuéntanos qué necesitas resolver en obra (llámanos al 629 747 960) y nuestro equipo técnico diseña la pieza contigo. Sin coste, sin compromiso."
+    ]
+  }
+];
+
+/* Filtrar imágenes irrelevantes de la galería (logos, planos con marca CE, etc.) */
+const GALLERY_IGNORE = ["p26_img04.png","p26_img07.png","p26_img10.png","p26_img11.png","p13_img01.png","p14_img01.png"];
+if (typeof GALLERY === 'object') {
+  Object.keys(GALLERY).forEach(k => {
+    GALLERY[k] = GALLERY[k].filter(src => !GALLERY_IGNORE.some(ig => src.endsWith(ig)));
+  });
+}
