@@ -47,9 +47,9 @@ const IMG = {
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
-  placas:      CAT+"conjunto_placas.png",
-  medida:      CAT+"conjunto_soluciones.png", // Solución a medida — foto real pieza soldada compleja fondo blanco
-  mecanizado:  CAT+"conjunto_mecanizado.png"
+  placas:      CAT+"p83_img03.jpeg",
+  medida:      CAT+"p85_img04.jpeg", // Solución a medida — foto real pieza soldada compleja fondo blanco
+  mecanizado:  CAT+"p87_img42.jpeg"
 };
 
 const COMPANY = {
@@ -809,4 +809,4 @@ if (typeof GALLERY === 'object') {
       .filter(src => { if (seen.has(src)) return false; seen.add(src); return true; });
   });
 }
-const HERO_CYCLE = {"placa-medida": ["/catalog_img/conjunto_placas.png", "/catalog_img/p83_img03.jpeg", "/catalog_img/p83_img04.jpeg", "/catalog_img/p83_img05.jpeg", "/catalog_img/p83_img06.jpeg", "/catalog_img/p83_img07.jpeg", "/catalog_img/p83_img08.jpeg"], "solucion-medida": ["/catalog_img/conjunto_soluciones.png", "/catalog_img/p85_img01.jpeg", "/catalog_img/p85_img03.jpeg", "/catalog_img/p85_img04.jpeg", "/catalog_img/p85_img05.jpeg", "/catalog_img/p85_img06.jpeg", "/catalog_img/p85_img07.jpeg"], "mecanizado": ["/catalog_img/conjunto_mecanizado.png", "/catalog_img/p87_img42.jpeg", "/catalog_img/p87_img43.jpeg", "/catalog_img/p87_img44.jpeg", "/catalog_img/p87_img47.jpeg", "/catalog_img/p87_img48.jpeg"]};
+const HERO_CYCLE = {"placa-medida": ["/catalog_img/p83_img03.jpeg", "/catalog_img/p83_img04.jpeg", "/catalog_img/p83_img05.jpeg", "/catalog_img/p83_img06.jpeg", "/catalog_img/p83_img07.jpeg", "/catalog_img/p83_img08.jpeg"], "solucion-medida": ["/catalog_img/p85_img01.jpeg", "/catalog_img/p85_img03.jpeg", "/catalog_img/p85_img04.jpeg", "/catalog_img/p85_img05.jpeg", "/catalog_img/p85_img06.jpeg", "/catalog_img/p85_img07.jpeg"], "mecanizado": ["/catalog_img/p87_img42.jpeg", "/catalog_img/p87_img43.jpeg", "/catalog_img/p87_img44.jpeg", "/catalog_img/p87_img47.jpeg", "/catalog_img/p87_img48.jpeg"]};

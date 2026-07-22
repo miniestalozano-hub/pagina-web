@@ -27,11 +27,18 @@
   const cycleImgs = (typeof HERO_CYCLE !== 'undefined' && HERO_CYCLE[piece.id]) || null;
   if (cycleImgs && cycleImgs.length > 1) {
     const heroImg = document.getElementById('pzImg');
-    heroImg.style.transition = 'opacity .35s cubic-bezier(.4,0,.2,1), filter .35s cubic-bezier(.4,0,.2,1)';
-    // Preload
-    cycleImgs.forEach(u => { const p = new Image(); p.src = u; });
+    // Set initial src to first cycle image (avoid flash to main.piece.img)
+    heroImg.src = cycleImgs[0];
+    heroImg.style.transition = 'opacity .45s cubic-bezier(.4,0,.2,1), filter .45s cubic-bezier(.4,0,.2,1)';
+    heroImg.style.opacity = '1';
+    heroImg.style.filter = 'blur(0)';
+    // Preload the rest
+    cycleImgs.slice(1).forEach(u => { const p = new Image(); p.src = u; });
     let i = 0;
+    let cycling = false;
     setInterval(() => {
+      if (cycling) return;
+      cycling = true;
       heroImg.style.opacity = '0';
       heroImg.style.filter = 'blur(6px)';
       setTimeout(() => {
@@ -40,9 +47,10 @@
         requestAnimationFrame(() => {
           heroImg.style.opacity = '1';
           heroImg.style.filter = 'blur(0)';
+          cycling = false;
         });
-      }, 350);
-    }, 1500);
+      }, 450);
+    }, 2200);
   }
 
   // Descripción
