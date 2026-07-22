@@ -33,17 +33,18 @@
     '<span><strong>' + f[0] + ':</strong> ' + f[1] + '</span></li>'
   ).join('');
 
-  // Galería adicional del catálogo
+  // Galería adicional del catálogo (bajo los desplegables)
   const galleryImgs = (typeof GALLERY !== 'undefined' && GALLERY[piece.id]) || [];
   if (galleryImgs.length) {
     const gEl = document.getElementById('galleryBlock');
     if (gEl) {
       gEl.style.display = 'block';
-      gEl.innerHTML = '<h3>Más imágenes de esta pieza</h3><div class="piece-gallery">' +
-        galleryImgs.map((src, i) =>
-          '<div class="pg-item" data-i="'+i+'"><img src="'+src+'" alt="'+piece.name+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
+      gEl.innerHTML = '<h3>Más imágenes de ' + piece.name + '</h3>' +
+        '<p style="color:var(--gray-500); font-size:.95rem; margin-bottom:24px;">Fotografías, planos y detalles de montaje extraídos del catálogo TMI 2024. Pulsa una imagen para ampliar.</p>' +
+        '<div class="piece-gallery">' +
+        galleryImgs.map((src) =>
+          '<div class="pg-item"><img src="'+src+'" alt="'+piece.name+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
         ).join('') + '</div>';
-      // Lightbox
       gEl.querySelectorAll('.pg-item').forEach(it => it.addEventListener('click', function(){
         const src = this.querySelector('img').src;
         const lb = document.getElementById('lightbox');
