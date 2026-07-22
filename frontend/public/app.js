@@ -16,13 +16,15 @@
   document.title = product.title + ' | Talleres M. Iniesta';
 
   const grid = document.getElementById('piecesGrid');
-  grid.innerHTML = product.pieces.map((p) =>
+  grid.innerHTML = product.pieces.map((p) => {
+    const hoverText = (p.lead || p.short || '').replace(/<[^>]+>/g,'');
+    return (
     '<a class="piece-card reveal" href="pieza.html?id=' + p.id + '">' +
       '<div class="piece-card-img">' +
         '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.style.opacity=.25">' +
         '<div class="piece-card-hover">' +
-          '<h4>' + p.name + '</h4>' +
-          '<p>' + p.short + '</p>' +
+          '<h4>¿Qué es y para qué sirve?</h4>' +
+          '<p>' + hoverText + '</p>' +
         '</div>' +
       '</div>' +
       '<div class="piece-card-body"><h3>' + p.name + '<span class="piece-underline"></span></h3>' +
@@ -30,7 +32,7 @@
       (p.code ? '<span class="piece-code">Ref: ' + p.code + '</span>' : '') +
       '</div>' +
     '</a>'
-  ).join('');
+  );}).join('');
 
   /* ================= Shared UI ================= */
   const header = document.getElementById('siteHeader');

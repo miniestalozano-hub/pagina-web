@@ -43,7 +43,7 @@ const IMG = {
   sce:         CAT+"sce_real.png", // SCE — foto real completa (facilitada por cliente)
   zcorrea:     CAT+"p71_img02.png",
   zcubierta_c: CAT+"p73_img26.jpeg", // Z con coliso — foto real
-  zcubierta:   CAT+"p73_img26.jpeg", // Z Cubierta — foto real (evita recorte de p75)
+  zcubierta:   CAT+"p72_img03.png",  // Z Cubierta — foto real diferente a ZCC
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"p81_img03.png",   // Argollas
@@ -620,10 +620,28 @@ const SERVICES = [
 
 function accordionsFor(p) {
   return {
-    sistema: p.sistema || ["Esta pieza forma parte del catálogo de <strong>herrajes TMI</strong> para prefabricado de hormigón."],
-    materiales: p.materiales || ["Acero certificado según EN 10025-2 con acabado zincado o galvanizado según especificación."],
-    dimensiones: p.dimensiones || ["Fabricación a medida según plano. Pedido mínimo desde 1 pieza."],
-    instrucciones: p.instrucciones || ["Consulte la ficha técnica del proyecto y el par de apriete recomendado."]
+    sistema: p.sistema || ["Esta pieza forma parte del catálogo de <strong>herrajes TMI</strong> para prefabricado de hormigón. Se combina con la <strong>guía perfil 40/22</strong>, tornillería TCA y/o taco expansivo según la configuración del proyecto."],
+    materiales: p.materiales || [
+      "Acero estructural certificado según <strong>EN 10025-2</strong> con certificado 3.1 EN 10204.",
+      "Acabado zincado electrolítico (>8 µm) según EN ISO 2081 o galvanizado en caliente (>35 µm) según EN ISO 1461 bajo pedido.",
+      "Trazabilidad de material completa: cada lote lleva registro de colada."
+    ],
+    dimensiones: p.dimensiones || [
+      "Fabricación estándar según catálogo TMI 2024.",
+      "Fabricamos <strong>cualquier medida especial</strong> sobre plano o croquis del cliente.",
+      "Pedido mínimo desde <strong>1 pieza</strong> — sin lote mínimo."
+    ],
+    instrucciones: p.instrucciones || [
+      "Consulte la ficha técnica del proyecto y el <strong>par de apriete</strong> recomendado por el proyectista.",
+      "Verifique la limpieza y alineación de las superficies de contacto antes del apriete.",
+      "Para uniones fresadas con arandela dentada, apriete al par especificado para que los dentados engranen mecánicamente."
+    ],
+    normativa: p.normativa || [
+      "Diseño verificado según <strong>UNE-EN 1993-1-1</strong> y <strong>UNE-EN 1993-1-8</strong> (uniones atornilladas).",
+      "Marcado <strong>CE 1239</strong> conforme a EN 1090-1:2009+A1:2011.",
+      "Homologaciones: <strong>Tecnalia Certification</strong> y <strong>Bureau Veritas WPQR</strong> para procedimientos de soldadura.",
+      "Declaración de Prestaciones (DoP) disponible bajo solicitud a pedidos@talleresiniesta.es."
+    ]
   };
 }
 
@@ -671,9 +689,9 @@ const GALLERY = {
   "arandela-dentada":["/catalog_img/p64_img02.png","/catalog_img/p64_img04.png","/catalog_img/p65_img03.jpeg","/catalog_img/p66_img03.jpeg"],
   "u-correa":        ["/catalog_img/p67_img02.jpeg","/catalog_img/p67_img03.jpeg","/catalog_img/p68_img03.png"],
   "sce":             ["/catalog_img/sce_real.png","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.png","/catalog_img/p70_img03.png"],
-  "z-correa":        ["/catalog_img/p71_img02.png","/catalog_img/p72_img03.png","/catalog_img/p71_img03.png"],
-  "z-cubierta-coliso":["/catalog_img/p73_img01.png","/catalog_img/p74_img03.png","/catalog_img/p73_img26.jpeg"],
-  "z-cubierta":      ["/catalog_img/p75_img03.jpeg","/catalog_img/p75_img04.png","/catalog_img/p76_img03.png"],
+  "z-correa":        ["/catalog_img/p71_img02.png","/catalog_img/p71_img01.png"],
+  "z-cubierta-coliso":["/catalog_img/p73_img26.jpeg","/catalog_img/p73_img01.png"],
+  "z-cubierta":      ["/catalog_img/p72_img03.png","/catalog_img/p75_img01.png"],
   "s-montaje":       ["/catalog_img/p77_img02.jpeg","/catalog_img/p78_img03.png","/catalog_img/p77_img03.png"],
   "s-canalon":       ["/catalog_img/p79_img02.jpeg","/catalog_img/p80_img03.png","/catalog_img/p79_img03.png"],
   "argollas":        ["/catalog_img/p81_img03.png","/catalog_img/p82_img03.jpeg","/catalog_img/p82_img04.jpeg","/catalog_img/p81_img04.png"],
@@ -761,10 +779,32 @@ const ARTICLES = [
   }
 ];
 
-/* Filtrar imágenes irrelevantes de la galería (logos, planos con marca CE, etc.) */
-const GALLERY_IGNORE = ["p26_img04.png","p26_img07.png","p26_img10.png","p26_img11.png","p13_img01.png","p14_img01.png"];
+/* Filtrar imágenes irrelevantes de la galería (logos CE 5155 bytes, logo TMI 24595 bytes, planos con marca) */
+const GALLERY_IGNORE = [
+  // Logos CE + TMI que se repiten en cada página del catálogo
+  "p01_img06.png","p02_img04.png","p03_img01.png","p03_img06.png","p04_img09.png","p05_img34.png",
+  "p09_img05.png","p11_img06.png","p13_img24.png","p15_img05.png","p17_img05.png","p19_img04.png",
+  "p21_img06.png","p23_img08.png","p24_img06.png","p25_img05.png","p26_img11.png","p27_img10.png",
+  "p29_img10.png","p30_img06.png","p31_img08.png","p32_img05.png","p34_img05.png","p36_img05.png",
+  "p38_img04.png","p40_img04.png","p42_img04.png","p44_img04.png","p47_img04.png","p49_img03.png",
+  "p49_img04.png","p50_img04.png","p51_img03.png","p51_img04.png","p52_img05.png","p53_img03.png",
+  "p53_img04.png","p54_img03.png","p55_img03.png","p55_img04.png","p56_img03.png","p57_img03.png",
+  "p57_img04.png","p58_img03.png","p59_img03.png","p59_img04.png","p60_img03.png","p61_img03.png",
+  "p61_img04.png","p62_img05.png","p63_img04.png","p63_img05.png","p64_img05.png","p64_img06.png",
+  "p66_img10.png","p67_img03.png","p67_img04.png","p68_img04.png","p69_img08.png","p69_img09.png",
+  "p70_img04.png","p71_img05.png","p71_img06.png","p72_img04.png","p73_img27.png","p73_img28.png",
+  "p74_img04.png","p75_img05.png","p75_img06.png","p76_img06.png","p77_img03.png","p77_img04.png",
+  "p78_img04.png","p79_img04.png","p79_img05.png","p80_img04.png","p81_img04.png","p81_img05.png",
+  "p83_img26.png","p83_img27.png","p84_img10.png","p85_img10.png","p85_img11.png","p87_img52.png",
+  "p87_img53.png",
+  // Tabla de datos técnicos con dimensiones (screenshot tipo tabla)
+  "p11_img03.png"
+];
 if (typeof GALLERY === 'object') {
   Object.keys(GALLERY).forEach(k => {
-    GALLERY[k] = GALLERY[k].filter(src => !GALLERY_IGNORE.some(ig => src.endsWith(ig)));
+    const seen = new Set();
+    GALLERY[k] = GALLERY[k]
+      .filter(src => !GALLERY_IGNORE.some(ig => src.endsWith(ig)))
+      .filter(src => { if (seen.has(src)) return false; seen.add(src); return true; });
   });
 }

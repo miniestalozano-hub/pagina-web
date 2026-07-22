@@ -581,6 +581,64 @@
   /* Nav overlay fix hamburguesa mobile */
   .nav-overlay{position:fixed; inset:0; background:rgba(10,15,25,.55); z-index:1100; opacity:0; pointer-events:none; transition:opacity .35s; display:block;}
   .nav-overlay.open{opacity:1; pointer-events:auto;}
+
+  /* ============ INGENIERÍA Y SIMULACIÓN ============ */
+  .engineering-section{background:#fff; padding:96px 0; position:relative; overflow:hidden;}
+  .engineering-section::before{
+    content:''; position:absolute; inset:0; opacity:.4; pointer-events:none;
+    background:
+      radial-gradient(circle at 90% 10%, var(--blue-light) 0, transparent 40%),
+      radial-gradient(circle at 10% 90%, #f0f7ff 0, transparent 50%);
+  }
+  .eng-grid{position:relative; z-index:2; display:grid; grid-template-columns:1fr 1.05fr; gap:60px; align-items:center; margin-bottom:70px;}
+  .eng-text .eyebrow{margin-bottom:14px;}
+  .eng-text h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:18px; line-height:1.18;}
+  .eng-text p{color:var(--gray-500); font-size:1.02rem; margin-bottom:18px; line-height:1.65;}
+  .eng-text p strong{color:var(--gray-900);}
+  .eng-text p em{color:var(--blue);}
+  .eng-list{margin-top:26px;}
+  .eng-list li{display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--gray-700); font-size:.98rem;}
+  .eng-list li svg{width:22px; height:22px; padding:5px; background:var(--blue-light); border-radius:50%; fill:var(--blue); flex-shrink:0;}
+
+  .eng-viewer{position:relative;}
+  .eng-tabs{display:flex; flex-wrap:wrap; gap:4px; margin-bottom:16px; padding:6px; background:var(--gray-50); border-radius:12px; border:1px solid var(--gray-100);}
+  .eng-tab{
+    flex:1; min-width:120px; padding:10px 14px; font-family:inherit; font-weight:600; font-size:.86rem;
+    color:var(--gray-500); background:transparent; border:none; border-radius:8px; cursor:pointer;
+    transition:var(--transition); text-align:center;
+  }
+  .eng-tab:hover{color:var(--blue);}
+  .eng-tab.active{background:var(--blue); color:#fff; box-shadow:0 6px 18px rgba(24,87,168,.25);}
+  .eng-canvas{position:relative; background:#fff; border:1px solid var(--gray-100); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; aspect-ratio:16/11; padding:24px; display:flex; align-items:center; justify-content:center;}
+  .eng-img{position:absolute; inset:24px; max-width:calc(100% - 48px); max-height:calc(100% - 48px); margin:auto; object-fit:contain; opacity:0; transition:opacity .5s cubic-bezier(.4,0,.2,1); mix-blend-mode:multiply;}
+  .eng-img.active{opacity:1;}
+  .eng-tag{position:absolute; bottom:16px; left:16px; background:rgba(10,44,92,.9); color:#fff; padding:6px 14px; border-radius:20px; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; backdrop-filter:blur(6px);}
+
+  .eng-cards{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:60px;}
+  .eng-card{background:#fff; border:1px solid var(--gray-100); border-radius:16px; padding:30px 26px; box-shadow:var(--shadow); transition:transform .4s, box-shadow .4s, border-color .4s;}
+  .eng-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--blue-accent);}
+  .eng-icon{width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg, var(--blue-light) 0%, #d1e4fb 100%); color:var(--blue); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .eng-icon svg{width:26px; height:26px;}
+  .eng-card h4{font-size:1.08rem; margin-bottom:10px;}
+  .eng-card p{color:var(--gray-500); font-size:.92rem; line-height:1.55;}
+
+  .eng-logos{position:relative; z-index:2; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:40px; padding:30px 0; border-top:1px solid var(--gray-100);}
+  .eng-logos-label{color:var(--gray-500); font-size:.82rem; text-transform:uppercase; letter-spacing:2px; font-weight:600; width:100%; text-align:center; margin-bottom:8px;}
+  .eng-logo{display:inline-flex; align-items:center; height:34px; color:var(--gray-500); filter:grayscale(1) opacity(.55); transition:var(--transition);}
+  .eng-logo:hover{filter:grayscale(0) opacity(1); color:var(--blue); transform:translateY(-3px);}
+  .eng-logo svg{height:100%; width:auto;}
+
+  @media (max-width:980px){
+    .eng-grid{grid-template-columns:1fr; gap:36px;}
+    .eng-cards{grid-template-columns:1fr; gap:16px;}
+    .eng-canvas{aspect-ratio:16/12;}
+  }
+  @media (max-width:560px){
+    .eng-tabs{gap:2px; padding:4px;}
+    .eng-tab{min-width:0; font-size:.76rem; padding:8px 6px;}
+    .eng-logos{gap:24px;}
+    .eng-logo{height:26px;}
+  }
 </style>
 <script defer src="/static/js/bundle.js"></script>
 <script src="data.js"></script>
@@ -638,9 +696,11 @@ if(window.self!==window.top){
             <a href="producto-detalle.html?producto=placas">Placas de Anclaje</a>
             <a href="producto-detalle.html?producto=medida">Soluciones a Medida</a>
             <a href="producto-detalle.html?producto=mecanizado">Mecanizado</a>
+            <a href="comparar.html">Comparador de piezas</a>
           </div>
         </li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#ingenieria">Ingeniería</a></li>
         <li><a href="#nosotros">Quiénes Somos</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -844,6 +904,12 @@ if(window.self!==window.top){
         </div>
       </a>
     </div>
+
+    <div style="text-align:center; margin-top:44px;" class="reveal">
+      <a href="comparar.html" class="btn btn-outline-blue">Comparar dos piezas lado a lado
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-left:6px;"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -951,8 +1017,72 @@ if(window.self!==window.top){
   </div>
 </section>
 
-<!-- ============ SERVICIOS ============ -->
-<section class="section services-section" id="servicios" style="background:linear-gradient(180deg,var(--gray-50),#fff);">
+<!-- ============ INGENIERÍA Y SIMULACIÓN (FEA) ============ -->
+<section class="section engineering-section" id="ingenieria">
+  <div class="container">
+    <div class="eng-grid">
+      <div class="eng-text reveal">
+        <span class="eyebrow">Ingeniería y Simulación</span>
+        <h2>Diseñamos y validamos cada pieza con análisis FEA</h2>
+        <p>En Talleres M. Iniesta utilizamos <strong>Siemens Solid Edge</strong> para el modelado 3D y <strong>NX Nastran</strong> para el análisis por elementos finitos (FEA) de nuestros herrajes. Cada geometría se somete a simulaciones de tensiones y deformaciones bajo las cargas reales de uso <em>antes</em> de fabricar el primer prototipo.</p>
+        <p>Este proceso nos permite <strong>optimizar el espesor del acero</strong>, reducir concentradores de tensión y garantizar capacidades de carga verificadas conforme a <strong>UNE-EN 1993-1-1 y 1993-1-8</strong>.</p>
+        <ul class="eng-list">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Modelado 3D paramétrico en Solid Edge</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Mallado y análisis estructural con NX Nastran</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Verificación de tensiones Von Mises y deformaciones</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Optimización iterativa antes del prototipado</li>
+        </ul>
+      </div>
+
+      <div class="eng-viewer reveal reveal-delay-1">
+        <div class="eng-tabs" role="tablist">
+          <button class="eng-tab active" data-tab="cad" role="tab">Modelo CAD</button>
+          <button class="eng-tab" data-tab="mesh" role="tab">Malla FEM</button>
+          <button class="eng-tab" data-tab="stress" role="tab">Análisis de tensiones</button>
+          <button class="eng-tab" data-tab="deform" role="tab">Deformaciones</button>
+        </div>
+        <div class="eng-canvas">
+          <img class="eng-img active" data-tab="cad" src="/catalog_img/fea_cad.png" alt="Modelo CAD">
+          <img class="eng-img" data-tab="mesh" src="/catalog_img/fea_mesh.png" alt="Malla FEM">
+          <img class="eng-img" data-tab="stress" src="/catalog_img/fea_stress.png" alt="Análisis de tensiones">
+          <img class="eng-img" data-tab="deform" src="/catalog_img/fea_deform.png" alt="Deformaciones">
+          <div class="eng-tag" id="engTag">Modelo CAD · Solid Edge</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eng-cards">
+      <div class="eng-card reveal">
+        <div class="eng-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v10"/></svg></div>
+        <h4>Diseño CAD paramétrico</h4>
+        <p>Modelado 3D en Solid Edge. Ensamblajes verificados con tolerancias reales de fabricación.</p>
+      </div>
+      <div class="eng-card reveal reveal-delay-1">
+        <div class="eng-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+        <h4>Simulación FEM</h4>
+        <p>Análisis por elementos finitos con NX Nastran. Verificación de cargas críticas antes de fabricar.</p>
+      </div>
+      <div class="eng-card reveal reveal-delay-2">
+        <div class="eng-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M4 20l6-6M20 4v10M20 4l-6 6M12 12l4-4"/></svg></div>
+        <h4>Optimización estructural</h4>
+        <p>Iteración hasta la geometría óptima: mínimo peso, máxima capacidad, cumplimiento normativo.</p>
+      </div>
+    </div>
+
+    <div class="eng-logos reveal">
+      <span class="eng-logos-label">Herramientas de ingeniería:</span>
+      <a class="eng-logo" href="https://plm.sw.siemens.com/en-US/nx/" target="_blank" rel="noopener" title="Siemens NX">
+        <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg"><text x="0" y="28" font-family="Arial, sans-serif" font-weight="800" font-size="26" fill="currentColor">SIEMENS</text></svg>
+      </a>
+      <a class="eng-logo" href="https://plm.sw.siemens.com/en-US/simcenter/mechanical-simulation/nx-nastran/" target="_blank" rel="noopener" title="NX Nastran">
+        <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg"><text x="0" y="28" font-family="Arial, sans-serif" font-weight="800" font-size="24" fill="currentColor">NX Nastran</text></svg>
+      </a>
+      <a class="eng-logo" href="https://solidedge.siemens.com/" target="_blank" rel="noopener" title="Solid Edge">
+        <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg"><text x="0" y="28" font-family="Arial, sans-serif" font-weight="800" font-size="24" fill="currentColor">Solid Edge</text></svg>
+      </a>
+    </div>
+  </div>
+</section>
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow" style="text-align:center; width:100%;">Servicios</span>
@@ -1359,6 +1489,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+/* ---------- Engineering (FEA) tabs ---------- */
+(function initEngTabs(){
+  const tabs = document.querySelectorAll('.eng-tab');
+  const imgs = document.querySelectorAll('.eng-img');
+  const tag = document.getElementById('engTag');
+  if (!tabs.length) return;
+  const labels = {
+    cad:    'Modelo CAD · Solid Edge',
+    mesh:   'Malla FEM · NX Nastran',
+    stress: 'Análisis de tensiones · Von Mises',
+    deform: 'Deformaciones bajo carga'
+  };
+  tabs.forEach(t => t.addEventListener('click', () => {
+    const key = t.dataset.tab;
+    tabs.forEach(x => x.classList.toggle('active', x === t));
+    imgs.forEach(img => img.classList.toggle('active', img.dataset.tab === key));
+    if (tag) tag.textContent = labels[key] || '';
+  }));
+  // Autoplay simple: rotate every 5s if user hasn't clicked
+  let idx = 0; let userInteracted = false;
+  tabs.forEach(t => t.addEventListener('click', () => { userInteracted = true; }));
+  setInterval(() => {
+    if (userInteracted) return;
+    idx = (idx + 1) % tabs.length;
+    tabs[idx].click();
+    userInteracted = false;
+  }, 5000);
+})();
 </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a1c2e278de64f914',t:'MTc4NDIyNDU5Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

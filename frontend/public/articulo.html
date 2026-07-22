@@ -88,8 +88,9 @@
   .rel-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
   .rel-card{background:#fff; border:1px solid var(--gray-100); border-radius:12px; overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); display:flex; flex-direction:column;}
   .rel-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:var(--blue-accent);}
-  .rel-thumb{aspect-ratio:16/9; background:#f0f4fa; overflow:hidden;}
-  .rel-thumb img{width:100%; height:100%; object-fit:cover;}
+  .rel-thumb{aspect-ratio:16/9; background:#fff; overflow:hidden; padding:14px; display:flex; align-items:center; justify-content:center;}
+  .rel-thumb img{max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply; transition:transform .5s ease;}
+  .rel-card:hover .rel-thumb img{transform:scale(1.04);}
   .rel-body{padding:20px 22px 22px;}
   .rel-date{font-size:.74rem; color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;}
   .rel-body h4{font-size:1rem; margin-bottom:12px; line-height:1.35;}

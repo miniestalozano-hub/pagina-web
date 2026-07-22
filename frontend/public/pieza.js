@@ -34,7 +34,14 @@
   ).join('');
 
   // Galería adicional del catálogo (bajo los desplegables)
-  const galleryImgs = (typeof GALLERY !== 'undefined' && GALLERY[piece.id]) || [];
+  const rawGallery = (typeof GALLERY !== 'undefined' && GALLERY[piece.id]) || [];
+  // Dedupe + filter potential logo/CE tiny images
+  const seen = new Set();
+  const galleryImgs = rawGallery.filter(src => {
+    if (seen.has(src)) return false;
+    seen.add(src);
+    return true;
+  });
   if (galleryImgs.length) {
     const gEl = document.getElementById('galleryBlock');
     if (gEl) {
@@ -58,14 +65,15 @@
   const acc = accordionsFor(piece);
   const items = [
     { title: 'Descripción del sistema',  body: acc.sistema },
-    { title: 'Materiales',               body: acc.materiales },
-    { title: 'Dimensiones',              body: acc.dimensiones },
-    { title: 'Instrucciones de uso',     body: acc.instrucciones },
+    { title: 'Materiales y acabado',     body: acc.materiales },
+    { title: 'Dimensiones y referencias',body: acc.dimensiones },
+    { title: 'Instrucciones de montaje', body: acc.instrucciones },
+    { title: 'Capacidad de carga y normativa', body: acc.normativa },
     { title: piece.whatTitle,            body: piece.whatBody }
   ];
-  document.getElementById('whatisBox').innerHTML = '<div class="accordions">' + items.map((it, idx) =>
-    '<div class="acc-item' + (idx === 0 ? ' open' : '') + '">' +
-      '<button class="acc-head" type="button" aria-expanded="' + (idx===0?'true':'false') + '">' +
+  document.getElementById('whatisBox').innerHTML = '<div class="accordions">' + items.map((it) =>
+    '<div class="acc-item">' +
+      '<button class="acc-head" type="button" aria-expanded="false">' +
         '<span>' + it.title + '</span>' +
         '<svg class="acc-chev" viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
       '</button>' +
