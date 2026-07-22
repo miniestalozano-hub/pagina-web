@@ -695,7 +695,7 @@ const GALLERY = {
   "z-cubierta": ["/catalog_img/p75_img01.png","/catalog_img/p75_img03.jpeg","/catalog_img/p76_img01.jpeg","/catalog_img/p76_img02.jpeg"],
   "s-montaje": ["/catalog_img/p77_img01.png","/catalog_img/p78_img01.jpeg","/catalog_img/p78_img02.jpeg"],
   "s-canalon": ["/catalog_img/p79_img03.png","/catalog_img/p80_img01.jpeg","/catalog_img/p80_img03.jpeg"],
-  "argollas": ["/catalog_img/p81_img03.png"],
+  "argollas": ["/catalog_img/argolla_plano.png"],
   "placa-medida": ["/catalog_img/p83_img02.jpeg","/catalog_img/p83_img07.jpeg"],
   "solucion-medida": ["/catalog_img/p85_img01.jpeg","/catalog_img/p85_img02.png","/catalog_img/p85_img05.jpeg","/catalog_img/p85_img09.jpeg"],
   "mecanizado": ["/catalog_img/p87_img44.jpeg"]
