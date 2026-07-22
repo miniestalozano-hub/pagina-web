@@ -1,53 +1,44 @@
 # PRD — Talleres M. Iniesta (Web)
 
-## Iteración 7 (22 Feb 2026) — Pulido integral: FEA, hovers, mensajes
+## Iteración 8 (22 Feb 2026) — Hover en todas las categorías + fotos Guía/TCA + anclajes sin corcho
 
-### Fixes aplicados
-- **Sección Ingeniería y Simulación (FEA)**:
-  - Re-cropeadas las 4 imágenes FEA (`fea_cad`, `fea_mesh`, `fea_stress`, `fea_deform`) con ImageMagick — eliminados textos residuales del catálogo y la barra vertical azul artefacto.
-  - Quitado `mix-blend-mode:multiply` sobre las imágenes FEA (preserva la escala de color).
-  - Contenedor `.eng-canvas` con más padding (30px × 40px) para dar aire a las imágenes.
-  - Aspect ratio pasa a 16/10 (era 16/11) para acomodar mejor las 4 tabs.
-- **Cat-card hover (categorías de productos)**:
-  - Contenido totalmente distinto al que aparece debajo: aplicación/caso de uso · lista de facts técnicos con bullets · CTA en pill.
-  - Cada tarjeta con icono lucid diferente (compass, tuning knob, house, grid, hex, gear).
-  - Nueva animación: **clip-path radial** desde esquina inferior-derecha (0% → 155%), con fade+slide escalonado de icon → eyebrow → h4 → facts → CTA. Radicalmente distinta al slide-up de las tarjetas de pieza.
-- **"Pedido mínimo desde 1 pieza" eliminado en toda la web**:
-  - Topbars de las 6 páginas (`index`, `pieza`, `producto-detalle`, `blog`, `articulo`, `comparar`).
-  - Meta description del index.
-  - Badge del hero (3 → 2 badges).
-  - Strip de stats bajo el hero.
-  - Sección "Por qué elegirnos" (lista de bullets).
-  - CTA del catálogo (stat "1 Pieza mínimo" → "100% A medida").
-  - Texto del accordion "Dimensiones y referencias" (helper por defecto en `data.js`).
-  - Artículo del blog "Fabricación desde 1 pieza" renombrado a "Cómo fabricamos herrajes sobre plano del cliente en 10-15 días" (mismo contenido técnico, título distinto).
-  - Mención residual en el body del artículo "Sistema antivuelco 40/22 + TCA".
+### Cambios aplicados
+- **Hover "¿Qué es y para qué sirve?"** enriquecido en las 12 piezas donde el `lead` coincidía con el `short`:
+  - Escuadras (60x8, refuerzo 50, doble refuerzo 50, refuerzo 60): descripción de aplicación específica según carga y refuerzo.
+  - Escuadras Fresadas (ref-50, drefz-50, ref-60, drefz-60, ref-80, medida): descripción del bloqueo antideslizamiento + arandela dentada + capacidad.
+  - Z Cubierta Coliso: descripción del coliso para regulación horizontal.
+  - Argollas de Elevación: descripción del izado seguro con eslinga.
+- **Guía Perfil 40/22**: añadido `guia_plano.png` (plano técnico con cotas 40±0.5, 22, Ø10, 18±1, 4×Ø5) al gallery. Removidos `p11_img03.png` y `p11_img05.png` (logos).
+- **Tornillo TCA**: añadido `tca_montaje.png` (secuencia de 3 pasos del montaje: colar, girar 90°, apretar) al gallery. Removidos logos.
+- **Anclaje Oculto**: `IMG.anclaje` pasa de `p17_img01.png` (con corcho blanco) a `p18_img03.jpeg` (render sin corcho, muestra la pieza embebida con el coliso Ø19×79 interior).
+- **AOculto 100**: `IMG.anclaje100` pasa de `p21_img03.jpeg` (con corcho) a `p22_img03.jpeg` (render sin corcho, muestra la pieza en hormigón con panel + tornillo TCA visible).
 
 ## Arquitectura actual
 ```
 /app/frontend/public/
-├── index.html            # Landing (cat-card hover reworked · Ingeniería reworked)
+├── index.html            # Landing con Ingeniería FEA + cat-hover minimalista
 ├── blog.html             # Índice blog
-├── articulo.html         # Detalle artículo (thumbs contain)
-├── comparar.html         # Comparador lado a lado
-├── producto-detalle.html # Categoría con hover ¿Qué es y para qué sirve? (piece-cards)
-├── pieza.html            # Detalle pieza con 5 acordeones + normativa (cerrados)
-├── pieza.js              # Acordeones cerrados por defecto
-├── data.js               # DATA + ARTICLES + GALLERY (filtro 84 rutas logos)
-├── app.js                # Render piezas con hover lead
-├── viewer.js             # Three.js viewer
-└── catalog_img/          # + fea_cad/mesh/stress/deform (recroppeadas) + sce_real.png
+├── articulo.html         # Detalle artículo
+├── comparar.html         # Comparador
+├── producto-detalle.html # Grid categoría con hover ¿Qué es y para qué sirve? (todas las piezas)
+├── pieza.html            # Detalle pieza + 5 acordeones (cerrados)
+├── pieza.js              # Dedupe galería
+├── data.js               # DATA + ARTICLES + GALLERY (43 piezas, todas con lead distintivo)
+├── app.js
+├── viewer.js
+└── catalog_img/          # + guia_plano.png + tca_montaje.png + fea_*.png + sce_real.png
 ```
 
 ## Historial
 - Iter 1-4: Base + catálogo + hover noxifer + procesos
-- Iter 5: Blog dedicado (4 artículos + páginas) + limpieza landing
-- Iter 6: Ingeniería FEA + Comparador + acordeones cerrados + hover lead
-- Iter 7: Pulido FEA + hover cat-card reworked + eliminación mensaje "1 pieza"
+- Iter 5: Blog dedicado
+- Iter 6: Ingeniería FEA + Comparador + acordeones cerrados
+- Iter 7: Pulido FEA + hover cat minimalista + eliminación "1 pieza"
+- Iter 8: Leads enriquecidos + fotos Guía/TCA + Anclajes ocultos sin corcho
 
 ## Backlog / Próximos pasos
 - P1: Historia "Quiénes Somos" con timeline de 40 años y fotos históricas
 - P2: Envío real de email vía Resend/SendGrid
 - P2: Buscador y filtro por categoría en blog.html
-- P2: Botón "Comparar con otra pieza" en la ficha de pieza (comparar.html?a=xxx)
+- P2: Botón "Comparar con otra pieza" en la ficha de pieza
 - P3: RSS del blog para SEO
