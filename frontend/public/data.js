@@ -40,10 +40,10 @@ const IMG = {
   esc_fres80r: CAT+"p63_img03.png",   // Escuadra fresada 80x8 con refuerzo
   arandela:    CAT+"p64_img02.png",   // Arandela dentada
   ucorrea:     CAT+"p67_img02.jpeg",
-  sce:         CAT+"p69_img04.jpeg",
+  sce:         CAT+"p69_img06.jpeg", // SCE — foto real completa
   zcorrea:     CAT+"p71_img02.png",
-  zcubierta_c: CAT+"p73_img01.png",
-  zcubierta:   CAT+"p75_img03.jpeg",  // Z Cubierta
+  zcubierta_c: CAT+"p73_img26.jpeg", // Z con coliso — foto real
+  zcubierta:   CAT+"p73_img26.jpeg", // Z Cubierta — foto real (evita recorte de p75)
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"p81_img03.png",   // Argollas
