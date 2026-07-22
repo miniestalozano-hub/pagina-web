@@ -15,14 +15,14 @@ const IMG = {
   anclaje:     CAT+"p17_img02.jpeg",  // Anclaje oculto — foto real pieza sola sin corcho ni contexto
   anclaje_f:   CAT+"p19_img02.jpeg",
   anclaje100:  CAT+"p21_img03.jpeg",  // AOculto 100 — foto real pieza sola sobre fondo blanco
-  anclaje_med: CAT+"p23_img05.png",
+  anclaje_med: CAT+"conjunto_aocultos_medida.png",
   angulo:      CAT+"p24_img01.jpeg",
   angulo_col:  CAT+"p25_img02.png",   // Ángulo con coliso
-  angulo_med:  CAT+"p26_img08.png",   // Ángulo largo
+  angulo_med:  CAT+"conjunto_angulo_medida.png",   // Ángulo largo
   angulo_med2: CAT+"p26_img09.jpeg",
   plantilla:   CAT+"plantilla_medida_real.png",  // Plantilla a medida — foto facilitada por cliente
   plantilla_m: CAT+"p29_img01.png",   // Plantilla con coliso
-  pletina:     CAT+"p31_img04.png", // Pletina real
+  pletina:     CAT+"conjunto_pletina_medida.png", // Pletina real
   escuadra50:  CAT+"p32_img01.png",   // Escuadra con coliso
   escuadra60:  CAT+"escuadra_60x8_real.png",  // Escuadra 60x8 — foto real facilitada por cliente
   escuadra80:  CAT+"p36_img02.jpeg",
@@ -47,9 +47,9 @@ const IMG = {
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
-  placas:      CAT+"p83_img03.jpeg",
-  medida:      CAT+"p85_img04.jpeg", // Solución a medida — foto real pieza soldada compleja fondo blanco
-  mecanizado:  CAT+"p87_img42.jpeg"
+  placas:      CAT+"conjunto_placas.png",
+  medida:      CAT+"conjunto_soluciones.png", // Solución a medida — foto real pieza soldada compleja fondo blanco
+  mecanizado:  CAT+"conjunto_mecanizado.png"
 };
 
 const COMPANY = {
@@ -421,7 +421,7 @@ const DATA = {
         instrucciones:["Combine con F50508."],
         whatTitle:"¿QUÉ ES LA ESCUADRA FRESADA CON REFUERZO 80?",
         whatBody:["Fresada 80×8 con <strong>cartela soldada</strong>, máxima capacidad del catálogo estándar."]}),
-      pB({id:"esc-fresada-medida", name:"Escuadras 80x8 a Medida", code:"E80-MED", shape:"escuadra_medida", img:CAT+"p63_img03.png",
+      pB({id:"esc-fresada-medida", name:"Escuadras 80x8 a Medida", code:"E80-MED", shape:"escuadra_medida", img:CAT+"conjunto_esc80_medida.png",
         short:"Escuadras 80x8 a medida.",
         lead:"Escuadras 80x8 fabricadas a medida bajo plano. Sección más robusta del sistema fresado para proyectos con geometría o carga fuera del catálogo estándar.",
         desc:["Fabricamos escuadras <strong>80×8 mm</strong> con cualquier geometría, longitud, coliso, taladros y refuerzos según plano del cliente."],
@@ -663,14 +663,14 @@ const GALLERY = {
   "anclaje-oculto": ["/catalog_img/p17_img01.png","/catalog_img/p17_img03.png","/catalog_img/p18_img01.jpeg","/catalog_img/p18_img02.jpeg","/catalog_img/p18_img03.jpeg","/catalog_img/p18_img04.jpeg"],
   "aoculto-fresado": ["/catalog_img/p19_img01.png","/catalog_img/p20_img01.jpeg","/catalog_img/p20_img02.jpeg","/catalog_img/p20_img03.jpeg","/catalog_img/p20_img04.jpeg"],
   "aoculto-100": ["/catalog_img/p21_img04.png","/catalog_img/p22_img01.jpeg","/catalog_img/p22_img02.jpeg","/catalog_img/p22_img03.jpeg"],
-  "aocultos-medida": ["/catalog_img/p23_img01.jpeg","/catalog_img/p23_img04.png"],
+  "aocultos-medida": [],
   "angulo-100x10": ["/catalog_img/p24_img02.png","/catalog_img/p24_img03.jpeg","/catalog_img/p24_img04.jpeg"],
   "angulo-coliso": ["/catalog_img/p25_img01.png","/catalog_img/p25_img03.jpeg"],
-  "angulo-medida": ["/catalog_img/p26_img01.png","/catalog_img/p26_img03.jpeg","/catalog_img/p26_img04.png","/catalog_img/p26_img07.png"],
+  "angulo-medida": [],
   "plantilla-montaje": ["/catalog_img/p27_img04.jpeg","/catalog_img/p27_img05.jpeg","/catalog_img/p27_img06.jpeg","/catalog_img/p28_img01.jpeg","/catalog_img/p28_img02.jpeg","/catalog_img/p28_img03.jpeg"],
-  "plantilla-medida": ["/catalog_img/p29_img01.png","/catalog_img/p29_img02.png","/catalog_img/p29_img04.jpeg","/catalog_img/p29_img05.jpeg","/catalog_img/p29_img07.jpeg"],
+  "plantilla-medida": [],
   "pletina-250x50": ["/catalog_img/p30_img02.jpeg","/catalog_img/p30_img03.jpeg","/catalog_img/p30_img04.png"],
-  "pletina-medida": ["/catalog_img/p31_img01.jpeg","/catalog_img/p31_img02.png","/catalog_img/p31_img03.jpeg","/catalog_img/p31_img05.jpeg"],
+  "pletina-medida": [],
   "escuadra-50x8": ["/catalog_img/p32_img02.png","/catalog_img/p32_img03.jpeg","/catalog_img/p33_img01.jpeg","/catalog_img/p33_img02.jpeg"],
   "escuadra-60x8": ["/catalog_img/p34_img03.jpeg","/catalog_img/p35_img01.jpeg","/catalog_img/p35_img02.jpeg"],
   "escuadra-80x8": ["/catalog_img/p36_img01.jpeg","/catalog_img/p36_img03.png","/catalog_img/p37_img01.jpeg","/catalog_img/p37_img02.jpeg"],
@@ -686,8 +686,8 @@ const GALLERY = {
   "esc-fresada-ref-60": ["/catalog_img/p57_img02.png","/catalog_img/p58_img01.jpeg","/catalog_img/p58_img02.jpeg"],
   "esc-fresada-drefz-60": ["/catalog_img/p59_img01.png","/catalog_img/p60_img01.jpeg","/catalog_img/p60_img02.jpeg"],
   "esc-fresada-ref-80": ["/catalog_img/p61_img02.png","/catalog_img/p62_img04.png"],
-  "esc-fresada-medida": ["/catalog_img/p63_img02.jpeg"],
-  "arandela-dentada": ["/catalog_img/p64_img04.png"],
+  "esc-fresada-medida": [],
+  "arandela-dentada": ["/catalog_img/arandela_1.png","/catalog_img/arandela_2.png","/catalog_img/arandela_3.png","/catalog_img/arandela_perfil.png","/catalog_img/arandela_plano.png"],
   "u-correa": ["/catalog_img/p67_img01.png","/catalog_img/p68_img01.jpeg","/catalog_img/p68_img02.png","/catalog_img/p68_img03.png"],
   "sce": ["/catalog_img/p69_img03.jpeg","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img06.jpeg","/catalog_img/p70_img01.jpeg","/catalog_img/p70_img02.png","/catalog_img/p70_img03.png"],
   "z-correa": ["/catalog_img/p71_img01.png","/catalog_img/p71_img03.jpeg","/catalog_img/p71_img04.jpeg","/catalog_img/p72_img01.png","/catalog_img/p72_img02.png","/catalog_img/p72_img03.png"],
@@ -696,9 +696,9 @@ const GALLERY = {
   "s-montaje": ["/catalog_img/p77_img01.png","/catalog_img/p78_img01.jpeg","/catalog_img/p78_img02.jpeg"],
   "s-canalon": ["/catalog_img/p79_img03.png","/catalog_img/p80_img01.jpeg","/catalog_img/p80_img03.jpeg"],
   "argollas": ["/catalog_img/argolla_plano.png"],
-  "placa-medida": ["/catalog_img/p83_img02.jpeg","/catalog_img/p83_img07.jpeg"],
-  "solucion-medida": ["/catalog_img/p85_img01.jpeg","/catalog_img/p85_img02.png","/catalog_img/p85_img05.jpeg","/catalog_img/p85_img09.jpeg"],
-  "mecanizado": ["/catalog_img/p87_img44.jpeg"]
+  "placa-medida": [],
+  "solucion-medida": [],
+  "mecanizado": []
 };
 
 /* ---------------- BLOG: 4 artículos ---------------- */
@@ -809,3 +809,4 @@ if (typeof GALLERY === 'object') {
       .filter(src => { if (seen.has(src)) return false; seen.add(src); return true; });
   });
 }
+const HERO_CYCLE = {"placa-medida": ["/catalog_img/conjunto_placas.png", "/catalog_img/p83_img03.jpeg", "/catalog_img/p83_img04.jpeg", "/catalog_img/p83_img05.jpeg", "/catalog_img/p83_img06.jpeg", "/catalog_img/p83_img07.jpeg", "/catalog_img/p83_img08.jpeg"], "solucion-medida": ["/catalog_img/conjunto_soluciones.png", "/catalog_img/p85_img01.jpeg", "/catalog_img/p85_img03.jpeg", "/catalog_img/p85_img04.jpeg", "/catalog_img/p85_img05.jpeg", "/catalog_img/p85_img06.jpeg", "/catalog_img/p85_img07.jpeg"], "mecanizado": ["/catalog_img/conjunto_mecanizado.png", "/catalog_img/p87_img42.jpeg", "/catalog_img/p87_img43.jpeg", "/catalog_img/p87_img44.jpeg", "/catalog_img/p87_img47.jpeg", "/catalog_img/p87_img48.jpeg"]};

@@ -23,6 +23,28 @@
   document.getElementById('pzImg').alt = piece.name;
   document.getElementById('pzBackCat').href = 'producto-detalle.html?producto=' + piece.categoryKey;
 
+  // Auto-cycle hero image if pieza tiene HERO_CYCLE (placas / soluciones / mecanizado)
+  const cycleImgs = (typeof HERO_CYCLE !== 'undefined' && HERO_CYCLE[piece.id]) || null;
+  if (cycleImgs && cycleImgs.length > 1) {
+    const heroImg = document.getElementById('pzImg');
+    heroImg.style.transition = 'opacity .35s cubic-bezier(.4,0,.2,1), filter .35s cubic-bezier(.4,0,.2,1)';
+    // Preload
+    cycleImgs.forEach(u => { const p = new Image(); p.src = u; });
+    let i = 0;
+    setInterval(() => {
+      heroImg.style.opacity = '0';
+      heroImg.style.filter = 'blur(6px)';
+      setTimeout(() => {
+        i = (i + 1) % cycleImgs.length;
+        heroImg.src = cycleImgs[i];
+        requestAnimationFrame(() => {
+          heroImg.style.opacity = '1';
+          heroImg.style.filter = 'blur(0)';
+        });
+      }, 350);
+    }, 1500);
+  }
+
   // Descripción
   document.getElementById('detailText').innerHTML = piece.desc.map(t => '<p>' + t + '</p>').join('');
 
