@@ -20,11 +20,11 @@ const IMG = {
   angulo_col:  CAT+"p25_img02.png",   // Ángulo con coliso
   angulo_med:  CAT+"p26_img08.png",   // Ángulo largo
   angulo_med2: CAT+"p26_img09.jpeg",
-  plantilla:   CAT+"p29_img05.jpeg",
+  plantilla:   CAT+"plantilla_medida_real.png",  // Plantilla a medida — foto facilitada por cliente
   plantilla_m: CAT+"p29_img01.png",   // Plantilla con coliso
   pletina:     CAT+"p31_img04.png", // Pletina real
   escuadra50:  CAT+"p32_img01.png",   // Escuadra con coliso
-  escuadra60:  CAT+"p35_img02.jpeg",
+  escuadra60:  CAT+"escuadra_60x8_real.png",  // Escuadra 60x8 — foto real facilitada por cliente
   escuadra80:  CAT+"p36_img02.jpeg",
   escuadra50r: CAT+"p38_img01.jpeg",
   escuadra50rr:CAT+"p40_img02.jpeg",
@@ -43,7 +43,7 @@ const IMG = {
   sce:         CAT+"sce_real.png", // SCE — foto real completa (facilitada por cliente)
   zcorrea:     CAT+"p71_img02.png",
   zcubierta_c: CAT+"p73_img26.jpeg", // Z con coliso — foto real
-  zcubierta:   CAT+"p75_img03.jpeg", // Z Cubierta — foto real de su página propia (p75) distinta a Z Correa
+  zcubierta:   CAT+"z_cubierta_real.png", // Z Cubierta — foto facilitada por cliente
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
@@ -656,48 +656,49 @@ const ALL_PIECES = (function(){
 
 // ---------- Galería completa por pieza (todas las fotos del catálogo) ----------
 const GALLERY = {
-  "guia-4022":       ["/catalog_img/p09_img01.png","/catalog_img/p10_img03.jpeg","/catalog_img/guia_plano.png"],
-  "tornillo-tca":    ["/catalog_img/p11_img04.jpeg","/catalog_img/tca_montaje.png","/catalog_img/p12_img03.jpeg"],
-  "bayoneta":        ["/catalog_img/p13_img22.jpeg","/catalog_img/p14_img03.jpeg","/catalog_img/p14_img04.jpeg","/catalog_img/p14_img05.jpeg","/catalog_img/p14_img01.png"],
-  "bayoneta-fresada":["/catalog_img/p15_img02.jpeg","/catalog_img/p16_img03.jpeg","/catalog_img/p16_img04.jpeg","/catalog_img/p16_img05.jpeg","/catalog_img/p15_img03.png"],
-  "anclaje-oculto":  ["/catalog_img/p17_img01.png","/catalog_img/p18_img03.jpeg","/catalog_img/p18_img04.jpeg","/catalog_img/p23_img04.png","/catalog_img/p23_img05.png"],
-  "aoculto-fresado": ["/catalog_img/p19_img02.jpeg","/catalog_img/p20_img03.jpeg","/catalog_img/p20_img04.jpeg","/catalog_img/p19_img03.png"],
-  "aoculto-100":     ["/catalog_img/p21_img03.jpeg","/catalog_img/p22_img03.jpeg","/catalog_img/p22_img04.jpeg","/catalog_img/p21_img04.png"],
-  "aocultos-medida": ["/catalog_img/p23_img04.png","/catalog_img/p23_img05.png"],
-  "angulo-100x10":   ["/catalog_img/p24_img01.jpeg","/catalog_img/p24_img03.jpeg","/catalog_img/p24_img04.jpeg","/catalog_img/p24_img05.jpeg"],
-  "angulo-coliso":   ["/catalog_img/p25_img02.png","/catalog_img/p25_img03.jpeg","/catalog_img/p25_img04.jpeg","/catalog_img/p26_img04.png"],
-  "angulo-medida":   ["/catalog_img/p26_img08.png","/catalog_img/p26_img09.jpeg","/catalog_img/p27_img06.jpeg"],
-  "plantilla-montaje":["/catalog_img/p29_img01.png","/catalog_img/p29_img02.png","/catalog_img/p29_img05.jpeg","/catalog_img/p29_img07.jpeg"],
-  "plantilla-medida":["/catalog_img/p29_img05.jpeg","/catalog_img/p29_img04.jpeg","/catalog_img/p27_img06.jpeg"],
-  "pletina-250x50":  ["/catalog_img/p31_img04.png","/catalog_img/p31_img02.png","/catalog_img/p31_img03.jpeg"],
-  "pletina-medida":  ["/catalog_img/p31_img04.png","/catalog_img/p31_img02.png"],
-  "escuadra-50x8":   ["/catalog_img/p32_img01.png","/catalog_img/p32_img03.jpeg","/catalog_img/p33_img03.jpeg","/catalog_img/p26_img04.png"],
-  "escuadra-60x8":   ["/catalog_img/p35_img02.jpeg","/catalog_img/p34_img01.jpeg","/catalog_img/p35_img03.jpeg"],
-  "escuadra-80x8":   ["/catalog_img/p36_img02.jpeg","/catalog_img/p37_img03.jpeg","/catalog_img/p37_img04.jpeg"],
-  "escuadra-refuerzo-50":["/catalog_img/p38_img01.jpeg","/catalog_img/p38_img03.png","/catalog_img/p38_img04.png","/catalog_img/p39_img03.jpeg"],
-  "escuadra-doble-refuerzo-50":["/catalog_img/p40_img02.jpeg","/catalog_img/p40_img03.png","/catalog_img/p41_img03.jpeg"],
-  "escuadra-refuerzo-60":["/catalog_img/p42_img01.jpeg","/catalog_img/p42_img03.png","/catalog_img/p43_img03.jpeg"],
-  "escuadra-refuerzo-80":["/catalog_img/p44_img01.jpeg","/catalog_img/p44_img03.png","/catalog_img/p45_img03.jpeg"],
-  "esc-fresada-50":  ["/catalog_img/p51_img01.png","/catalog_img/p47_img03.png","/catalog_img/p47_img04.png","/catalog_img/p48_img03.jpeg"],
-  "esc-fresada-60":  ["/catalog_img/p49_img01.jpeg","/catalog_img/p49_img03.png","/catalog_img/p50_img03.jpeg","/catalog_img/p51_img01.png"],
-  "esc-fresada-int-80":["/catalog_img/p51_img01.png","/catalog_img/p52_img03.jpeg","/catalog_img/p52_img04.jpeg"],
-  "esc-fresada-ref-50":["/catalog_img/p53_img02.jpeg","/catalog_img/p53_img03.png","/catalog_img/p54_img03.jpeg"],
-  "esc-fresada-drefz-50":["/catalog_img/p55_img02.jpeg","/catalog_img/p55_img03.png","/catalog_img/p56_img03.jpeg"],
-  "esc-fresada-ref-60":["/catalog_img/p57_img01.jpeg","/catalog_img/p57_img03.png","/catalog_img/p58_img03.jpeg"],
-  "esc-fresada-drefz-60":["/catalog_img/p59_img02.jpeg","/catalog_img/p59_img03.png","/catalog_img/p60_img03.jpeg"],
-  "esc-fresada-ref-80":["/catalog_img/p63_img03.png","/catalog_img/p61_img03.jpeg","/catalog_img/p62_img03.jpeg"],
-  "arandela-dentada":["/catalog_img/p64_img02.png","/catalog_img/p64_img04.png","/catalog_img/p65_img03.jpeg","/catalog_img/p66_img03.jpeg"],
-  "u-correa":        ["/catalog_img/p67_img02.jpeg","/catalog_img/p67_img03.jpeg","/catalog_img/p68_img03.png"],
-  "sce":             ["/catalog_img/sce_real.png","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.png","/catalog_img/p70_img03.png"],
-  "z-correa":        ["/catalog_img/p71_img02.png","/catalog_img/p71_img01.png"],
-  "z-cubierta-coliso":["/catalog_img/p73_img26.jpeg","/catalog_img/p73_img01.png"],
-  "z-cubierta":      ["/catalog_img/p72_img03.png","/catalog_img/p75_img01.png"],
-  "s-montaje":       ["/catalog_img/p77_img02.jpeg","/catalog_img/p78_img03.png","/catalog_img/p77_img03.png"],
-  "s-canalon":       ["/catalog_img/p79_img02.jpeg","/catalog_img/p80_img03.png","/catalog_img/p79_img03.png"],
-  "argollas":        ["/catalog_img/p81_img03.png","/catalog_img/p82_img03.jpeg","/catalog_img/p82_img04.jpeg","/catalog_img/p81_img04.png"],
-  "placa-medida":    ["/catalog_img/p83_img03.jpeg","/catalog_img/p84_img03.jpeg","/catalog_img/p83_img04.png","/catalog_img/p84_img04.jpeg"],
-  "solucion-medida": ["/catalog_img/p85_img01.jpeg","/catalog_img/p86_img03.jpeg","/catalog_img/p85_img03.jpeg"],
-  "mecanizado":      ["/catalog_img/p87_img42.jpeg","/catalog_img/p87_img43.jpeg","/catalog_img/p87_img44.jpeg","/catalog_img/p87_img47.jpeg","/catalog_img/p87_img48.jpeg"]
+  "guia-4022": ["/catalog_img/p09_img03.png","/catalog_img/p09_img04.png","/catalog_img/p10_img02.jpeg","/catalog_img/p10_img03.jpeg","/catalog_img/p10_img04.jpeg","/catalog_img/p10_img05.jpeg","/catalog_img/p10_img06.png"],
+  "tornillo-tca": ["/catalog_img/p11_img05.png","/catalog_img/p12_img01.jpeg","/catalog_img/p12_img02.jpeg","/catalog_img/p12_img03.jpeg","/catalog_img/p12_img04.jpeg","/catalog_img/p12_img05.jpeg","/catalog_img/p12_img06.jpeg","/catalog_img/p12_img07.png"],
+  "bayoneta": ["/catalog_img/p13_img01.png","/catalog_img/p13_img23.png","/catalog_img/p14_img01.png","/catalog_img/p14_img02.png","/catalog_img/p14_img03.jpeg","/catalog_img/p14_img04.jpeg","/catalog_img/p14_img05.jpeg","/catalog_img/p14_img06.png"],
+  "bayoneta-fresada": ["/catalog_img/p15_img01.jpeg","/catalog_img/p15_img03.png","/catalog_img/p15_img04.png","/catalog_img/p16_img01.jpeg","/catalog_img/p16_img02.jpeg","/catalog_img/p16_img03.jpeg","/catalog_img/p16_img04.jpeg","/catalog_img/p16_img05.jpeg","/catalog_img/p16_img06.png"],
+  "anclaje-oculto": ["/catalog_img/p17_img01.png","/catalog_img/p17_img03.png","/catalog_img/p17_img04.png","/catalog_img/p18_img01.jpeg","/catalog_img/p18_img02.jpeg","/catalog_img/p18_img03.jpeg","/catalog_img/p18_img04.jpeg","/catalog_img/p18_img05.png"],
+  "aoculto-fresado": ["/catalog_img/p19_img01.png","/catalog_img/p19_img03.png","/catalog_img/p20_img01.jpeg","/catalog_img/p20_img02.jpeg","/catalog_img/p20_img03.jpeg","/catalog_img/p20_img04.jpeg","/catalog_img/p20_img05.png"],
+  "aoculto-100": ["/catalog_img/p21_img04.png","/catalog_img/p21_img05.png","/catalog_img/p22_img01.jpeg","/catalog_img/p22_img02.jpeg","/catalog_img/p22_img03.jpeg","/catalog_img/p22_img06.png"],
+  "aocultos-medida": ["/catalog_img/p23_img01.jpeg","/catalog_img/p23_img04.png","/catalog_img/p23_img07.png"],
+  "angulo-100x10": ["/catalog_img/p24_img02.png","/catalog_img/p24_img03.jpeg","/catalog_img/p24_img04.jpeg","/catalog_img/p24_img05.png"],
+  "angulo-coliso": ["/catalog_img/p25_img01.png","/catalog_img/p25_img03.jpeg","/catalog_img/p25_img04.png"],
+  "angulo-medida": ["/catalog_img/p26_img01.png","/catalog_img/p26_img03.jpeg","/catalog_img/p26_img04.png","/catalog_img/p26_img07.png","/catalog_img/p26_img10.png"],
+  "plantilla-montaje": ["/catalog_img/p27_img02.jpeg","/catalog_img/p27_img03.jpeg","/catalog_img/p27_img04.jpeg","/catalog_img/p27_img05.jpeg","/catalog_img/p27_img06.jpeg","/catalog_img/p27_img07.jpeg","/catalog_img/p27_img08.jpeg","/catalog_img/p27_img09.png","/catalog_img/p28_img01.jpeg","/catalog_img/p28_img02.jpeg","/catalog_img/p28_img03.jpeg","/catalog_img/p28_img04.png"],
+  "plantilla-medida": ["/catalog_img/p29_img01.png","/catalog_img/p29_img02.png","/catalog_img/p29_img03.jpeg","/catalog_img/p29_img04.jpeg","/catalog_img/p29_img05.jpeg","/catalog_img/p29_img06.jpeg","/catalog_img/p29_img07.jpeg","/catalog_img/p29_img08.jpeg","/catalog_img/p29_img09.png"],
+  "pletina-250x50": ["/catalog_img/p30_img02.jpeg","/catalog_img/p30_img03.jpeg","/catalog_img/p30_img04.png","/catalog_img/p30_img05.png"],
+  "pletina-medida": ["/catalog_img/p31_img01.jpeg","/catalog_img/p31_img02.png","/catalog_img/p31_img03.jpeg","/catalog_img/p31_img05.jpeg","/catalog_img/p31_img07.png"],
+  "escuadra-50x8": ["/catalog_img/p32_img02.png","/catalog_img/p32_img03.jpeg","/catalog_img/p32_img04.png","/catalog_img/p33_img01.jpeg","/catalog_img/p33_img02.jpeg","/catalog_img/p33_img03.png"],
+  "escuadra-60x8": ["/catalog_img/p34_img01.jpeg","/catalog_img/p34_img02.jpeg","/catalog_img/p34_img03.jpeg","/catalog_img/p34_img04.png","/catalog_img/p35_img01.jpeg","/catalog_img/p35_img02.jpeg","/catalog_img/p35_img03.png"],
+  "escuadra-80x8": ["/catalog_img/p36_img01.jpeg","/catalog_img/p36_img03.png","/catalog_img/p36_img04.png","/catalog_img/p37_img01.jpeg","/catalog_img/p37_img02.jpeg","/catalog_img/p37_img03.png"],
+  "escuadra-refuerzo-50": ["/catalog_img/p38_img02.png","/catalog_img/p38_img03.png","/catalog_img/p39_img01.jpeg","/catalog_img/p39_img02.jpeg","/catalog_img/p39_img03.png"],
+  "escuadra-doble-refuerzo-50": ["/catalog_img/p40_img01.png","/catalog_img/p40_img03.png","/catalog_img/p41_img01.jpeg","/catalog_img/p41_img02.jpeg","/catalog_img/p41_img03.png"],
+  "escuadra-refuerzo-60": ["/catalog_img/p42_img02.png","/catalog_img/p42_img03.png","/catalog_img/p43_img01.jpeg","/catalog_img/p43_img02.jpeg","/catalog_img/p43_img03.jpeg","/catalog_img/p43_img04.png"],
+  "escuadra-refuerzo-80": ["/catalog_img/p44_img02.png","/catalog_img/p44_img03.png","/catalog_img/p45_img01.jpeg","/catalog_img/p45_img02.jpeg","/catalog_img/p45_img03.png"],
+  "esc-fresada-50": ["/catalog_img/p47_img02.png","/catalog_img/p47_img03.png","/catalog_img/p48_img01.jpeg","/catalog_img/p48_img02.jpeg","/catalog_img/p48_img03.png"],
+  "esc-fresada-60": ["/catalog_img/p49_img02.png","/catalog_img/p50_img01.jpeg","/catalog_img/p50_img02.jpeg","/catalog_img/p50_img03.jpeg"],
+  "esc-fresada-int-80": ["/catalog_img/p51_img02.png","/catalog_img/p52_img01.jpeg","/catalog_img/p52_img02.png","/catalog_img/p52_img03.jpeg","/catalog_img/p52_img04.jpeg"],
+  "esc-fresada-ref-50": ["/catalog_img/p53_img01.png","/catalog_img/p54_img01.jpeg","/catalog_img/p54_img02.jpeg"],
+  "esc-fresada-drefz-50": ["/catalog_img/p55_img01.png","/catalog_img/p56_img01.jpeg","/catalog_img/p56_img02.jpeg"],
+  "esc-fresada-ref-60": ["/catalog_img/p57_img02.png","/catalog_img/p58_img01.jpeg","/catalog_img/p58_img02.jpeg"],
+  "esc-fresada-drefz-60": ["/catalog_img/p59_img01.png","/catalog_img/p60_img01.jpeg","/catalog_img/p60_img02.jpeg"],
+  "esc-fresada-ref-80": ["/catalog_img/p61_img02.png","/catalog_img/p62_img01.jpeg","/catalog_img/p62_img02.jpeg","/catalog_img/p62_img03.jpeg","/catalog_img/p62_img04.png"],
+  "esc-fresada-medida": ["/catalog_img/p63_img02.jpeg"],
+  "arandela-dentada": ["/catalog_img/p64_img04.png"],
+  "u-correa": ["/catalog_img/p67_img01.png","/catalog_img/p68_img01.jpeg","/catalog_img/p68_img02.png","/catalog_img/p68_img03.png"],
+  "sce": ["/catalog_img/p69_img02.jpeg","/catalog_img/p69_img03.jpeg","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.jpeg","/catalog_img/p69_img06.jpeg","/catalog_img/p69_img07.jpeg","/catalog_img/p70_img01.jpeg","/catalog_img/p70_img02.png","/catalog_img/p70_img03.png"],
+  "z-correa": ["/catalog_img/p71_img01.png","/catalog_img/p71_img03.jpeg","/catalog_img/p71_img04.jpeg","/catalog_img/p72_img01.png","/catalog_img/p72_img02.png","/catalog_img/p72_img03.png"],
+  "z-cubierta-coliso": ["/catalog_img/p74_img01.png","/catalog_img/p74_img02.png","/catalog_img/p74_img03.jpeg"],
+  "z-cubierta": ["/catalog_img/p75_img01.png","/catalog_img/p75_img02.jpeg","/catalog_img/p75_img03.jpeg","/catalog_img/p75_img04.jpeg","/catalog_img/p76_img01.jpeg","/catalog_img/p76_img02.jpeg","/catalog_img/p76_img03.jpeg","/catalog_img/p76_img04.jpeg","/catalog_img/p76_img05.jpeg"],
+  "s-montaje": ["/catalog_img/p77_img01.png","/catalog_img/p78_img01.jpeg","/catalog_img/p78_img02.jpeg","/catalog_img/p78_img03.jpeg"],
+  "s-canalon": ["/catalog_img/p79_img03.png","/catalog_img/p80_img01.jpeg","/catalog_img/p80_img02.jpeg","/catalog_img/p80_img03.jpeg"],
+  "argollas": ["/catalog_img/p81_img03.png"],
+  "placa-medida": ["/catalog_img/p83_img02.jpeg","/catalog_img/p83_img07.jpeg"],
+  "solucion-medida": ["/catalog_img/p85_img01.jpeg","/catalog_img/p85_img02.png","/catalog_img/p85_img05.jpeg","/catalog_img/p85_img09.jpeg"],
+  "mecanizado": ["/catalog_img/p87_img44.jpeg"]
 };
 
 /* ---------------- BLOG: 4 artículos ---------------- */
