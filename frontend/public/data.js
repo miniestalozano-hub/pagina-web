@@ -30,25 +30,25 @@ const IMG = {
   escuadra50rr:CAT+"p40_img02.jpeg",
   escuadra60r: CAT+"p42_img01.jpeg",
   escuadra80r: CAT+"p44_img01.jpeg",
-  esc_fres50:  CAT+"p51_img01.png",   // Escuadra fresada 50x8
+  esc_fres50:  CAT+"p47_img01.jpeg",  // Escuadra fresada 50x8 (foto real p47)
   esc_fres60:  CAT+"p49_img01.jpeg",
   esc_fres80:  CAT+"p51_img01.png",
   esc_fres50r: CAT+"p53_img02.jpeg",
   esc_fres50rr:CAT+"p55_img02.jpeg",
   esc_fres60r: CAT+"p57_img01.jpeg",
   esc_fres60rr:CAT+"p59_img02.jpeg",
-  esc_fres80r: CAT+"p63_img03.png",   // Escuadra fresada 80x8 con refuerzo
+  esc_fres80r: CAT+"p61_img01.jpeg",  // Escuadra fresada 80x8 con refuerzo (foto real p61)
   arandela:    CAT+"p64_img02.png",   // Arandela dentada
   ucorrea:     CAT+"p67_img02.jpeg",
   sce:         CAT+"sce_real.png", // SCE — foto real completa (facilitada por cliente)
   zcorrea:     CAT+"p71_img02.png",
   zcubierta_c: CAT+"p73_img26.jpeg", // Z con coliso — foto real
-  zcubierta:   CAT+"p72_img03.png",  // Z Cubierta — foto real diferente a ZCC
+  zcubierta:   CAT+"p75_img03.jpeg", // Z Cubierta — foto real de su página propia (p75) distinta a Z Correa
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
   placas:      CAT+"p83_img03.jpeg",
-  medida:      CAT+"p85_img01.jpeg",
+  medida:      CAT+"p85_img04.jpeg", // Solución a medida — foto real pieza soldada compleja fondo blanco
   mecanizado:  CAT+"p87_img42.jpeg"
 };
 
@@ -421,7 +421,7 @@ const DATA = {
         instrucciones:["Combine con F50508."],
         whatTitle:"¿QUÉ ES LA ESCUADRA FRESADA CON REFUERZO 80?",
         whatBody:["Fresada 80×8 con <strong>cartela soldada</strong>, máxima capacidad del catálogo estándar."]}),
-      pB({id:"esc-fresada-medida", name:"Escuadras 80x8 a Medida", code:"E80-MED", shape:"escuadra_medida", img:IMG.esc_fres80r,
+      pB({id:"esc-fresada-medida", name:"Escuadras 80x8 a Medida", code:"E80-MED", shape:"escuadra_medida", img:CAT+"p63_img03.png",
         short:"Escuadras 80x8 a medida.",
         lead:"Escuadras 80x8 fabricadas a medida bajo plano. Sección más robusta del sistema fresado para proyectos con geometría o carga fuera del catálogo estándar.",
         desc:["Fabricamos escuadras <strong>80×8 mm</strong> con cualquier geometría, longitud, coliso, taladros y refuerzos según plano del cliente."],

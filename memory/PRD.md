@@ -1,44 +1,43 @@
 # PRD — Talleres M. Iniesta (Web)
 
-## Iteración 8 (22 Feb 2026) — Hover en todas las categorías + fotos Guía/TCA + anclajes sin corcho
+## Iteración 9 (22 Feb 2026) — Análisis 80 páginas + fotos principales pieza-sola
 
-### Cambios aplicados
-- **Hover "¿Qué es y para qué sirve?"** enriquecido en las 12 piezas donde el `lead` coincidía con el `short`:
-  - Escuadras (60x8, refuerzo 50, doble refuerzo 50, refuerzo 60): descripción de aplicación específica según carga y refuerzo.
-  - Escuadras Fresadas (ref-50, drefz-50, ref-60, drefz-60, ref-80, medida): descripción del bloqueo antideslizamiento + arandela dentada + capacidad.
-  - Z Cubierta Coliso: descripción del coliso para regulación horizontal.
-  - Argollas de Elevación: descripción del izado seguro con eslinga.
-- **Guía Perfil 40/22**: añadido `guia_plano.png` (plano técnico con cotas 40±0.5, 22, Ø10, 18±1, 4×Ø5) al gallery. Removidos `p11_img03.png` y `p11_img05.png` (logos).
-- **Tornillo TCA**: añadido `tca_montaje.png` (secuencia de 3 pasos del montaje: colar, girar 90°, apretar) al gallery. Removidos logos.
-- **Anclaje Oculto**: `IMG.anclaje` pasa de `p17_img01.png` (con corcho blanco) a `p18_img03.jpeg` (render sin corcho, muestra la pieza embebida con el coliso Ø19×79 interior).
-- **AOculto 100**: `IMG.anclaje100` pasa de `p21_img03.jpeg` (con corcho) a `p22_img03.jpeg` (render sin corcho, muestra la pieza en hormigón con panel + tornillo TCA visible).
+### Cambios aplicados (6 swaps)
+Se auditaron las 43 piezas del catálogo TMI y se corrigieron las que NO cumplían el criterio "pieza sola sobre fondo blanco":
+
+| Producto | Antes | Ahora | Motivo |
+|---|---|---|---|
+| Anclaje Oculto | `p18_img03.jpeg` | `p17_img02.jpeg` | Estaba en hormigón — ahora pieza sola sin corcho |
+| AOculto 100 | `p22_img03.jpeg` | `p21_img03.jpeg` | Estaba en hormigón con panel — ahora pieza sola |
+| Argollas de Elevación | `p81_img03.png` | `argolla_real.png` (extraído del PDF p81) | Era un plano técnico — ahora foto real ARG-220 |
+| Solución a Medida | `p85_img01.jpeg` | `p85_img04.jpeg` | Render sobre fondo oscuro — ahora foto real fondo blanco |
+| Z Cubierta | `p72_img03.png` | `p75_img03.jpeg` | Igual que Z Correa — ahora foto propia de p75 |
+| Escuadra Fresada 50x8 | `p51_img01.png` | `p47_img01.jpeg` | Compartía imagen con Interior 80x8 — ahora foto propia p47 |
+| Escuadra Fresada Refuerzo 80x8 | `p63_img03.png` | `p61_img01.jpeg` | Compartía imagen con "a Medida" — ahora foto propia p61 |
+
+### Verificación
+- Testing agent (iteration_1.json): 100% éxito para el requisito ("todas las tarjetas piezas solas sobre fondo blanco/gris claro, sin planos, sin renders en contexto")
+- Sin errores JS en las 6 páginas de categoría ni en el homepage
 
 ## Arquitectura actual
 ```
 /app/frontend/public/
-├── index.html            # Landing con Ingeniería FEA + cat-hover minimalista
-├── blog.html             # Índice blog
-├── articulo.html         # Detalle artículo
-├── comparar.html         # Comparador
-├── producto-detalle.html # Grid categoría con hover ¿Qué es y para qué sirve? (todas las piezas)
-├── pieza.html            # Detalle pieza + 5 acordeones (cerrados)
-├── pieza.js              # Dedupe galería
-├── data.js               # DATA + ARTICLES + GALLERY (43 piezas, todas con lead distintivo)
-├── app.js
-├── viewer.js
-└── catalog_img/          # + guia_plano.png + tca_montaje.png + fea_*.png + sce_real.png
+├── index.html · blog.html · articulo.html · comparar.html
+├── producto-detalle.html · pieza.html
+├── data.js (43 piezas, todas con foto pieza-sola verificada)
+├── app.js · pieza.js · viewer.js
+└── catalog_img/ (+ argolla_real.png)
 ```
 
 ## Historial
-- Iter 1-4: Base + catálogo + hover noxifer + procesos
-- Iter 5: Blog dedicado
-- Iter 6: Ingeniería FEA + Comparador + acordeones cerrados
-- Iter 7: Pulido FEA + hover cat minimalista + eliminación "1 pieza"
-- Iter 8: Leads enriquecidos + fotos Guía/TCA + Anclajes ocultos sin corcho
+- Iter 1-5: Base + catálogo + blog dedicado + hover noxifer
+- Iter 6: Ingeniería FEA + Comparador + acordeones
+- Iter 7: Pulido FEA + hover cat minimalista
+- Iter 8: Leads enriquecidos + fotos Guía/TCA + anclajes sin corcho
+- Iter 9: Auditoría 88 páginas del PDF + 7 imágenes principales corregidas + testing agent OK
 
 ## Backlog / Próximos pasos
-- P1: Historia "Quiénes Somos" con timeline de 40 años y fotos históricas
+- P1: Historia "Quiénes Somos" con timeline de 40 años
 - P2: Envío real de email vía Resend/SendGrid
 - P2: Buscador y filtro por categoría en blog.html
-- P2: Botón "Comparar con otra pieza" en la ficha de pieza
-- P3: RSS del blog para SEO
+- P2: Botón "Comparar con otra pieza" en pieza.html
