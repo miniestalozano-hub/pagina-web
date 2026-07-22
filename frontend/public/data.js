@@ -40,7 +40,7 @@ const IMG = {
   esc_fres80r: CAT+"p63_img03.png",   // Escuadra fresada 80x8 con refuerzo
   arandela:    CAT+"p64_img02.png",   // Arandela dentada
   ucorrea:     CAT+"p67_img02.jpeg",
-  sce:         CAT+"p69_img06.jpeg", // SCE — foto real completa
+  sce:         CAT+"sce_real.png", // SCE — foto real completa (facilitada por cliente)
   zcorrea:     CAT+"p71_img02.png",
   zcubierta_c: CAT+"p73_img26.jpeg", // Z con coliso — foto real
   zcubierta:   CAT+"p73_img26.jpeg", // Z Cubierta — foto real (evita recorte de p75)
@@ -670,7 +670,7 @@ const GALLERY = {
   "esc-fresada-ref-80":["/catalog_img/p63_img03.png","/catalog_img/p61_img03.jpeg","/catalog_img/p62_img03.jpeg"],
   "arandela-dentada":["/catalog_img/p64_img02.png","/catalog_img/p64_img04.png","/catalog_img/p65_img03.jpeg","/catalog_img/p66_img03.jpeg"],
   "u-correa":        ["/catalog_img/p67_img02.jpeg","/catalog_img/p67_img03.jpeg","/catalog_img/p68_img03.png"],
-  "sce":             ["/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.png","/catalog_img/p70_img03.png"],
+  "sce":             ["/catalog_img/sce_real.png","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img05.png","/catalog_img/p70_img03.png"],
   "z-correa":        ["/catalog_img/p71_img02.png","/catalog_img/p72_img03.png","/catalog_img/p71_img03.png"],
   "z-cubierta-coliso":["/catalog_img/p73_img01.png","/catalog_img/p74_img03.png","/catalog_img/p73_img26.jpeg"],
   "z-cubierta":      ["/catalog_img/p75_img03.jpeg","/catalog_img/p75_img04.png","/catalog_img/p76_img03.png"],
