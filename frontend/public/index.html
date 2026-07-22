@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Herrajes para Prefabricado de Hormigón | Talleres M. Iniesta</title>
-<meta name="description" content="Fabricantes de herrajes de acero a medida para prefabricado de hormigón desde hace +40 años. Guía perfil 40/22, tornillería TCA, bayonetas, escuadras, anclajes ocultos y placas. Marcado CE 1239. Fabricamos desde 1 pieza en Fortuna, Murcia.">
+<meta name="description" content="Fabricantes de herrajes de acero a medida para prefabricado de hormigón desde hace +40 años. Guía perfil 40/22, tornillería TCA, bayonetas, escuadras, anclajes ocultos y placas. Marcado CE 1239. Talleres M. Iniesta en Fortuna, Murcia.">
 <meta name="keywords" content="herrajes prefabricado hormigón, guía perfil 40/22, tornillo TCA, bayoneta, escuadra dentada, anclaje oculto, placa de anclaje, argollas de elevación, Talleres Iniesta, Murcia, sistema antivuelco, prefabricado, fachada, panel">
 <meta name="author" content="Talleres M. Iniesta SL">
 <meta name="robots" content="index, follow">
@@ -298,16 +298,60 @@
   .cat-card-img img{width:100%; height:100%; object-fit:contain; padding:14px; transition:transform .7s cubic-bezier(.4,0,.2,1);}
   .cat-card:hover .cat-card-img img{transform:scale(1.04);}
   .cat-card-img img{mix-blend-mode:multiply;}
-  /* Overlay estilo noxifer: se desliza desde abajo con el hover */
+  /* Overlay v2: reveal radial desde esquina + fade-in escalonado */
   .cat-card-hover{
-    position:absolute; left:0; right:0; bottom:0; padding:20px 22px;
-    background:linear-gradient(180deg, rgba(10,44,92,0) 0%, rgba(10,44,92,.92) 55%, rgba(10,44,92,.98) 100%);
-    transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1);
+    position:absolute; inset:0;
+    padding:26px 26px 24px;
+    background:linear-gradient(145deg, rgba(10,44,92,.96) 0%, rgba(14,61,128,.96) 60%, rgba(24,87,168,.96) 100%);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    color:#fff;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:10px;
+    clip-path: circle(0% at 92% 92%);
+    transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
     pointer-events:none;
+    z-index:3;
   }
-  .cat-card:hover .cat-card-hover{transform:translateY(0);}
-  .cat-card-hover h4{color:#fff; font-size:1.1rem; margin-bottom:6px;}
-  .cat-card-hover p{color:rgba(255,255,255,.9); font-size:.86rem; margin-bottom:0;}
+  .cat-card:hover .cat-card-hover{ clip-path: circle(155% at 92% 92%); }
+  .cat-hover-icon{
+    width:44px; height:44px; border-radius:12px;
+    background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+    border:1px solid rgba(255,255,255,.2);
+    display:flex; align-items:center; justify-content:center; color:#7fb2f2;
+    opacity:0; transform:translateY(10px) scale(.85); transition:opacity .35s .18s ease, transform .35s .18s ease;
+  }
+  .cat-hover-icon svg{width:22px; height:22px;}
+  .cat-hover-eyebrow{
+    color:#7fb2f2; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px;
+    opacity:0; transform:translateY(8px); transition:opacity .3s .28s ease, transform .3s .28s ease;
+  }
+  .cat-card-hover h4{
+    color:#fff; font-size:1.18rem; margin:0; line-height:1.25;
+    opacity:0; transform:translateY(10px); transition:opacity .35s .34s ease, transform .35s .34s ease;
+  }
+  .cat-hover-facts{
+    list-style:none; margin:6px 0 0; padding:0;
+    opacity:0; transform:translateY(10px); transition:opacity .4s .42s ease, transform .4s .42s ease;
+  }
+  .cat-hover-facts li{
+    color:rgba(255,255,255,.92); font-size:.86rem; line-height:1.4; padding:3px 0 3px 18px; position:relative;
+  }
+  .cat-hover-facts li::before{
+    content:''; position:absolute; left:0; top:11px; width:8px; height:2px; background:#7fb2f2; border-radius:2px;
+  }
+  .cat-hover-cta{
+    margin-top:6px; display:inline-flex; align-items:center; gap:6px;
+    color:#fff; font-size:.9rem; font-weight:700;
+    padding:8px 16px; border-radius:99px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
+    opacity:0; transform:translateY(10px); transition:opacity .4s .5s ease, transform .4s .5s ease, background .25s;
+  }
+  .cat-card:hover .cat-hover-icon,
+  .cat-card:hover .cat-hover-eyebrow,
+  .cat-card:hover .cat-card-hover h4,
+  .cat-card:hover .cat-hover-facts,
+  .cat-card:hover .cat-hover-cta{ opacity:1; transform:translateY(0) scale(1); }
+  .cat-card:hover .cat-hover-cta{ background:rgba(255,255,255,.22); }
   .cat-card-body{padding:24px 24px 26px; display:flex; flex-direction:column; flex:1;}
   .cat-card-body h3{font-size:1.15rem; margin-bottom:10px;}
   .cat-card-body p{color:var(--gray-500); font-size:.92rem; flex:1; margin-bottom:18px;}
@@ -609,10 +653,10 @@
   }
   .eng-tab:hover{color:var(--blue);}
   .eng-tab.active{background:var(--blue); color:#fff; box-shadow:0 6px 18px rgba(24,87,168,.25);}
-  .eng-canvas{position:relative; background:#fff; border:1px solid var(--gray-100); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; aspect-ratio:16/11; padding:24px; display:flex; align-items:center; justify-content:center;}
-  .eng-img{position:absolute; inset:24px; max-width:calc(100% - 48px); max-height:calc(100% - 48px); margin:auto; object-fit:contain; opacity:0; transition:opacity .5s cubic-bezier(.4,0,.2,1); mix-blend-mode:multiply;}
+  .eng-canvas{position:relative; background:#fff; border:1px solid var(--gray-100); border-radius:16px; box-shadow:var(--shadow-lg); overflow:hidden; aspect-ratio:16/10; padding:30px 40px; display:flex; align-items:center; justify-content:center;}
+  .eng-img{position:absolute; inset:30px 40px; max-width:calc(100% - 80px); max-height:calc(100% - 90px); margin:auto; object-fit:contain; opacity:0; transition:opacity .5s cubic-bezier(.4,0,.2,1);}
   .eng-img.active{opacity:1;}
-  .eng-tag{position:absolute; bottom:16px; left:16px; background:rgba(10,44,92,.9); color:#fff; padding:6px 14px; border-radius:20px; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; backdrop-filter:blur(6px);}
+  .eng-tag{position:absolute; bottom:14px; left:16px; right:16px; text-align:center; background:rgba(10,44,92,.9); color:#fff; padding:7px 14px; border-radius:20px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; backdrop-filter:blur(6px); pointer-events:none;}
 
   .eng-cards{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:60px;}
   .eng-card{background:#fff; border:1px solid var(--gray-100); border-radius:16px; padding:30px 26px; box-shadow:var(--shadow); transition:transform .4s, box-shadow .4s, border-color .4s;}
@@ -663,7 +707,7 @@ if(window.self!==window.top){
         <svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,.85)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         pedidos@talleresiniesta.es
       </a>
-      <span class="hide-mobile">Fortuna, Murcia · Pedido desde 1 pieza</span>
+      <span class="hide-mobile">Fortuna, Murcia · Fabricación a medida</span>
     </div>
     <div class="topbar-right">
       <a href="https://es.linkedin.com/company/talleres-m-iniesta" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -736,7 +780,6 @@ if(window.self!==window.top){
         <div class="hero-badges">
           <div class="hero-badge"><strong>CE 1239</strong><span>Marcado CE</span></div>
           <div class="hero-badge"><strong>S275JR</strong><span>Acero certificado</span></div>
-          <div class="hero-badge"><strong>1 pieza</strong><span>Sin mínimo</span></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -813,7 +856,7 @@ if(window.self!==window.top){
     </div>
     <div class="strip-item">
       <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span>
-      <div><strong>Desde 1 pieza</strong><span>sin mínimo de pedido</span></div>
+      <div><strong>A medida</strong><span>sobre plano del cliente</span></div>
     </div>
     <div class="strip-item">
       <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2 2 22h20z"/></svg></span>
@@ -835,7 +878,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=antivuelco" class="cat-card reveal" id="p-antivuelco">
         <div class="cat-card-img">
           <img src="/catalog_img/p26_img08.png" alt="Fijaciones Antivuelco" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png'">
-          <div class="cat-card-hover"><h4>Fijaciones Antivuelco</h4><p>Guía perfil 40/22 · Tornillería TCA · Bayoneta</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></svg></span>
+            <span class="cat-hover-eyebrow">Aplicación</span>
+            <h4>Fachadas y paneles verticales</h4>
+            <ul class="cat-hover-facts">
+              <li>Sistema TCA M-12 / M-16</li>
+              <li>Carga certificada UNE-EN 1993-1-8</li>
+              <li>Marcado CE 1239</li>
+            </ul>
+            <span class="cat-hover-cta">Descubrir sistema →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Fijaciones Antivuelco</h3>
@@ -847,7 +900,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=ajustables" class="cat-card reveal reveal-delay-1" id="p-ajustables">
         <div class="cat-card-img">
           <img src="/catalog_img/p51_img01.png" alt="Fijaciones Ajustables" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp'">
-          <div class="cat-card-hover"><h4>Fijaciones Ajustables</h4><p>Escuadras fresadas · Arandelas dentadas</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/></svg></span>
+            <span class="cat-hover-eyebrow">Cuándo usarlas</span>
+            <h4>Uniones con vibración o dilatación</h4>
+            <ul class="cat-hover-facts">
+              <li>Dentado antideslizamiento mecánico</li>
+              <li>Arandelas F50508 / F55358 / F60608</li>
+              <li>Escuadras 50×8, 60×8, 80×8</li>
+            </ul>
+            <span class="cat-hover-cta">Ver escuadras fresadas →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Fijaciones Ajustables</h3>
@@ -859,7 +922,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=cubiertas" class="cat-card reveal reveal-delay-2" id="p-cubiertas">
         <div class="cat-card-img">
           <img src="/catalog_img/p67_img02.jpeg" alt="Fijación de Cubiertas" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp'">
-          <div class="cat-card-hover"><h4>Fijación de Cubiertas</h4><p>U Correa · Z Cubierta · S Montaje · Argollas</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21V12h6v9"/></svg></span>
+            <span class="cat-hover-eyebrow">Perfiles y accesorios</span>
+            <h4>Estructuras de cubierta industrial</h4>
+            <ul class="cat-hover-facts">
+              <li>U Correa, Z Correa/Cubierta</li>
+              <li>SCE, S Montaje, S Canalón</li>
+              <li>Argollas de elevación certificadas</li>
+            </ul>
+            <span class="cat-hover-cta">Ver piezas →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Fijación de Cubiertas</h3>
@@ -871,7 +944,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=placas" class="cat-card reveal" id="p-placas">
         <div class="cat-card-img">
           <img src="/catalog_img/p83_img03.jpeg" alt="Placas de Anclaje" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp'">
-          <div class="cat-card-hover"><h4>Placas de Anclaje</h4><p>De 6 a 35 mm de espesor · A medida</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><circle cx="16" cy="8" r="1.5"/><circle cx="8" cy="16" r="1.5"/><circle cx="16" cy="16" r="1.5"/></svg></span>
+              <span class="cat-hover-eyebrow">Diseñada por ingeniería</span>
+              <h4>Placas con pernos soldados</h4>
+              <ul class="cat-hover-facts">
+                <li>Espesores de 6 a 35 mm</li>
+                <li>Con o sin rigidizadores</li>
+                <li>Zincado o galvanizado en caliente</li>
+              </ul>
+              <span class="cat-hover-cta">Configurar placa →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Placas de Anclaje</h3>
@@ -883,7 +966,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=medida" class="cat-card reveal reveal-delay-1" id="p-medida">
         <div class="cat-card-img">
           <img src="/catalog_img/p85_img01.jpeg" alt="Soluciones a Medida" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/herrajes-de-hormigon-a-medida.png'">
-          <div class="cat-card-hover"><h4>Soluciones a Medida</h4><p>Diseño y fabricación bajo pedido</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+              <span class="cat-hover-eyebrow">Envía tu plano</span>
+              <h4>Ingeniería + FEA incluidos</h4>
+              <ul class="cat-hover-facts">
+                <li>Diseño en Solid Edge · Análisis NX Nastran</li>
+                <li>Materiales: INOX 304/316, F-114, S355JR</li>
+                <li>Tratamientos térmicos incluidos</li>
+              </ul>
+              <span class="cat-hover-cta">Enviar plano →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Soluciones a Medida</h3>
@@ -895,7 +988,17 @@ if(window.self!==window.top){
       <a href="producto-detalle.html?producto=mecanizado" class="cat-card reveal reveal-delay-2" id="p-mecanizado">
         <div class="cat-card-img">
           <img src="/catalog_img/p87_img42.jpeg" alt="Mecanizado" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg'">
-          <div class="cat-card-hover"><h4>Mecanizado</h4><p>Centro CNC · Tornos · Fresas · Plegadoras</p></div>
+          <div class="cat-card-hover">
+            <span class="cat-hover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></span>
+              <span class="cat-hover-eyebrow">Nuestro taller</span>
+              <h4>Fabricación bajo pedido</h4>
+              <ul class="cat-hover-facts">
+                <li>2 centros CNC + 6 tornos + fresas</li>
+                <li>Plegadoras y soldadura homologada</li>
+                <li>Plazo típico 10-15 días</li>
+              </ul>
+              <span class="cat-hover-cta">Ver capacidades →</span>
+          </div>
         </div>
         <div class="cat-card-body">
           <h3>Mecanizado</h3>
@@ -954,7 +1057,7 @@ if(window.self!==window.top){
       <div class="feature-item">
         <div class="feature-num">02</div>
         <h4>Fabricación a medida</h4>
-        <p>Piezas fabricadas sobre plano o croquis del cliente, desde una sola unidad.</p>
+        <p>Piezas fabricadas sobre plano o croquis del cliente con tolerancias ajustadas.</p>
       </div>
       <div class="feature-item">
         <div class="feature-num">03</div>
@@ -1102,7 +1205,6 @@ if(window.self!==window.top){
         <h2>+40 años fabricando herrajes para el prefabricado de hormigón</h2>
         <p>Fabricamos anclajes, escuadras dentadas, placas y sujeciones bajo plano del cliente, con tolerancias ajustadas, materiales certificados y capacidad de carga verificada según <strong>UNE-EN 1993-1-1/8</strong>.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Pedido posible desde 1 sola pieza</li>
           <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Fabricación sobre plano o croquis del cliente</li>
           <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Envíos a toda España desde Fortuna, Murcia</li>
           <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Marcado CE 1239 · EN 1090-1 · Homologaciones Tecnalia</li>
@@ -1122,7 +1224,7 @@ if(window.self!==window.top){
       <div class="catalog-stat"><strong>+40</strong><span>Años de experiencia</span></div>
       <div class="catalog-stat"><strong>40+</strong><span>Piezas de catálogo</span></div>
       <div class="catalog-stat"><strong>6</strong><span>Máquinas CNC</span></div>
-      <div class="catalog-stat"><strong>1</strong><span>Pieza mínimo</span></div>
+      <div class="catalog-stat"><strong>100%</strong><span>A medida</span></div>
     </div>
   </div>
 </section>

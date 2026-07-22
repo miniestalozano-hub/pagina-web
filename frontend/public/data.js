@@ -629,7 +629,7 @@ function accordionsFor(p) {
     dimensiones: p.dimensiones || [
       "Fabricación estándar según catálogo TMI 2024.",
       "Fabricamos <strong>cualquier medida especial</strong> sobre plano o croquis del cliente.",
-      "Pedido mínimo desde <strong>1 pieza</strong> — sin lote mínimo."
+      "Consulte disponibilidad para longitudes y espesores no estandarizados."
     ],
     instrucciones: p.instrucciones || [
       "Consulte la ficha técnica del proyecto y el <strong>par de apriete</strong> recomendado por el proyectista.",
@@ -736,7 +736,7 @@ const ARTICLES = [
       "· La fijación se puede regular a lo largo de todo el perfil, absorbiendo tolerancias de estructura.",
       "· El sistema es reversible: si en el futuro hay que retirar el panel para rehabilitación, basta con desmontar el TCA.",
       "· La capacidad de carga está <strong>certificada bajo EN 1993-1-8</strong> y comprobada por Tecnalia.",
-      "En Talleres M. Iniesta fabricamos la guía en longitudes estándar de 240 y 500 mm, y el TCA en métricas M-12 (40, 50, 60, 70 y 100 mm) y M-16 (60 y 80 mm). Cualquier medida especial la producimos bajo pedido — <strong>desde una sola pieza</strong> — con plazo comprometido."
+      "En Talleres M. Iniesta fabricamos la guía en longitudes estándar de 240 y 500 mm, y el TCA en métricas M-12 (40, 50, 60, 70 y 100 mm) y M-16 (60 y 80 mm). Cualquier medida especial la producimos bajo pedido con plazo comprometido."
     ]
   },
   {
@@ -759,11 +759,11 @@ const ARTICLES = [
     ]
   },
   {
-    slug: "fabricacion-a-medida-desde-una-pieza-casos-reales",
-    title: "Fabricación a medida desde 1 pieza: cómo trabajamos sobre plano del cliente",
+    slug: "proceso-fabricacion-sobre-plano-cliente",
+    title: "Cómo fabricamos herrajes sobre plano del cliente en 10-15 días",
     category: "Servicios",
     date: "3 Ene 2026",
-    excerpt: "En TMI no hay lote mínimo. Recibimos un plano PDF o DWG, lo revisamos con ingeniería, y en 10-15 días fabricamos la pieza. Así funciona nuestro proceso de fabricación bajo pedido.",
+    excerpt: "Recibimos un plano PDF, DWG o DXF, lo revisamos con ingeniería y fabricamos. Así funciona nuestro proceso de fabricación bajo pedido paso a paso.",
     cover: "/catalog_img/p87_img42.jpeg",
     body: [
       "El 60% de las piezas que salen de nuestro taller de <strong>Fortuna (Murcia)</strong> no están en el catálogo estándar: son placas de anclaje con pernos soldados a medida, escuadras con geometrías especiales, anclajes ocultos con cámara de aire para fachadas ventiladas, plantillas para estructuras metálicas complejas... Todo bajo el plano del cliente.",
