@@ -18,7 +18,13 @@
   const grid = document.getElementById('piecesGrid');
   grid.innerHTML = product.pieces.map((p) =>
     '<a class="piece-card reveal" href="pieza.html?id=' + p.id + '">' +
-      '<div class="piece-card-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.style.opacity=.25"></div>' +
+      '<div class="piece-card-img">' +
+        '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.style.opacity=.25">' +
+        '<div class="piece-card-hover">' +
+          '<h4>' + p.name + '</h4>' +
+          '<p>' + p.short + '</p>' +
+        '</div>' +
+      '</div>' +
       '<div class="piece-card-body"><h3>' + p.name + '<span class="piece-underline"></span></h3>' +
       '<span>' + p.short + '</span>' +
       (p.code ? '<span class="piece-code">Ref: ' + p.code + '</span>' : '') +

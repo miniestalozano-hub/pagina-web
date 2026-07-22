@@ -10,8 +10,8 @@ const IMG = {
   // Piezas reales extraídas del PDF
   guia:        CAT+"p09_img01.png",   // Guía perfil 40/22
   tornillo:    CAT+"p11_img04.jpeg",  // Tornillo TCA
-  bayoneta:    CAT+"p14_img03.jpeg", // Bayoneta contexto real
-  bayoneta_f:  CAT+"p14_img03.jpeg",
+  bayoneta:    CAT+"p14_img05.jpeg", // Bayoneta perspectiva real
+  bayoneta_f:  CAT+"p14_img05.jpeg",
   anclaje:     CAT+"p17_img01.png",   // Anclaje oculto con corcho
   anclaje_f:   CAT+"p19_img02.jpeg",
   anclaje100:  CAT+"p21_img03.jpeg",
@@ -20,11 +20,11 @@ const IMG = {
   angulo_col:  CAT+"p25_img02.png",   // Ángulo con coliso
   angulo_med:  CAT+"p26_img08.png",   // Ángulo largo
   angulo_med2: CAT+"p26_img09.jpeg",
-  plantilla:   CAT+"p27_img05.jpeg",
+  plantilla:   CAT+"p29_img05.jpeg",
   plantilla_m: CAT+"p29_img01.png",   // Plantilla con coliso
   pletina:     CAT+"p31_img04.png", // Pletina real
   escuadra50:  CAT+"p32_img01.png",   // Escuadra con coliso
-  escuadra60:  CAT+"p34_img02.jpeg",
+  escuadra60:  CAT+"p35_img02.jpeg",
   escuadra80:  CAT+"p36_img02.jpeg",
   escuadra50r: CAT+"p38_img01.jpeg",
   escuadra50rr:CAT+"p40_img02.jpeg",
@@ -640,8 +640,8 @@ const ALL_PIECES = (function(){
 const GALLERY = {
   "guia-4022":      ["/catalog_img/p09_img01.png","/catalog_img/p10_img03.jpeg","/catalog_img/p11_img03.png"],
   "tornillo-tca":   ["/catalog_img/p11_img04.jpeg","/catalog_img/p11_img05.png","/catalog_img/p11_img06.png"],
-  "bayoneta":       ["/catalog_img/p13_img06.jpeg","/catalog_img/p13_img07.jpeg","/catalog_img/p13_img08.jpeg"],
-  "bayoneta-fresada":["/catalog_img/p15_img01.jpeg","/catalog_img/p15_img02.jpeg","/catalog_img/p15_img03.png"],
+  "bayoneta":       ["/catalog_img/p14_img05.jpeg","/catalog_img/p14_img01.png","/catalog_img/p14_img02.png"],
+  "bayoneta-fresada":["/catalog_img/p14_img05.jpeg","/catalog_img/p14_img01.png","/catalog_img/p14_img02.png"],
   "anclaje-oculto": ["/catalog_img/p17_img01.png","/catalog_img/p23_img04.png","/catalog_img/p23_img05.png"],
   "aoculto-fresado":["/catalog_img/p19_img02.jpeg","/catalog_img/p19_img03.png","/catalog_img/p19_img04.png"],
   "aoculto-100":    ["/catalog_img/p21_img03.jpeg","/catalog_img/p21_img04.png","/catalog_img/p21_img05.png"],
