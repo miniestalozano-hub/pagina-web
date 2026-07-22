@@ -47,9 +47,9 @@ const IMG = {
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
   argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
-  placas:      CAT+"p83_img03.jpeg",
-  medida:      CAT+"p85_img04.jpeg", // Solución a medida — foto real pieza soldada compleja fondo blanco
-  mecanizado:  CAT+"p87_img42.jpeg"
+  placas:      CAT+"conjunto_placas.png",
+  medida:      CAT+"conjunto_soluciones.png", // Solución a medida — foto real pieza soldada compleja fondo blanco
+  mecanizado:  CAT+"conjunto_mecanizado.png"
 };
 
 const COMPANY = {

@@ -19,20 +19,21 @@
   document.getElementById('pzTitle').textContent = piece.name;
   document.getElementById('pzCode').textContent = piece.code ? 'Ref: ' + piece.code : '';
   document.getElementById('pzLead').textContent = piece.lead;
-  document.getElementById('pzImg').src = piece.img;
-  document.getElementById('pzImg').alt = piece.name;
+  const _cycleImgs = (typeof HERO_CYCLE !== 'undefined' && HERO_CYCLE[piece.id]) || null;
+  const _pzImg = document.getElementById('pzImg');
+  // Si la pieza tiene cycle → arrancar con la primera individual, si no → usar piece.img
+  _pzImg.src = (_cycleImgs && _cycleImgs.length > 1) ? _cycleImgs[0] : piece.img;
+  _pzImg.alt = piece.name;
   document.getElementById('pzBackCat').href = 'producto-detalle.html?producto=' + piece.categoryKey;
 
   // Auto-cycle hero image if pieza tiene HERO_CYCLE (placas / soluciones / mecanizado)
-  const cycleImgs = (typeof HERO_CYCLE !== 'undefined' && HERO_CYCLE[piece.id]) || null;
+  const cycleImgs = _cycleImgs;
   if (cycleImgs && cycleImgs.length > 1) {
-    const heroImg = document.getElementById('pzImg');
-    // Set initial src to first cycle image (avoid flash to main.piece.img)
-    heroImg.src = cycleImgs[0];
-    heroImg.style.transition = 'opacity .45s cubic-bezier(.4,0,.2,1), filter .45s cubic-bezier(.4,0,.2,1)';
+    const heroImg = _pzImg;
+    heroImg.style.transition = 'opacity .4s cubic-bezier(.4,0,.2,1), filter .4s cubic-bezier(.4,0,.2,1)';
     heroImg.style.opacity = '1';
     heroImg.style.filter = 'blur(0)';
-    // Preload the rest
+    // Preload restantes
     cycleImgs.slice(1).forEach(u => { const p = new Image(); p.src = u; });
     let i = 0;
     let cycling = false;
@@ -47,10 +48,10 @@
         requestAnimationFrame(() => {
           heroImg.style.opacity = '1';
           heroImg.style.filter = 'blur(0)';
-          cycling = false;
+          setTimeout(() => { cycling = false; }, 400);
         });
-      }, 450);
-    }, 2200);
+      }, 400);
+    }, 1500);
   }
 
   // Descripción
