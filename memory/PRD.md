@@ -1,32 +1,43 @@
 # PRD — Talleres M. Iniesta (Web)
 
-## Iteración 10 (22 Feb 2026) — 3 fotos cliente + galerías reconstruidas
+## Iteración 11 (22 Feb 2026) — Conjuntos "a medida" + arandelas + cycle hero
 
 ### Cambios aplicados
 
-**3 imágenes principales facilitadas por cliente:**
-| Producto | Imagen |
-|---|---|
-| Escuadra 60x8 | `escuadra_60x8_real.png` (silver L-bracket con 3 taladros) |
-| Plantilla a Medida | `plantilla_medida_real.png` (trapezoidal wedge con hueco) |
-| Z Cubierta | `z_cubierta_real.png` (Z-shape con hueco oval) |
+**Imágenes principales:**
+- Escuadra 60x8 → `escuadra_60x8_real.png` (nueva foto cliente)
+- Plantilla a Medida → `plantilla_medida_real.png` (foto cliente)
+- Z Cubierta → `z_cubierta_real.png` (foto cliente)
+- Anclajes Ocultos a Medida → `conjunto_aocultos_medida.png` (composición 6 piezas de p23)
+- Ángulo a Medida → `conjunto_angulo_medida.png` (composición p26)
+- Pletina a Medida → `conjunto_pletina_medida.png` (composición p31)
+- Escuadras 80x8 a Medida → `conjunto_esc80_medida.png` (composición p63)
+- Placa de Anclaje → `conjunto_placas.png` (composición p83)
+- Solución a Medida → `conjunto_soluciones.png` (composición p85)
+- Mecanizado → `conjunto_mecanizado.png` (composición p87)
 
-**Galerías reconstruidas de forma exhaustiva:**
-- Script Python analiza los 235 archivos del `catalog_img/` y calcula MD5 de cada uno.
-- Detecta **3 hashes de logo** que aparecen ≥4 veces en el catálogo (CE de 5155 bytes + 2 variantes TMI de 24543 y 24595 bytes) — se excluyen automáticamente por hash sin importar el nombre de archivo.
-- Filtros adicionales: aspect ratio > 2.8 con size < 40KB (banners), size < 8KB (fragmentos).
-- Total: 199 ficheros excluidos, 156 fotos válidas de producto distribuidas en 43 galerías.
-- Argollas ampliada con `argolla_plano.png` (plano técnico con cotas H, B, A, E, Ø13, 80°) extraído directamente del PDF con `pdftoppm` + `convert crop`.
-- Verificación programática: **0 logos** en cualquier galería (auditado por md5).
-- Verificación visual: galerías de Guía Perfil 40/22, Bayoneta y Argollas revisadas — todo son fotos de producto o planos, ningún logo.
+Los conjuntos se han generado con `pdftoppm 200dpi` + PIL crop para captar todas las piezas de cada página con nitidez.
+
+**Galería Arandelas Dentadas**: 5 imágenes individuales recortadas de la imagen cliente:
+- `arandela_1.png`, `arandela_2.png`, `arandela_3.png`, `arandela_perfil.png`, `arandela_plano.png`
+
+**Galerías vacías** en piezas "a medida" (Más imágenes oculto): aocultos-medida, angulo-medida, pletina-medida, plantilla-medida, esc-fresada-medida, placa-medida, solucion-medida, mecanizado.
+
+**Enlaces directos desde homepage** (saltando `producto-detalle.html`):
+- Tarjeta Placas → `pieza.html?id=placa-medida`
+- Tarjeta Soluciones a Medida → `pieza.html?id=solucion-medida`
+- Tarjeta Mecanizado → `pieza.html?id=mecanizado`
+
+**Auto-cycle hero con fade + blur** en las 3 categorías single-piece:
+- Objeto `HERO_CYCLE` en data.js con arrays de 6-7 imágenes por pieza
+- pieza.js aplica setInterval 1500ms con transición opacity + blur .35s
+- Preload de todas las imágenes al montar la página
 
 ## Historial
-- Iter 1-8: Base + Blog + Ingeniería FEA + Comparador
-- Iter 9: Auditoría 88 páginas + 7 fotos principales corregidas
-- Iter 10: 3 fotos cliente + galerías reconstruidas con filtro MD5 (156 imgs limpias)
+- Iter 1-10: Base + catálogo + hover + FEA + Comparador + galerías md5-filtradas
+- Iter 11: Conjuntos "a medida" + arandelas troceadas + HERO_CYCLE animation
 
 ## Backlog / Próximos pasos
 - P1: Historia "Quiénes Somos" con timeline de 40 años
 - P2: Envío real de email vía Resend/SendGrid
 - P2: Buscador y filtro por categoría en blog.html
-- P2: Botón "Comparar con otra pieza" en pieza.html
