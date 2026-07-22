@@ -560,6 +560,7 @@
 </style>
 <script defer src="/static/js/bundle.js"></script>
 <script src="data.js"></script>
+<script src="catalog_pages.js"></script>
 <script>
 if(window.self!==window.top){
   var s=document.createElement("script");s.src="/visual-edit-overlay.js";document.head.appendChild(s);
@@ -1009,6 +1010,27 @@ if(window.self!==window.top){
   </div>
 </section>
 
+<!-- ============ CATÁLOGO COMPLETO (80 páginas) ============ -->
+<section class="section" id="catalogo-completo" style="background:#fff; padding:80px 0;">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="text-align:center; width:100%; display:block;">Catálogo TMI 2024</span>
+      <h2>Explora el catálogo completo</h2>
+      <p>Las 80 páginas del catálogo oficial con fichas técnicas, dimensiones, materiales, planos y ejemplos de montaje. Pulsa sobre cualquier página para verla ampliada.</p>
+    </div>
+    <div id="catalogPagesGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-top:36px;"></div>
+    <div style="text-align:center; margin-top:36px;">
+      <button id="showAllPages" class="btn btn-outline" style="background:transparent; border:1.5px solid var(--blue); color:var(--blue);">Ver las 80 páginas</button>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX HOME -->
+<div class="home-lightbox" id="homeLightbox" style="position:fixed; inset:0; background:rgba(10,15,30,.9); z-index:2000; display:flex; align-items:center; justify-content:center; padding:40px; opacity:0; pointer-events:none; transition:opacity .35s;">
+  <button style="position:absolute; top:24px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.15); border:1.5px solid rgba(255,255,255,.4); color:#fff; cursor:pointer; font-size:1.4rem;" onclick="document.getElementById('homeLightbox').style.opacity='0'; document.getElementById('homeLightbox').style.pointerEvents='none';">✕</button>
+  <img id="homeLightboxImg" src="" alt="" style="max-width:90vw; max-height:88vh; object-fit:contain; background:#fff; border-radius:14px; padding:20px;">
+</div>
+
 <!-- ============ CONTACTO ============ -->
 <section class="section contact-section" id="contacto">
   <div class="container contact-grid">
@@ -1197,6 +1219,36 @@ const io = new IntersectionObserver((entries) => {
   });
 }, {threshold:.15});
 revealEls.forEach(el => io.observe(el));
+
+/* ---------- Catálogo completo (80 páginas) ---------- */
+(function renderCatalogPages(){
+  if (typeof CATALOG_PAGES === 'undefined') return;
+  const grid = document.getElementById('catalogPagesGrid');
+  const btn = document.getElementById('showAllPages');
+  if (!grid) return;
+  let expanded = false;
+  const INITIAL = 8;
+  function render(all){
+    const pages = all ? CATALOG_PAGES : CATALOG_PAGES.slice(0, INITIAL);
+    grid.innerHTML = pages.map((src, i) =>
+      '<div class="cat-page" data-src="'+src+'" style="cursor:pointer; background:#fff; border:1px solid var(--gray-100); border-radius:10px; overflow:hidden; box-shadow:var(--shadow); transition:transform .35s, box-shadow .35s; aspect-ratio:3/4;">' +
+        '<img src="'+src+'" alt="Página '+(i+1)+' del catálogo" loading="lazy" style="width:100%; height:100%; object-fit:cover;">' +
+      '</div>'
+    ).join('');
+    grid.querySelectorAll('.cat-page').forEach(el => {
+      el.addEventListener('mouseenter', () => { el.style.transform='translateY(-6px)'; el.style.boxShadow='0 20px 40px rgba(24,87,168,.2)'; });
+      el.addEventListener('mouseleave', () => { el.style.transform=''; el.style.boxShadow=''; });
+      el.addEventListener('click', function(){
+        document.getElementById('homeLightboxImg').src = this.dataset.src;
+        const lb = document.getElementById('homeLightbox');
+        lb.style.opacity = '1'; lb.style.pointerEvents = 'auto';
+      });
+    });
+    if (btn) btn.textContent = all ? 'Mostrar menos' : ('Ver las ' + CATALOG_PAGES.length + ' páginas');
+  }
+  render(false);
+  if (btn) btn.addEventListener('click', () => { expanded = !expanded; render(expanded); });
+})();
 
 /* ---------- Counter animation ---------- */
 const counters = document.querySelectorAll('[data-count]');
