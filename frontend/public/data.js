@@ -12,9 +12,9 @@ const IMG = {
   tornillo:    CAT+"p11_img04.jpeg",  // Tornillo TCA
   bayoneta:    CAT+"p13_img22.jpeg", // Bayoneta con 3 taladros — foto real
   bayoneta_f:  CAT+"p15_img02.jpeg", // Bayoneta fresada con dentado — foto real
-  anclaje:     CAT+"p18_img03.jpeg",  // Anclaje oculto SIN corcho (render en hormigón)
+  anclaje:     CAT+"p17_img02.jpeg",  // Anclaje oculto — foto real pieza sola sin corcho ni contexto
   anclaje_f:   CAT+"p19_img02.jpeg",
-  anclaje100:  CAT+"p22_img03.jpeg",  // AOculto 100 SIN corcho (render con panel y tornillo)
+  anclaje100:  CAT+"p21_img03.jpeg",  // AOculto 100 — foto real pieza sola sobre fondo blanco
   anclaje_med: CAT+"p23_img05.png",
   angulo:      CAT+"p24_img01.jpeg",
   angulo_col:  CAT+"p25_img02.png",   // Ángulo con coliso
@@ -46,7 +46,7 @@ const IMG = {
   zcubierta:   CAT+"p72_img03.png",  // Z Cubierta — foto real diferente a ZCC
   smontaje:    CAT+"p77_img02.jpeg",
   scanalon:    CAT+"p79_img02.jpeg",
-  argollas:    CAT+"p81_img03.png",   // Argollas
+  argollas:    CAT+"argolla_real.png",   // Argollas — foto real ARG-220 pieza sola
   placas:      CAT+"p83_img03.jpeg",
   medida:      CAT+"p85_img01.jpeg",
   mecanizado:  CAT+"p87_img42.jpeg"

@@ -1,0 +1,50 @@
+{
+  "summary": "Frontend-only visual QA of TMI product-detail pages after image swaps. Verified 6 category pages (antivuelco, cubiertas, ajustables, placas, medida, mecanizado) plus index. Confirmed the 3 critical image swaps (Anclaje Oculto=p17_img02, AOculto 100=p21_img03, Argollas=argolla_real.png) render correctly on white/light background with piece alone (no concrete/panel/assembly context, no plans/dimensions/arrows). No JS errors on any page.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "producto-detalle.html?producto=medida", "issues": ["'Solución a Medida' (p85_img01.jpeg) is a 3D CAD rendering on a DARK background rather than a real photo on white. It is a piece alone (no context/plan), so it does not violate the user's 'no context / no plans' rule, but it is inconsistent with the rest of the catalog which uses white-background photos. Consider replacing with a white-background photo for visual consistency."]},
+      {"screen": "producto-detalle.html?producto=cubiertas", "issues": ["'Z Correa (ZC)' (p71_img02.png) and 'Z Cubierta' (p72_img03.png) appear visually IDENTICAL (same L-shaped bracket, both ~184KB). Comment in data.js line 46 claims Z Cubierta should be 'diferente a ZCC' but visually it is the same as Z Correa. Not a violation of the rule, but two different products share the same picture."]},
+      {"screen": "producto-detalle.html?producto=ajustables", "issues": ["'Escuadra Fresada 50x8' and 'Escuadra Fresada Interior 80x8' both use p51_img01.png (duplicated). Also 'Escuadra Fresada Refuerzo 80x8' and 'Escuadras 80x8 a Medida' both use p63_img03.png."]}
+    ]
+  },
+  "verified_swaps": {
+    "Anclaje Oculto": "p17_img02.jpeg -> pieza sola sobre fondo blanco (metálica con corrugados). OK",
+    "AOculto Fresado": "p19_img02.jpeg -> pieza sola sobre fondo blanco. OK",
+    "AOculto 100": "p21_img03.jpeg -> pieza con tapón de corcho blanco sobre fondo blanco (permitido: 'con o sin corcho'). OK",
+    "Anclajes Ocultos a Medida": "p23_img05.png -> pieza sola sobre fondo blanco. OK",
+    "Argollas de Elevación": "argolla_real.png -> foto real trapezoidal, pieza sola sobre fondo blanco (NO plano/dimensiones). OK",
+    "Z Cubierta / Z Correa / U Correa / SCE / S Montaje / S Canalón / ZCC": "todas piezas solas sobre fondo blanco. OK",
+    "Escuadras Fresadas + Arandelas Dentadas": "todas piezas solas sobre fondo blanco/gris claro. OK",
+    "Placa de Anclaje": "p83_img03.jpeg foto real, pieza sola. OK",
+    "Mecanizado": "p87_img42.jpeg foto real, pieza sola. OK"
+  },
+  "js_errors_by_page": {
+    "index.html": [],
+    "antivuelco": [],
+    "cubiertas": [],
+    "ajustables": [],
+    "placas": [],
+    "medida": [],
+    "mecanizado": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional: replace medida hero/card image p85_img01.jpeg (dark 3D CAD render) with a white-background real photo for visual consistency.",
+    "Optional: use distinct images for 'Z Correa' and 'Z Cubierta' — currently visually identical.",
+    "Optional: differentiate 'Escuadra Fresada 50x8' vs 'Escuadra Fresada Interior 80x8' (both use p51_img01.png)."
+  ],
+  "critical_code_review_comments": [
+    "data.js line 46 comment says Z Cubierta is 'foto real diferente a ZCC' but p72_img03.png is visually the same piece as Z Correa (p71_img02.png). Verify catalog mapping.",
+    "IMG mapping uses same p51_img01.png for esc_fres50 and esc_fres80, and p63_img03.png for esc_fres80r and esc_fres_medida — probably not intentional."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (not tested per request)", "frontend": "100% for the specific requirement (all cards on white, no context, no plans)"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "The 3 target image swaps are correctly applied and rendered. Remaining observations are optional visual-consistency notes (duplicate images across some products; medida uses a dark-bg CAD render).",
+  "rca of the issue": "Not applicable — no bug reproduced. Requirement satisfied."
+}
