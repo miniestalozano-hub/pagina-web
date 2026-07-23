@@ -690,7 +690,7 @@ const GALLERY = {
   "esc-fresada-medida": [],
   "arandela-dentada": ["catalog_img/arandela_1.png","catalog_img/arandela_2.png","catalog_img/arandela_3.png","catalog_img/arandela_perfil.png","catalog_img/arandela_plano.png"],
   "u-correa": ["catalog_img/p67_img01.png","catalog_img/p68_img01.jpeg","catalog_img/p68_img02.png","catalog_img/p68_img03.png"],
-  "sce": ["catalog_img/p69_img03.jpeg","catalog_img/p69_img04.jpeg","catalog_img/p69_img06.jpeg","catalog_img/p70_img01.jpeg","catalog_img/p70_img02.png","catalog_img/p70_img03.png"],
+  "sce": ["catalog_img/p69_img03.jpeg","catalog_img/p69_img04.jpeg","catalog_img/p69_img06.jpeg"],
   "z-correa": ["catalog_img/p71_img01.png","catalog_img/p71_img03.jpeg","catalog_img/p71_img04.jpeg","catalog_img/p72_img01.png","catalog_img/p72_img02.png","catalog_img/p72_img03.png"],
   "z-cubierta-coliso": ["catalog_img/p74_img01.png","catalog_img/p74_img02.png"],
   "z-cubierta": ["catalog_img/p75_img01.png","catalog_img/p75_img03.jpeg","catalog_img/p76_img01.jpeg","catalog_img/p76_img02.jpeg"],
