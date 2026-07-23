@@ -22,7 +22,8 @@ const IMG = {
   angulo_med2: CAT+"p26_img09.jpeg",
   plantilla:   CAT+"plantilla_medida_real.png",  // Plantilla a medida — foto facilitada por cliente
   plantilla_m: CAT+"p29_img01.png",   // Plantilla con coliso
-  pletina:     CAT+"conjunto_pletina_medida.png", // Pletina real
+  pletina2:     CAT+"conjunto_pletina_medida2.png", // Pletina real 2
+  pletina:    CAT+"conjunto_pletina_medida.png", // Pletina real
   escuadra50:  CAT+"p32_img01.png",   // Escuadra con coliso
   escuadra60:  CAT+"escuadra_60x8_real.png",  // Escuadra 60x8 — foto real facilitada por cliente
   escuadra80:  CAT+"p36_img02.jpeg",
@@ -224,7 +225,7 @@ const DATA = {
         instrucciones:["Envíe el plano de la estructura y del panel a pedidos@talleresiniesta.es."],
         whatTitle:"¿QUÉ ES LA PLANTILLA A MEDIDA?",
         whatBody:["Plantilla fabricada <strong>según el plano del cliente</strong> para geometrías especiales."]}),
-      pB({id:"pletina-250x50", name:"Pletina 250x50x8", code:"PL-250-50-8", shape:"pletina", img:IMG.pletina,
+      pB({id:"pletina-250x50", name:"Pletina 250x50x8", code:"PL-250-50-8", shape:"pletina", img:IMG.pletina2,
         short:"Grapa 50x8 de unión panel-estructura.",
         lead:"Grapa de unión para fijación de paneles a estructura de hormigón.",
         desc:["Pletina de <strong>250×50×8 mm</strong> usada como grapa entre panel y estructura, cuando no se requiere geometría de ángulo."],
