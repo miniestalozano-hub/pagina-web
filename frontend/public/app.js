@@ -19,7 +19,7 @@
   grid.innerHTML = product.pieces.map((p) => {
     const hoverText = (p.lead || p.short || '').replace(/<[^>]+>/g,'');
     return (
-    '<a class="piece-card reveal" href="pieza.html?id=' + p.id + '">' +
+    '<a class="piece-card reveal' + (p.id === 'placa-medida' ? ' piece-placas' : '') + '" href="pieza.html?id=' + p.id + '">' +
       '<div class="piece-card-img">' +
         '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.style.opacity=.25">' +
         '<div class="piece-card-hover">' +

@@ -33,25 +33,36 @@
     heroImg.style.transition = 'opacity .4s cubic-bezier(.4,0,.2,1), filter .4s cubic-bezier(.4,0,.2,1)';
     heroImg.style.opacity = '1';
     heroImg.style.filter = 'blur(0)';
-    // Preload restantes
-    cycleImgs.slice(1).forEach(u => { const p = new Image(); p.src = u; });
-    let i = 0;
-    let cycling = false;
-    setInterval(() => {
-      if (cycling) return;
-      cycling = true;
-      heroImg.style.opacity = '0';
-      heroImg.style.filter = 'blur(6px)';
-      setTimeout(() => {
-        i = (i + 1) % cycleImgs.length;
-        heroImg.src = cycleImgs[i];
-        requestAnimationFrame(() => {
-          heroImg.style.opacity = '1';
-          heroImg.style.filter = 'blur(0)';
-          setTimeout(() => { cycling = false; }, 400);
-        });
-      }, 400);
-    }, 1500);
+    // Preload todas las imágenes y guardar objetos Image
+    const preloaded = cycleImgs.map(u => { const p = new Image(); p.src = u; return p; });
+    // Solo arrancar el cycle cuando la primera esté totalmente cargada
+    function startCycle() {
+      let i = 0;
+      let cycling = false;
+      setInterval(() => {
+        if (cycling) return;
+        cycling = true;
+        heroImg.style.opacity = '0';
+        heroImg.style.filter = 'blur(6px)';
+        setTimeout(() => {
+          i = (i + 1) % cycleImgs.length;
+          // Asegurar imagen precargada antes de asignar src
+          const next = preloaded[i];
+          const applyImg = () => {
+            heroImg.src = cycleImgs[i];
+            requestAnimationFrame(() => {
+              heroImg.style.opacity = '1';
+              heroImg.style.filter = 'blur(0)';
+              setTimeout(() => { cycling = false; }, 400);
+            });
+          };
+          if (next.complete && next.naturalWidth > 0) applyImg();
+          else next.onload = applyImg;
+        }, 400);
+      }, 1500);
+    }
+    if (preloaded[0].complete && preloaded[0].naturalWidth > 0) startCycle();
+    else preloaded[0].onload = startCycle;
   }
 
   // Descripción
