@@ -677,7 +677,7 @@ const GALLERY = {
   "escuadra-80x8": ["catalog_img/p36_img01.jpeg","catalog_img/p36_img03.png","catalog_img/p37_img01.jpeg","catalog_img/p37_img02.jpeg"],
   "escuadra-refuerzo-50": ["catalog_img/p38_img02.png","catalog_img/p39_img01.jpeg","catalog_img/p39_img02.jpeg"],
   "escuadra-doble-refuerzo-50": ["catalog_img/p40_img01.png","catalog_img/p41_img01.jpeg","catalog_img/p41_img02.jpeg"],
-  "escuadra-refuerzo-60": ["catalog_img/p42_img02.png","catalog_img/p43_img01.jpeg","catalog_img/p43_img02.jpeg","catalog_img/p43_img03.jpeg"],
+  "escuadra-refuerzo-60": ["catalog_img/p42_img02.png","catalog_img/p43_img01.jpeg","catalog_img/p43_img02.jpeg"],
   "escuadra-refuerzo-80": ["catalog_img/p44_img02.png","catalog_img/p45_img01.jpeg","catalog_img/p45_img02.jpeg"],
   "esc-fresada-50": ["catalog_img/p47_img02.png","catalog_img/p48_img01.jpeg","catalog_img/p48_img02.jpeg"],
   "esc-fresada-60": ["catalog_img/p49_img02.png","catalog_img/p50_img01.jpeg","catalog_img/p50_img02.jpeg","catalog_img/p50_img03.jpeg"],
