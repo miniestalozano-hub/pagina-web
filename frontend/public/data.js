@@ -668,7 +668,7 @@ const GALLERY = {
   "angulo-100x10": ["catalog_img/p24_img02.png","catalog_img/p24_img03.jpeg","catalog_img/p24_img04.jpeg"],
   "angulo-coliso": ["catalog_img/p25_img01.png","catalog_img/p25_img03.jpeg"],
   "angulo-medida": [],
-  "plantilla-montaje": ["catalog_img/p27_img04.jpeg","catalog_img/p27_img05.jpeg","catalog_img/p27_img06.jpeg","catalog_img/p28_img01.jpeg","catalog_img/p28_img02.jpeg","catalog_img/p28_img03.jpeg"],
+  "plantilla-montaje": ["catalog_img/p27_img04.jpeg","catalog_img/p27_img05.jpeg","catalog_img/p27_img06.jpeg"
   "plantilla-medida": [],
   "pletina-250x50": ["catalog_img/p30_img02.jpeg","catalog_img/p30_img03.jpeg","catalog_img/p30_img04.png"],
   "pletina-medida": [],
