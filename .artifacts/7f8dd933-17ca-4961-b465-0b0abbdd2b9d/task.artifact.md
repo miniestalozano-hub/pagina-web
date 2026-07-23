@@ -1,0 +1,3 @@
+- [x] Configurar `homepage` en `frontend/package.json`
+- [x] Actualizar workflow `deploy-pages.yml` con pasos de build
+- [x] Crear walkthrough y guía de activación
