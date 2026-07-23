@@ -2,7 +2,7 @@
 /* ================= Catálogo completo TMI 2024 =================
    Fuente: CATÁLOGO TMI 2024 (88 páginas). 40+ piezas fabricadas. */
 
-const CAT = "/catalog_img/";
+const CAT = "catalog_img/";
 const IMG = {
   // Categoría heros
   hero:        "https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg",
@@ -656,46 +656,46 @@ const ALL_PIECES = (function(){
 
 // ---------- Galería completa por pieza (todas las fotos del catálogo) ----------
 const GALLERY = {
-  "guia-4022": ["/catalog_img/p09_img03.png","/catalog_img/p10_img02.jpeg","/catalog_img/p10_img03.jpeg","/catalog_img/p10_img04.jpeg","/catalog_img/p10_img05.jpeg"],
-  "tornillo-tca": ["/catalog_img/p12_img01.jpeg","/catalog_img/p12_img02.jpeg","/catalog_img/p12_img03.jpeg","/catalog_img/p12_img04.jpeg","/catalog_img/p12_img05.jpeg","/catalog_img/p12_img06.jpeg"],
-  "bayoneta": ["/catalog_img/p13_img01.png","/catalog_img/p14_img01.png","/catalog_img/p14_img02.png","/catalog_img/p14_img03.jpeg","/catalog_img/p14_img04.jpeg","/catalog_img/p14_img05.jpeg"],
-  "bayoneta-fresada": ["/catalog_img/p15_img01.jpeg","/catalog_img/p15_img03.png","/catalog_img/p16_img01.jpeg","/catalog_img/p16_img02.jpeg","/catalog_img/p16_img03.jpeg","/catalog_img/p16_img04.jpeg","/catalog_img/p16_img05.jpeg"],
-  "anclaje-oculto": ["/catalog_img/p17_img01.png","/catalog_img/p17_img03.png","/catalog_img/p18_img01.jpeg","/catalog_img/p18_img02.jpeg","/catalog_img/p18_img03.jpeg","/catalog_img/p18_img04.jpeg"],
-  "aoculto-fresado": ["/catalog_img/p19_img01.png","/catalog_img/p20_img01.jpeg","/catalog_img/p20_img02.jpeg","/catalog_img/p20_img03.jpeg","/catalog_img/p20_img04.jpeg"],
-  "aoculto-100": ["/catalog_img/p21_img04.png","/catalog_img/p22_img01.jpeg","/catalog_img/p22_img02.jpeg","/catalog_img/p22_img03.jpeg"],
+  "guia-4022": ["catalog_img/p09_img03.png","catalog_img/p10_img02.jpeg","catalog_img/p10_img03.jpeg","catalog_img/p10_img04.jpeg","catalog_img/p10_img05.jpeg"],
+  "tornillo-tca": ["catalog_img/p12_img01.jpeg","catalog_img/p12_img02.jpeg","catalog_img/p12_img03.jpeg","catalog_img/p12_img04.jpeg","catalog_img/p12_img05.jpeg","catalog_img/p12_img06.jpeg"],
+  "bayoneta": ["catalog_img/p13_img01.png","catalog_img/p14_img01.png","catalog_img/p14_img02.png","catalog_img/p14_img03.jpeg","catalog_img/p14_img04.jpeg","catalog_img/p14_img05.jpeg"],
+  "bayoneta-fresada": ["catalog_img/p15_img01.jpeg","catalog_img/p15_img03.png","catalog_img/p16_img01.jpeg","catalog_img/p16_img02.jpeg","catalog_img/p16_img03.jpeg","catalog_img/p16_img04.jpeg","catalog_img/p16_img05.jpeg"],
+  "anclaje-oculto": ["catalog_img/p17_img01.png","catalog_img/p17_img03.png","catalog_img/p18_img01.jpeg","catalog_img/p18_img02.jpeg","catalog_img/p18_img03.jpeg","catalog_img/p18_img04.jpeg"],
+  "aoculto-fresado": ["catalog_img/p19_img01.png","catalog_img/p20_img01.jpeg","catalog_img/p20_img02.jpeg","catalog_img/p20_img03.jpeg","catalog_img/p20_img04.jpeg"],
+  "aoculto-100": ["catalog_img/p21_img04.png","catalog_img/p22_img01.jpeg","catalog_img/p22_img02.jpeg","catalog_img/p22_img03.jpeg"],
   "aocultos-medida": [],
-  "angulo-100x10": ["/catalog_img/p24_img02.png","/catalog_img/p24_img03.jpeg","/catalog_img/p24_img04.jpeg"],
-  "angulo-coliso": ["/catalog_img/p25_img01.png","/catalog_img/p25_img03.jpeg"],
+  "angulo-100x10": ["catalog_img/p24_img02.png","catalog_img/p24_img03.jpeg","catalog_img/p24_img04.jpeg"],
+  "angulo-coliso": ["catalog_img/p25_img01.png","catalog_img/p25_img03.jpeg"],
   "angulo-medida": [],
-  "plantilla-montaje": ["/catalog_img/p27_img04.jpeg","/catalog_img/p27_img05.jpeg","/catalog_img/p27_img06.jpeg","/catalog_img/p28_img01.jpeg","/catalog_img/p28_img02.jpeg","/catalog_img/p28_img03.jpeg"],
+  "plantilla-montaje": ["catalog_img/p27_img04.jpeg","catalog_img/p27_img05.jpeg","catalog_img/p27_img06.jpeg","catalog_img/p28_img01.jpeg","catalog_img/p28_img02.jpeg","catalog_img/p28_img03.jpeg"],
   "plantilla-medida": [],
-  "pletina-250x50": ["/catalog_img/p30_img02.jpeg","/catalog_img/p30_img03.jpeg","/catalog_img/p30_img04.png"],
+  "pletina-250x50": ["catalog_img/p30_img02.jpeg","catalog_img/p30_img03.jpeg","catalog_img/p30_img04.png"],
   "pletina-medida": [],
-  "escuadra-50x8": ["/catalog_img/p32_img02.png","/catalog_img/p32_img03.jpeg","/catalog_img/p33_img01.jpeg","/catalog_img/p33_img02.jpeg"],
-  "escuadra-60x8": ["/catalog_img/p34_img03.jpeg","/catalog_img/p35_img01.jpeg","/catalog_img/p35_img02.jpeg"],
-  "escuadra-80x8": ["/catalog_img/p36_img01.jpeg","/catalog_img/p36_img03.png","/catalog_img/p37_img01.jpeg","/catalog_img/p37_img02.jpeg"],
-  "escuadra-refuerzo-50": ["/catalog_img/p38_img02.png","/catalog_img/p39_img01.jpeg","/catalog_img/p39_img02.jpeg"],
-  "escuadra-doble-refuerzo-50": ["/catalog_img/p40_img01.png","/catalog_img/p41_img01.jpeg","/catalog_img/p41_img02.jpeg"],
-  "escuadra-refuerzo-60": ["/catalog_img/p42_img02.png","/catalog_img/p43_img01.jpeg","/catalog_img/p43_img02.jpeg","/catalog_img/p43_img03.jpeg"],
-  "escuadra-refuerzo-80": ["/catalog_img/p44_img02.png","/catalog_img/p45_img01.jpeg","/catalog_img/p45_img02.jpeg"],
-  "esc-fresada-50": ["/catalog_img/p47_img02.png","/catalog_img/p48_img01.jpeg","/catalog_img/p48_img02.jpeg"],
-  "esc-fresada-60": ["/catalog_img/p49_img02.png","/catalog_img/p50_img01.jpeg","/catalog_img/p50_img02.jpeg","/catalog_img/p50_img03.jpeg"],
-  "esc-fresada-int-80": ["/catalog_img/p51_img02.png","/catalog_img/p52_img01.jpeg","/catalog_img/p52_img02.png","/catalog_img/p52_img03.jpeg","/catalog_img/p52_img04.jpeg"],
-  "esc-fresada-ref-50": ["/catalog_img/p53_img01.png","/catalog_img/p54_img01.jpeg","/catalog_img/p54_img02.jpeg"],
-  "esc-fresada-drefz-50": ["/catalog_img/p55_img01.png","/catalog_img/p56_img01.jpeg","/catalog_img/p56_img02.jpeg"],
-  "esc-fresada-ref-60": ["/catalog_img/p57_img02.png","/catalog_img/p58_img01.jpeg","/catalog_img/p58_img02.jpeg"],
-  "esc-fresada-drefz-60": ["/catalog_img/p59_img01.png","/catalog_img/p60_img01.jpeg","/catalog_img/p60_img02.jpeg"],
-  "esc-fresada-ref-80": ["/catalog_img/p61_img02.png","/catalog_img/p62_img04.png"],
+  "escuadra-50x8": ["catalog_img/p32_img02.png","catalog_img/p32_img03.jpeg","catalog_img/p33_img01.jpeg","catalog_img/p33_img02.jpeg"],
+  "escuadra-60x8": ["catalog_img/p34_img03.jpeg","catalog_img/p35_img01.jpeg","catalog_img/p35_img02.jpeg"],
+  "escuadra-80x8": ["catalog_img/p36_img01.jpeg","catalog_img/p36_img03.png","catalog_img/p37_img01.jpeg","catalog_img/p37_img02.jpeg"],
+  "escuadra-refuerzo-50": ["catalog_img/p38_img02.png","catalog_img/p39_img01.jpeg","catalog_img/p39_img02.jpeg"],
+  "escuadra-doble-refuerzo-50": ["catalog_img/p40_img01.png","catalog_img/p41_img01.jpeg","catalog_img/p41_img02.jpeg"],
+  "escuadra-refuerzo-60": ["catalog_img/p42_img02.png","catalog_img/p43_img01.jpeg","catalog_img/p43_img02.jpeg","catalog_img/p43_img03.jpeg"],
+  "escuadra-refuerzo-80": ["catalog_img/p44_img02.png","catalog_img/p45_img01.jpeg","catalog_img/p45_img02.jpeg"],
+  "esc-fresada-50": ["catalog_img/p47_img02.png","catalog_img/p48_img01.jpeg","catalog_img/p48_img02.jpeg"],
+  "esc-fresada-60": ["catalog_img/p49_img02.png","catalog_img/p50_img01.jpeg","catalog_img/p50_img02.jpeg","catalog_img/p50_img03.jpeg"],
+  "esc-fresada-int-80": ["catalog_img/p51_img02.png","catalog_img/p52_img01.jpeg","catalog_img/p52_img02.png","catalog_img/p52_img03.jpeg","catalog_img/p52_img04.jpeg"],
+  "esc-fresada-ref-50": ["catalog_img/p53_img01.png","catalog_img/p54_img01.jpeg","catalog_img/p54_img02.jpeg"],
+  "esc-fresada-drefz-50": ["catalog_img/p55_img01.png","catalog_img/p56_img01.jpeg","catalog_img/p56_img02.jpeg"],
+  "esc-fresada-ref-60": ["catalog_img/p57_img02.png","catalog_img/p58_img01.jpeg","catalog_img/p58_img02.jpeg"],
+  "esc-fresada-drefz-60": ["catalog_img/p59_img01.png","catalog_img/p60_img01.jpeg","catalog_img/p60_img02.jpeg"],
+  "esc-fresada-ref-80": ["catalog_img/p61_img02.png","catalog_img/p62_img04.png"],
   "esc-fresada-medida": [],
-  "arandela-dentada": ["/catalog_img/arandela_1.png","/catalog_img/arandela_2.png","/catalog_img/arandela_3.png","/catalog_img/arandela_perfil.png","/catalog_img/arandela_plano.png"],
-  "u-correa": ["/catalog_img/p67_img01.png","/catalog_img/p68_img01.jpeg","/catalog_img/p68_img02.png","/catalog_img/p68_img03.png"],
-  "sce": ["/catalog_img/p69_img03.jpeg","/catalog_img/p69_img04.jpeg","/catalog_img/p69_img06.jpeg","/catalog_img/p70_img01.jpeg","/catalog_img/p70_img02.png","/catalog_img/p70_img03.png"],
-  "z-correa": ["/catalog_img/p71_img01.png","/catalog_img/p71_img03.jpeg","/catalog_img/p71_img04.jpeg","/catalog_img/p72_img01.png","/catalog_img/p72_img02.png","/catalog_img/p72_img03.png"],
-  "z-cubierta-coliso": ["/catalog_img/p74_img01.png","/catalog_img/p74_img02.png"],
-  "z-cubierta": ["/catalog_img/p75_img01.png","/catalog_img/p75_img03.jpeg","/catalog_img/p76_img01.jpeg","/catalog_img/p76_img02.jpeg"],
-  "s-montaje": ["/catalog_img/p77_img01.png","/catalog_img/p78_img01.jpeg","/catalog_img/p78_img02.jpeg"],
-  "s-canalon": ["/catalog_img/p79_img03.png","/catalog_img/p80_img01.jpeg","/catalog_img/p80_img03.jpeg"],
-  "argollas": ["/catalog_img/argolla_plano.png"],
+  "arandela-dentada": ["catalog_img/arandela_1.png","catalog_img/arandela_2.png","catalog_img/arandela_3.png","catalog_img/arandela_perfil.png","catalog_img/arandela_plano.png"],
+  "u-correa": ["catalog_img/p67_img01.png","catalog_img/p68_img01.jpeg","catalog_img/p68_img02.png","catalog_img/p68_img03.png"],
+  "sce": ["catalog_img/p69_img03.jpeg","catalog_img/p69_img04.jpeg","catalog_img/p69_img06.jpeg","catalog_img/p70_img01.jpeg","catalog_img/p70_img02.png","catalog_img/p70_img03.png"],
+  "z-correa": ["catalog_img/p71_img01.png","catalog_img/p71_img03.jpeg","catalog_img/p71_img04.jpeg","catalog_img/p72_img01.png","catalog_img/p72_img02.png","catalog_img/p72_img03.png"],
+  "z-cubierta-coliso": ["catalog_img/p74_img01.png","catalog_img/p74_img02.png"],
+  "z-cubierta": ["catalog_img/p75_img01.png","catalog_img/p75_img03.jpeg","catalog_img/p76_img01.jpeg","catalog_img/p76_img02.jpeg"],
+  "s-montaje": ["catalog_img/p77_img01.png","catalog_img/p78_img01.jpeg","catalog_img/p78_img02.jpeg"],
+  "s-canalon": ["catalog_img/p79_img03.png","catalog_img/p80_img01.jpeg","catalog_img/p80_img03.jpeg"],
+  "argollas": ["catalog_img/argolla_plano.png"],
   "placa-medida": [],
   "solucion-medida": [],
   "mecanizado": []
@@ -709,7 +709,7 @@ const ARTICLES = [
     category: "Certificación",
     date: "12 Feb 2026",
     excerpt: "Todos los herrajes estructurales que se instalan en edificación en Europa deben ir marcados CE. En este artículo explicamos qué controlamos en TMI para que tu obra cumpla desde el primer día.",
-    cover: "/catalog_img/p87_img48.jpeg",
+    cover: "catalog_img/p87_img48.jpeg",
     body: [
       "Desde 2014, cualquier <strong>elemento estructural de acero</strong> que se incorpore a una obra en la Unión Europea debe llevar marcado CE conforme a la norma armonizada <strong>EN 1090-1</strong>. Los herrajes de anclaje, escuadras, bayonetas y placas que fabricamos en Talleres M. Iniesta no son una excepción: llevan marcado CE con número de identificación <strong>1239</strong>, otorgado por Tecnalia Certification.",
       "Este número no es simbólico. Detrás de él hay un Plan de Control de Producción en Fábrica (PCF) auditado periódicamente, en el que verificamos:",
@@ -727,7 +727,7 @@ const ARTICLES = [
     category: "Producto",
     date: "28 Ene 2026",
     excerpt: "El sistema estrella del catálogo TMI. Te explicamos por qué combinar la guía embebida con el tornillo de cabeza ancla es la forma más rápida y segura de fijar paneles verticales.",
-    cover: "/catalog_img/p09_img01.png",
+    cover: "catalog_img/p09_img01.png",
     body: [
       "El sistema <strong>Guía Perfil 40/22 + Tornillo TCA</strong> es probablemente el conjunto más utilizado en las fachadas prefabricadas de hormigón que se montan hoy en España. Lo que empezó como una solución alemana para paneles verticales se ha convertido en un estándar de facto, y en Talleres M. Iniesta llevamos más de dos décadas fabricando ambos elementos con acero S275JR y S235JR según EN 10025-2.",
       "<strong>¿Cómo funciona?</strong> La guía es un canal de acero de sección 40 × 22 mm que se coloca embebido en el panel durante el hormigonado, con dos o tres pernos anclados que garantizan que no se mueve. Se rellena con una espuma de polietileno que impide que el hormigón entre en el canal.",
@@ -746,7 +746,7 @@ const ARTICLES = [
     category: "Innovación",
     date: "15 Ene 2026",
     excerpt: "Cuando la unión está sometida a cargas cíclicas o vibración, un simple apriete no basta. Así funciona nuestro sistema antideslizante mecánico con arandela dentada F50508.",
-    cover: "/catalog_img/p51_img01.png",
+    cover: "catalog_img/p51_img01.png",
     body: [
       "En una unión atornillada convencional, la carga se transmite por <strong>rozamiento</strong>: la tuerca aprieta y las superficies quedan bloqueadas por fricción. El problema aparece cuando la unión sufre <strong>vibraciones, cambios de temperatura o cargas cíclicas</strong>: el apriete se pierde con el tiempo y el rozamiento deja de ser suficiente. Pequeños deslizamientos pueden acabar en una falla de servicio.",
       "En herrajes de prefabricado esto es especialmente crítico en <strong>fachadas ventiladas, cerramientos de naves industriales expuestos al viento</strong> y estructuras cerca de vías de tren o carreteras.",
@@ -765,7 +765,7 @@ const ARTICLES = [
     category: "Servicios",
     date: "3 Ene 2026",
     excerpt: "Recibimos un plano PDF, DWG o DXF, lo revisamos con ingeniería y fabricamos. Así funciona nuestro proceso de fabricación bajo pedido paso a paso.",
-    cover: "/catalog_img/p87_img42.jpeg",
+    cover: "catalog_img/p87_img42.jpeg",
     body: [
       "El 60% de las piezas que salen de nuestro taller de <strong>Fortuna (Murcia)</strong> no están en el catálogo estándar: son placas de anclaje con pernos soldados a medida, escuadras con geometrías especiales, anclajes ocultos con cámara de aire para fachadas ventiladas, plantillas para estructuras metálicas complejas... Todo bajo el plano del cliente.",
       "<strong>El proceso, paso a paso:</strong>",
@@ -809,4 +809,4 @@ if (typeof GALLERY === 'object') {
       .filter(src => { if (seen.has(src)) return false; seen.add(src); return true; });
   });
 }
-const HERO_CYCLE = {"placa-medida": ["/catalog_img/p83_img03.jpeg", "/catalog_img/p83_img04.jpeg", "/catalog_img/p83_img05.jpeg", "/catalog_img/p83_img06.jpeg", "/catalog_img/p83_img07.jpeg", "/catalog_img/p83_img08.jpeg"], "solucion-medida": ["/catalog_img/p85_img01.jpeg", "/catalog_img/p85_img03.jpeg", "/catalog_img/p85_img04.jpeg", "/catalog_img/p85_img05.jpeg", "/catalog_img/p85_img06.jpeg", "/catalog_img/p85_img07.jpeg"], "mecanizado": ["/catalog_img/p87_img42.jpeg", "/catalog_img/p87_img43.jpeg", "/catalog_img/p87_img44.jpeg", "/catalog_img/p87_img47.jpeg", "/catalog_img/p87_img48.jpeg"]};
+const HERO_CYCLE = {"placa-medida": ["catalog_img/p83_img03.jpeg", "catalog_img/p83_img04.jpeg", "catalog_img/p83_img05.jpeg", "catalog_img/p83_img06.jpeg", "catalog_img/p83_img07.jpeg", "catalog_img/p83_img08.jpeg"], "solucion-medida": ["catalog_img/p85_img01.jpeg", "catalog_img/p85_img03.jpeg", "catalog_img/p85_img04.jpeg", "catalog_img/p85_img05.jpeg", "catalog_img/p85_img06.jpeg", "catalog_img/p85_img07.jpeg"], "mecanizado": ["catalog_img/p87_img42.jpeg", "catalog_img/p87_img43.jpeg", "catalog_img/p87_img44.jpeg", "catalog_img/p87_img47.jpeg", "catalog_img/p87_img48.jpeg"]};
