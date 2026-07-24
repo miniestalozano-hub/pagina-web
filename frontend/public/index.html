@@ -308,41 +308,43 @@
   .cat-card:hover .cat-card-img img{transform:scale(1.02);}
   .cat-card-img img{mix-blend-mode:multiply;}
   /* Overlay v3: solo info centrada, fondo semitransparente (se ve la pieza detrás sutilmente) */
-  .cat-card {
-  position: relative !important;
-  height: 380px !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  background: #fff !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  text-decoration: none !important;
-}
+  .cat-card-hover{
+    position:absolute; inset:0;
+    padding:24px 26px;
+    background:linear-gradient(145deg, rgba(10,44,92,.82) 0%, rgba(14,61,128,.82) 60%, rgba(24,87,168,.8) 100%);
+    backdrop-filter:blur(1.5px);
+    -webkit-backdrop-filter:blur(1.5px);
+    color:#fff;
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:8px;
+    clip-path:circle(0% at 92% 92%);
+    transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
+    pointer-events:none;
+    z-index:3;
+  }
+  .cat-card:hover .cat-card-hover{ clip-path:circle(155% at 92% 92%); }
+  .cat-hover-eyebrow{
+    color:#a5c7ee; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px;
+    text-shadow:0 1px 6px rgba(0,0,0,.35);
+    opacity:0; transform:translateY(8px); transition:opacity .3s .22s ease, transform .3s .22s ease;
+  }
+  .cat-card-hover h4{
+    color:#fff; font-size:1.24rem; margin:2px 0 4px; line-height:1.25; max-width:280px;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+    opacity:0; transform:translateY(10px); transition:opacity .35s .3s ease, transform .35s .3s ease;
+  }
+  .cat-hover-facts{
+    list-style:none; margin:6px 0 0; padding:0; max-width:280px;
+    opacity:0; transform:translateY(10px); transition:opacity .4s .38s ease, transform .4s .38s ease;
+  }
+  .cat-hover-facts li{
+    color:#fff; font-size:.9rem; line-height:1.45; padding:5px 0;
+    text-shadow:0 1px 6px rgba(0,0,0,.4);
+  }
+  .cat-hover-facts li + li{ border-top:1px solid rgba(255,255,255,.22); }
+  .cat-card:hover .cat-hover-eyebrow,
+  .cat-card:hover .cat-card-hover h4,
+  .cat-card:hover .cat-hover-facts{ opacity:1; transform:translateY(0); }
 
-.cat-card-img {
-  width: 100% !important;
-  height: 100% !important;
-  overflow: hidden !important;
-  background: #fff !important;
-}
-
-.cat-card-img img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  padding: 20px 20px 60px 20px !important;
-  transition: transform 0.5s ease !important;
-  display: block !important;
-}
-
-.cat-card:hover .cat-card-img img {
-  transform: scale(1.05) !important;
-}
-
-.cat-card-info {
-  position: absolute !important;
-  bottom: 0 !important;
   left: 0 !important;
   width: 100% !important;
   padding: 16px 20px !important;
@@ -717,26 +719,26 @@
   }
   .catalog-stat{
     text-align:center; color:#fff; padding:24px 12px; border-radius:14px;
-    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-    transition:transform .4s, background .4s;
+ /* ==== Tarjetas simplificadas: solo foto + nombre ==== */
+  .cat-card-hover{
+    position:absolute;
+    inset:0;
+    padding:24px 26px;
+    background:linear-gradient(145deg, rgba(10,44,92,.82) 0%, rgba(14,61,128,.82) 60%, rgba(24,87,168,.8) 100%);
+    backdrop-filter:blur(1.5px);
+    -webkit-backdrop-filter:blur(1.5px);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:8px;
+    clip-path:circle(0% at 92% 92%);
+    transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
+    pointer-events:none;
+    z-index:3;
   }
-  .catalog-stat:hover{transform:translateY(-6px); background:rgba(255,255,255,.12);}
-  .catalog-stat strong{display:block; font-size:2.4rem; font-weight:800; color:#7fb2f2; line-height:1;}
-  .catalog-stat span{font-size:.85rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:1.2px; margin-top:8px; display:block;}
-  @media (max-width:900px){
-    .catalog-grid{grid-template-columns:1fr; gap:36px;}
-    .catalog-card{transform:none; max-width:420px; margin:0 auto;}
-    .catalog-stats{grid-template-columns:repeat(2,1fr);}
-  }
-
-  /* Nav overlay fix hamburguesa mobile */
-  .nav-overlay{position:fixed; inset:0; background:rgba(10,15,25,.55); z-index:1100; opacity:0; pointer-events:none; transition:opacity .35s; display:block;}
-  .nav-overlay.open{opacity:1; pointer-events:auto;}
-
-  /* ============ INGENIERÍA Y SIMULACIÓN ============ */
-  .engineering-section{background:#fff; padding:96px 0; position:relative; overflow:hidden;}
-  .engineering-section::before{
-    content:''; position:absolute; inset:0; opacity:.4; pointer-events:none;
     background:
       radial-gradient(circle at 90% 10%, var(--blue-light) 0, transparent 40%),
       radial-gradient(circle at 10% 90%, #f0f7ff 0, transparent 50%);
