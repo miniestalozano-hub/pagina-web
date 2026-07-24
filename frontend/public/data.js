@@ -810,4 +810,14 @@ if (typeof GALLERY === 'object') {
       .filter(src => { if (seen.has(src)) return false; seen.add(src); return true; });
   });
 }
-const HERO_CYCLE = {"placa-medida": ["catalog_img/p83_img03.jpeg", "catalog_img/p83_img04.jpeg", "catalog_img/p83_img05.jpeg", "catalog_img/p83_img06.jpeg", "catalog_img/p83_img07.jpeg", "catalog_img/p83_img08.jpeg"], "solucion-medida": ["catalog_img/p85_img01.jpeg", "catalog_img/p85_img03.jpeg", "catalog_img/p85_img04.jpeg", "catalog_img/p85_img05.jpeg", "catalog_img/p85_img06.jpeg", "catalog_img/p85_img07.jpeg"], "mecanizado": ["catalog_img/p87_img42.jpeg", "catalog_img/p87_img43.jpeg", "catalog_img/p87_img44.jpeg", "catalog_img/p87_img47.jpeg", "catalog_img/p87_img48.jpeg"]};
+const HERO_CYCLE = {
+  "placa-medida": ["catalog_img/p83_img03.jpeg", "catalog_img/p83_img04.jpeg", "catalog_img/p83_img05.jpeg", "catalog_img/p83_img06.jpeg", "catalog_img/p83_img07.jpeg", "catalog_img/p83_img08.jpeg"],
+  "solucion-medida": ["catalog_img/p85_img01.jpeg", "catalog_img/p85_img03.jpeg", "catalog_img/p85_img04.jpeg", "catalog_img/p85_img05.jpeg", "catalog_img/p85_img06.jpeg", "catalog_img/p85_img07.jpeg"],
+  "mecanizado": ["catalog_img/p87_img42.jpeg", "catalog_img/p87_img43.jpeg", "catalog_img/p87_img44.jpeg", "catalog_img/p87_img47.jpeg", "catalog_img/p87_img48.jpeg"],
+
+  "aocultos-medida": ["catalog_img/anclaje1.png", "catalog_img/anclaje2.png", "catalog_img/anclaje3.png", "catalog_img/anclaje4.png", "catalog_img/anclaje5.png"],
+  "angulo-medida": ["catalog_img/angulo1.png", "catalog_img/angulo2.png", "catalog_img/angulo3.png", "catalog_img/angulo4.png", "catalog_img/angulo5.png", "catalog_img/angulo6.png", "catalog_img/angulo7.png", "catalog_img/angulo8.png"],
+  "plantilla-medida": ["catalog_img/plantilla1.png", "catalog_img/plantilla2.png", "catalog_img/plantilla3.png"],
+  "pletina-medida": ["catalog_img/pletina1.png", "catalog_img/pletina2.png", "catalog_img/pletina3.png", "catalog_img/pletina4.png", "catalog_img/pletina5.png", "catalog_img/pletina6.png"],
+  "esc-fresada-medida": ["catalog_img/escuadra1.png", "catalog_img/escuadra2.png", "catalog_img/escuadra3.png"]
+};
