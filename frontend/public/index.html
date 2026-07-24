@@ -288,7 +288,61 @@
   }
 
   /* ============ PRODUCT CATEGORY GRID ============ */
-  .products-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
+  <div class="products-grid">
+  <a href="producto-detalle.html?producto=antivuelco" class="cat-card reveal" id="p-antivuelco">
+    <div class="cat-card-img">
+      <img src="catalog_img/p26_img08.png" alt="Fijaciones Antivuelco" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/Angulo-75x100x100x10.png'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Fijaciones Antivuelco<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+
+  <a href="producto-detalle.html?producto=ajustables" class="cat-card reveal reveal-delay-1" id="p-ajustables">
+    <div class="cat-card-img">
+      <img src="catalog_img/p51_img01.png" alt="Fijaciones Ajustables" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/categoria-escuadras-dentadas.webp'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Fijaciones Ajustables<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+
+  <a href="producto-detalle.html?producto=cubiertas" class="cat-card reveal reveal-delay-2" id="p-cubiertas">
+    <div class="cat-card-img">
+      <img src="catalog_img/p67_img02.jpeg" alt="Fijación de Cubiertas" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/sujecion-de-correas-vigas-delta.webp'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Fijación de Cubiertas<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+
+  <a href="pieza.html?id=placa-medida" class="cat-card reveal" id="p-placas">
+    <div class="cat-card-img">
+      <img src="catalog_img/conjunto_placas.png" alt="Placas de Anclaje" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/02/Categoria-placas-de-anclaje-150x150.webp'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Placas de Anclaje<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+
+  <a href="pieza.html?id=solucion-medida" class="cat-card reveal reveal-delay-1" id="p-medida">
+    <div class="cat-card-img">
+      <img src="catalog_img/conjunto_soluciones.png" alt="Soluciones a Medida" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/herrajes-de-hormigon-a-medida.png'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Soluciones a Medida<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+
+  <a href="pieza.html?id=mecanizado" class="cat-card reveal reveal-delay-2" id="p-mecanizado">
+    <div class="cat-card-img">
+      <img src="catalog_img/conjunto_mecanizado.png" alt="Mecanizado" loading="lazy" onerror="this.src='https://talleresiniesta.es/wp-content/uploads/2024/01/fabricacion-piezas.jpg'">
+    </div>
+    <div class="cat-card-body">
+      <h3>Mecanizado<span class="cat-underline"></span></h3>
+    </div>
+  </a>
+</div>
   .cat-card{
     background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--gray-100);
     transition:var(--transition); display:flex; flex-direction:column;
