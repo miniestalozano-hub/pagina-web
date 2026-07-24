@@ -693,7 +693,7 @@ const GALLERY = {
   "sce": ["catalog_img/p69_img03.jpeg","catalog_img/p69_img04.jpeg","catalog_img/p69_img06.jpeg"],
   "z-correa": ["catalog_img/p71_img01.png","catalog_img/p71_img03.jpeg","catalog_img/p71_img04.jpeg"],
   "z-cubierta-coliso": ["catalog_img/p74_img01.png","catalog_img/p74_img02.png"],
-  "z-cubierta": ["catalog_img/p75_img01.png","catalog_img/p75_img03.jpeg","catalog_img/p76_img01.jpeg","catalog_img/p76_img02.jpeg"],
+  "z-cubierta": ["catalog_img/p75_img01.png","catalog_img/p75_img03.jpeg"],
   "s-montaje": ["catalog_img/p77_img01.png","catalog_img/p78_img01.jpeg","catalog_img/p78_img02.jpeg"],
   "s-canalon": ["catalog_img/p79_img03.png","catalog_img/p80_img01.jpeg","catalog_img/p80_img03.jpeg"],
   "argollas": ["catalog_img/argolla_plano.png"],
