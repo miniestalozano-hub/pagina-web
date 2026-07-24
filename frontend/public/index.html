@@ -289,10 +289,17 @@
 
   /* ============ PRODUCT CATEGORY GRID ============ */
   .products-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
-  .cat-card{
-    background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--gray-100);
-    transition:var(--transition); display:flex; flex-direction:column;
-  }
+ .cat-card{
+    background:#fff;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid var(--gray-100);
+    transition:var(--transition);
+    display:flex;
+    flex-direction:column;
+    min-height:460px;
+}
   .cat-card:hover{transform:translateY(-10px); box-shadow:0 30px 60px rgba(24,87,168,.25); border-color:var(--blue-accent);}
   .cat-card-img{
     height:340px;
