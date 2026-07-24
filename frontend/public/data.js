@@ -696,7 +696,7 @@ const GALLERY = {
   "z-cubierta": ["catalog_img/p75_img01.png","catalog_img/p75_img03.jpeg"],
   "s-montaje": ["catalog_img/p77_img01.png","catalog_img/p78_img01.jpeg"],
   "s-canalon": ["catalog_img/p79_img03.png","catalog_img/p80_img01.jpeg","catalog_img/p80_img03.jpeg"],
-  "argollas": ["catalog_img/argolla_plano.png"],
+  "argollas": ["catalog_img/argolla_plano.png","catalog_img/escuadra-50x8-extra1.png"],
   "placa-medida": [],
   "solucion-medida": [],
   "mecanizado": []
