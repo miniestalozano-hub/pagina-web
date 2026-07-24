@@ -12,7 +12,7 @@
   document.getElementById('catTitle').textContent = product.title;
   document.getElementById('catIntro').textContent = product.intro;
   document.getElementById('catHeroBg').style.backgroundImage = "linear-gradient(120deg, rgba(10,44,92,.55), rgba(24,87,168,.35)), url('" + product.hero + "')";
-  document.getElementById('piecesTitle').textContent = 'Piezas de ' + product.title;
+  document.getElementById('piecesTitle').textContent = product.title;
   document.title = product.title + ' | Talleres M. Iniesta';
 
   const grid = document.getElementById('piecesGrid');
