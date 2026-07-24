@@ -6,6 +6,11 @@
   let prodKey = params.get('producto');
   if (!DATA[prodKey]) prodKey = 'paneles';
   const product = DATA[prodKey];
+const HIDE_HERO = ['antivuelco', 'ajustables', 'cubiertas'];
+if (HIDE_HERO.includes(prodKey)) {
+  const catHero = document.querySelector('.cat-hero');
+  if (catHero) catHero.style.display = 'none';
+}
 
   document.getElementById('bcCurrent').textContent = product.title;
   document.getElementById('catEyebrow').textContent = product.eyebrow;
