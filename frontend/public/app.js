@@ -12,6 +12,13 @@
   document.getElementById('catTitle').textContent = product.title;
   document.getElementById('catIntro').textContent = product.intro;
   document.getElementById('catHeroBg').style.backgroundImage = "linear-gradient(120deg, rgba(10,44,92,.55), rgba(24,87,168,.35)), url('" + product.hero + "')";
+  const BANNER_TEXTS = {
+    antivuelco: 'Sistemas de fijación antivuelco diseñados para garantizar la estabilidad y seguridad de paneles prefabricados de hormigón, con soluciones estándar y a medida para todo tipo de estructuras.',
+    ajustables: 'Fijaciones ajustables que permiten un montaje preciso y una regulación sencilla durante la instalación, garantizando un ajuste perfecto entre el panel y la estructura.',
+    cubiertas: 'Soluciones para la fijación de cubiertas, correas y canalones en estructuras prefabricadas de hormigón, diseñadas para ofrecer resistencia, durabilidad y un montaje eficiente.'
+  };
+  const bannerEl = document.querySelector('.highlight-banner p');
+  if (bannerEl) bannerEl.textContent = BANNER_TEXTS[prodKey] || 'Los más novedosos y rápidos sistemas de fijación para el prefabricado de hormigón.';
   document.getElementById('piecesTitle').textContent = product.title;
   document.title = product.title + ' | Talleres M. Iniesta';
 
