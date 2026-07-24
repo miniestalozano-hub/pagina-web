@@ -316,12 +316,12 @@
     -webkit-backdrop-filter:blur(1.5px);
     color:#fff;
     display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:8px;
-    clip-path:circle(0% at 92% 92%);
+    clip-path: circle(0% at 92% 92%);
     transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
     pointer-events:none;
     z-index:3;
   }
-  .cat-card:hover .cat-card-hover{ clip-path:circle(155% at 92% 92%); }
+  .cat-card:hover .cat-card-hover{ clip-path: circle(155% at 92% 92%); }
   .cat-hover-eyebrow{
     color:#a5c7ee; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px;
     text-shadow:0 1px 6px rgba(0,0,0,.35);
@@ -343,107 +343,6 @@
   .cat-hover-facts li + li{ border-top:1px solid rgba(255,255,255,.22); }
   .cat-card:hover .cat-hover-eyebrow,
   .cat-card:hover .cat-card-hover h4,
-  .cat-card:hover .cat-hover-facts{ opacity:1; transform:translateY(0); }
-
-  left: 0 !important;
-  width: 100% !important;
-  padding: 16px 20px !important;
-  background: #ffffff !important;
-  box-sizing: border-box !important;
-  transition: opacity 0.3s ease !important;
-  z-index: 2 !important;
-  border-top: 1px solid #f0f0f0 !important;
-}
-
-.cat-card-info h3 {
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  color: #0d1b2a !important;
-  margin: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-.cat-card-info h3::after {
-  content: "" !important;
-  display: inline-block !important;
-  width: 35px !important;
-  height: 3px !important;
-  background-color: #0077b6 !important;
-  border-radius: 2px !important;
-}
-
-.cat-card-hover {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: rgba(14, 61, 128, 0.95) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  color: #fff !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 30px 24px !important;
-  box-sizing: border-box !important;
-  z-index: 3 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: translateY(15px) !important;
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s !important;
-}
-
-.cat-card:hover .cat-card-hover {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-}
-
-.cat-card:hover .cat-card-info {
-  opacity: 0 !important;
-}
-
-.cat-hover-eyebrow {
-  color: #a5c7ee !important;
-  font-size: 0.8rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  margin-bottom: 8px !important;
-}
-
-.cat-card-hover h4 {
-  color: #ffffff !important;
-  font-size: 1.3rem !important;
-  font-weight: 700 !important;
-  margin: 0 0 16px 0 !important;
-  line-height: 1.3 !important;
-}
-
-.cat-hover-facts {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  max-width: 260px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
-}
-
-.cat-hover-facts li {
-  color: #ffffff !important;
-  font-size: 0.95rem !important;
-  padding: 10px 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
-}
-
-.cat-hover-facts li:last-child {
-  border-bottom: none !important;
-}
   .cat-card:hover .cat-hover-facts{ opacity:1; transform:translateY(0); }
   .cat-card-body{padding:24px 24px 26px; display:flex; flex-direction:column; flex:1;}
   .cat-card-body h3{font-size:1.15rem; margin-bottom:10px;}
@@ -719,26 +618,26 @@
   }
   .catalog-stat{
     text-align:center; color:#fff; padding:24px 12px; border-radius:14px;
- /* ==== Tarjetas simplificadas: solo foto + nombre ==== */
-  .cat-card-hover{
-    position:absolute;
-    inset:0;
-    padding:24px 26px;
-    background:linear-gradient(145deg, rgba(10,44,92,.82) 0%, rgba(14,61,128,.82) 60%, rgba(24,87,168,.8) 100%);
-    backdrop-filter:blur(1.5px);
-    -webkit-backdrop-filter:blur(1.5px);
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    gap:8px;
-    clip-path:circle(0% at 92% 92%);
-    transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
-    pointer-events:none;
-    z-index:3;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+    transition:transform .4s, background .4s;
   }
+  .catalog-stat:hover{transform:translateY(-6px); background:rgba(255,255,255,.12);}
+  .catalog-stat strong{display:block; font-size:2.4rem; font-weight:800; color:#7fb2f2; line-height:1;}
+  .catalog-stat span{font-size:.85rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:1.2px; margin-top:8px; display:block;}
+  @media (max-width:900px){
+    .catalog-grid{grid-template-columns:1fr; gap:36px;}
+    .catalog-card{transform:none; max-width:420px; margin:0 auto;}
+    .catalog-stats{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* Nav overlay fix hamburguesa mobile */
+  .nav-overlay{position:fixed; inset:0; background:rgba(10,15,25,.55); z-index:1100; opacity:0; pointer-events:none; transition:opacity .35s; display:block;}
+  .nav-overlay.open{opacity:1; pointer-events:auto;}
+
+  /* ============ INGENIERÍA Y SIMULACIÓN ============ */
+  .engineering-section{background:#fff; padding:96px 0; position:relative; overflow:hidden;}
+  .engineering-section::before{
+    content:''; position:absolute; inset:0; opacity:.4; pointer-events:none;
     background:
       radial-gradient(circle at 90% 10%, var(--blue-light) 0, transparent 40%),
       radial-gradient(circle at 10% 90%, #f0f7ff 0, transparent 50%);
@@ -820,6 +719,26 @@ prefabricado de hormigón) ==== */
     font-weight: 800;
     line-height: 1.2;
   }
+/* ==== Tarjetas simplificadas: solo foto + nombre ==== */
+.cat-card-hover{
+  position:absolute;
+  inset:0;
+  padding:24px 26px;
+  background:linear-gradient(145deg, rgba(10,44,92,.82) 0%, rgba(14,61,128,.82) 60%, rgba(24,87,168,.8) 100%);
+  backdrop-filter:blur(1.5px);
+  -webkit-backdrop-filter:blur(1.5px);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:8px;
+  clip-path:circle(0% at 92% 92%);
+  transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
+  pointer-events:none;
+  z-index:3;
+}
 
 .cat-card:hover .cat-card-hover{
   clip-path:circle(155% at 92% 92%);
