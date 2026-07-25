@@ -323,12 +323,12 @@
     -webkit-backdrop-filter:blur(1.5px);
     color:#fff;
     display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:8px;
-    clip-path: circle(0% at 92% 92%);
+    clip-path: circle(0% at 50% 50%);
     transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
     pointer-events:none;
     z-index:3;
   }
-  .cat-card:hover .cat-card-hover{ clip-path: circle(155% at 92% 92%); }
+  .cat-card:hover .cat-card-hover{ clip-path: circle(150% at 50% 50%); }
   .cat-hover-eyebrow{
     color:#a5c7ee; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px;
     text-shadow:0 1px 6px rgba(0,0,0,.35);
@@ -569,7 +569,6 @@
     overflow:hidden;
     padding:20px;
 }
-}
   .cat-card-img img{
     width:85% !important;
     height:85% !important;
@@ -725,35 +724,11 @@ prefabricado de hormigón) ==== */
     line-height: 1.2;
   }
 /* ==== Tarjetas simplificadas: solo foto + nombre ==== */
-.cat-card-hover{
-  position:absolute;
-  inset:0;
-  padding:24px 26px;
-  background:linear-gradient(145deg, rgba(10,44,92,.82) 0%, rgba(14,61,128,.82) 60%, rgba(24,87,168,.8) 100%);
-  backdrop-filter:blur(1.5px);
-  -webkit-backdrop-filter:blur(1.5px);
-  color:#fff;
+.cat-card-body{
+  padding:24px 24px 26px !important;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  gap:8px;
-  clip-path:circle(0% at 92% 92%);
-  transition:clip-path .55s cubic-bezier(.6,.05,.28,1);
-  pointer-events:none;
- .cat-card-body{
-    padding:18px 24px 22px !important;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-}
-.cat-card-body{
-    padding:24px 24px 26px !important;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-}
+  align-items:flex-start;
 }
 .cat-card-body p{ display:none !important; }
 .cat-link{ display:none !important; }
@@ -768,7 +743,6 @@ prefabricado de hormigón) ==== */
 .cat-underline{
   height:3px; width:70px; background:var(--blue); border-radius:3px;
 }
-</style>
 </style>
 <script src="data.js"></script>
 <script>
