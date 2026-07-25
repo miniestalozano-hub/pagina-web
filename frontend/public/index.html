@@ -222,15 +222,11 @@
     display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
   .hero-float img{width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;}
-  .hero-float.f1{top:0; left:8%; width:56%; height:60%; animation:floatA 6s ease-in-out infinite;}
-  .hero-float.f2{bottom:0; right:0; width:48%; height:52%; animation:floatB 7s ease-in-out infinite;}
+ .hero-float.f1{top:0; left:8%; width:56%; height:60%;}
+  .hero-float.f2{bottom:0; right:0; width:48%; height:52%;}
   .hero-float.f3{
     top:38%; right:32%; width:130px; height:130px; border-radius:50%; padding:14px;
-    animation:floatC 5s ease-in-out infinite;
   }
-  @keyframes floatA{0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-12px) rotate(-3deg)}}
-  @keyframes floatB{0%,100%{transform:translateY(0) rotate(4deg)} 50%{transform:translateY(-14px) rotate(4deg)}}
-  @keyframes floatC{0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-8px) scale(1.05)}}
 
   .hero-badges{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;}
   .hero-badge{
