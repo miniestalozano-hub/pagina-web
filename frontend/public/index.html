@@ -1530,12 +1530,10 @@ function next(){ goTo(current + 1); }
 function prev(){ goTo(current - 1); }
 function resetTimer(){
   clearInterval(heroTimer);
-  heroTimer = setInterval(next, 6000);
+  // Autoplay desactivado: el hero ya no cambia solo
 }
 document.getElementById('heroNext').addEventListener('click', next);
 document.getElementById('heroPrev').addEventListener('click', prev);
-resetTimer();
-
 /* ---------- Scroll reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
