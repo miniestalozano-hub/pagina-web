@@ -1486,36 +1486,6 @@ prodDropdown.querySelector('a').addEventListener('click', (e) => {
 
 toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-/* ---------- Hero slider ---------- */
-const slides = document.querySelectorAll('.hero-slide');
-const dotsWrap = document.getElementById('heroDots');
-let current = 0;
-let heroTimer;
-
-slides.forEach((_, i) => {
-  const dot = document.createElement('button');
-  if(i === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => goTo(i));
-  dotsWrap.appendChild(dot);
-});
-const dots = dotsWrap.querySelectorAll('button');
-
-function goTo(i){
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = (i + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-  resetTimer();
-}
-function next(){ goTo(current + 1); }
-function prev(){ goTo(current - 1); }
-function resetTimer(){
-  clearInterval(heroTimer);
-  // Autoplay desactivado: el hero ya no cambia solo
-}
-document.getElementById('heroNext').addEventListener('click', next);
-document.getElementById('heroPrev').addEventListener('click', prev);
 /* ---------- Scroll reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
