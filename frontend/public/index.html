@@ -807,6 +807,39 @@ prefabricado de hormigón) ==== */
   .about-media img{height:210px;}
   .counters{grid-template-columns:repeat(2,1fr);}
 }
+
+/* ==== HERO BLUEPRINT (sin fotos, estático) ==== */
+.hero-blueprint{
+  position:relative; height:100%; width:100%; border-radius:20px;
+  background:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0/40px 40px,
+    rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.15);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  padding:40px;
+  overflow:hidden;
+}
+.hero-blueprint::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 40%, rgba(127,178,242,.15), transparent 65%);
+}
+.hero-blueprint-stat{position:relative; z-index:2; text-align:center;}
+.hero-blueprint-stat strong{
+  display:block; font-size:clamp(3rem,7vw,5.5rem); font-weight:800; color:#fff;
+  line-height:1; letter-spacing:-2px;
+}
+.hero-blueprint-stat span{
+  display:block; color:#7fb2f2; font-size:1rem; text-transform:uppercase;
+  letter-spacing:3px; font-weight:600; margin-top:10px;
+}
+.hero-blueprint-sub{
+  position:relative; z-index:2; margin-top:28px; color:rgba(255,255,255,.6);
+  font-size:.85rem; text-align:center; max-width:280px; line-height:1.6;
+}
+@media (max-width:900px){
+  .hero-blueprint{padding:28px;}
+}
 </style>
 <script src="data.js"></script>
 <script>
