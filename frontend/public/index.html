@@ -348,7 +348,18 @@
     color:#fff; font-size:.9rem; line-height:1.45; padding:5px 0;
     text-shadow:0 1px 6px rgba(0,0,0,.4);
   }
-  .cat-hover-facts li + li{ border-top:1px solid rgba(255,255,255,.22); }
+ .cat-hover-facts li + li{ border-top:1px solid rgba(255,255,255,.22); }
+  .cat-hover-facts li{ display:flex; align-items:center; gap:10px; text-align:left; }
+  .cat-hover-facts li svg{ width:16px; height:16px; fill:#7fb2f2; flex-shrink:0; }
+  .cat-hover-icon{
+    width:46px; height:46px; border-radius:50%;
+    background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+    opacity:0; transform:translateY(8px) scale(.8);
+    transition:opacity .3s .14s ease, transform .3s .14s ease;
+  }
+  .cat-card:hover .cat-hover-icon{ opacity:1; transform:translateY(0) scale(1); }
+  .cat-hover-icon svg{ width:22px; height:22px; fill:#fff; }
   .cat-card:hover .cat-hover-eyebrow,
   .cat-card:hover .cat-card-hover h4,
   .cat-card:hover .cat-hover-facts{ opacity:1; transform:translateY(0); }
